@@ -127,3 +127,11 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Fleira, ekki pæþon
+
+.env
+.venv
+env/
+venv/
+ENV/
