@@ -6,3 +6,6 @@ ENV/
 env.bak/
 venv.bak/
 __pycache__
+.idea
+.idea/
+.DS_Store
