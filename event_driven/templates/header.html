@@ -1,5 +1,19 @@
-<ul class="navbar">
-  <li class="navoption"><a href="#">Logo</a></li>
-  <li class="navoption"><a href="#">Login</a></li>
-    <li class="navoption"><a href="#">Register</a></li>
-</ul>
+<nav class="py-0 navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="">
+        <img id=barlogo alt="Brand" src="../static/images/eventdriven-logo.png">
+      </a>
+        {% if true %} {% comment %}if the user is logged, the user icon is shown{% endcomment %}
+        {% else %} {% comment %}if not, the login and register buttons are shown{% endcomment %}
+            <div class="navbar-option">Login</div>
+            <div class="navbar-option">Register</div>
+        {% endif %}
+
+
+    </div>
+  </div>
+</nav>
+
+
+

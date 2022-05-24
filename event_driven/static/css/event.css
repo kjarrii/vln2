@@ -1,12 +1,42 @@
 .event-imgs {
-  background-color: #333;
-  overflow: auto;
+  height: 300px;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+.column_photos {
   white-space: nowrap;
-    height: 500px;
+  display: inline-block;
+  overflow: auto;
 }
 
 .date-loc {
+    padding: 5px;
+    position:absolute;
+    bottom:0px;
+    color: #FFF;
     width: 100%;
-    height: 145px;
+    height: 100px;
     background-color: rgba(0, 0, 0, 0.5);
+}
+
+.desc{
+    background-color: #E5E5E5;
+    width: 40%;
+}
+.container_event {
+    margin:0px ;
+    padding: 0px;
+  position: relative;
+  text-align: left;
+  color: white;
+    width: 100%;
+    overflow-x: auto;
+}
+
+.row_photos::after {
+  content: "";
+  clear: both;
+  display: table;
 }

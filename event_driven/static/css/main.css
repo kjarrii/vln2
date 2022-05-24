@@ -1,29 +1,38 @@
 .navbar {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
   background-color: #561357;
-  position: fixed;
 }
 
-navoption {
-  float: left;
-}
-
-navoption a {
-  display: block;
+.navbar-option {
   color: white;
+  font-weight: bold;
+  font-size: large;
+  position: fixed;
+  top: 0;
+  height: 66px;
+  width: 120px;
+  line-height: 66px;
   text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+  left: 120px;
 }
 
-navoption:hover {
+.navbar-option:hover {
   background-color: white;
   color: black;
+  font-size: x-large;
 }
 
-li a:hover:not(.active) {
-  background-color: #111;
+#sports {
+  left: 120px;
+}
+
+#concerts {
+  left: 240px;
+}
+
+#theater {
+  left: 360px;
+}
+
+#family {
+  left: 480px;
 }
