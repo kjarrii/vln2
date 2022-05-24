@@ -4,7 +4,7 @@
   padding: 0;
   overflow: hidden;
   background-color: #561357;
-  position: fixed;
+
 }
 
 navoption {
@@ -24,6 +24,4 @@ navoption:hover {
   color: black;
 }
 
-li a:hover:not(.active) {
-  background-color: #111;
-}
+þ
