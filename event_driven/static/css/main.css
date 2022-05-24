@@ -5,32 +5,34 @@
 .navbar-option {
   color: white;
   font-weight: bold;
-  font-size: x-large;
+  font-size: large;
   position: fixed;
   top: 0;
   height: 66px;
-  width: 100px;
+  width: 120px;
   line-height: 66px;
   text-align: center;
+  left: 120px;
 }
 
 .navbar-option:hover {
   background-color: white;
   color: black;
+  font-size: x-large;
 }
 
 #sports {
-  left: 120px
+  left: 120px;
 }
 
 #concerts {
-  left: 225px
+  left: 240px;
 }
 
 #theater {
-  left: 330px
+  left: 360px;
 }
 
 #family {
-  left: 435px
+  left: 480px;
 }
