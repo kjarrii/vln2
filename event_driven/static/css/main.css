@@ -36,3 +36,9 @@
 #family {
   left: 480px;
 }
+
+.auth-btn {
+  background-color: red;
+  position: fixed;
+  top: 0;
+}
