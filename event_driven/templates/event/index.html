@@ -2,32 +2,8 @@
 
 {% block content %}
 
-    <div>
+
         <img src="{{ ad.image }}" class="event-imgs" alt="Image of event" />
 
-    </div>
-      <div class="ads-container">
-        {% for ad in all_ads %}
-            {% include 'ads/ad_product_card.html' %}
-            <a href="/ads/{{ ad.id }}" class="ad-anchor1 {% if not ad.isActive %}ad-not-active{% endif %}">
-            <div class="ad">
-                <div class="ad-image-wrapper">
-                    <img src="{{ ad.image }}" class="ad-image" alt="Image of product" />
-                </div>
-                <div class="ad-info">
-                    <h1 class="ad-title1">{{ ad.title }}</h1>
-                    <p class="ad-creation-date" data-timestamp="{{ ad.creation_date.timestamp }}">{{ ad.creation_date }}</p>
-                    <p class="ad-short-description">{{ ad.short_description }}</p>
-                 </div>
 
-                <div class="ad-bid" data-reserve = "{{ ad.reserve }}">
-                    <p class="ad-highest-bid-label">Hæsta boð: </p>
-                    {% if ad.max_bid is not None %}
-                        <p class="ad-highest-bid"><b class="ad-highest-bid-number">{{ ad.max_bid }}</b> kr.</p>
-                    {% else %}
-                        <p class="ad-highest-bid-no-bid">Ekkert boð enn. <br/> Lágmarksverð: {{ ad.reserve }} kr.</p>
-                    {% endif %}
-                </div>
-            </div>
-            </div>
 {% endblock %}
