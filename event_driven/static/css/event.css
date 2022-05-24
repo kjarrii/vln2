@@ -1,17 +1,14 @@
 .event-imgs {
-  overflow: hidden;
-  white-space: nowrap;
   height: 300px;
     display: inline-block;
     padding: 0;
     margin: 0;
 }
 
-.column {
-    overflow: hidden;
-    white-space: nowrap;
-    display: inline-block;
-    overflow-y:hidden;
+.column_photos {
+  white-space: nowrap;
+  display: inline-block;
+  overflow: auto;
 }
 
 .date-loc {
@@ -28,17 +25,17 @@
     background-color: #E5E5E5;
     width: 40%;
 }
-.container {
+.container_event {
     margin:0px ;
     padding: 0px;
   position: relative;
   text-align: left;
   color: white;
-    width:100%;
-
+    width: 100%;
+    overflow-x: auto;
 }
 
-.row::after {
+.row_photos::after {
   content: "";
   clear: both;
   display: table;
