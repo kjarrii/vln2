@@ -6,9 +6,7 @@
 }
 
 .date-loc {
-    X: 0px;
-    Y: 430px;
     width: 100%;
     height: 145px;
-    Fill: Solid rgba(0, 0, 0, 0.5);
+    Fill: rgba(0, 0, 0, 0.5);
 }
