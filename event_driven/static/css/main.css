@@ -1,3 +1,4 @@
+/* Everything for the navbar: */
 .navbar {
   background-color: #561357;
 }
@@ -6,19 +7,23 @@
   color: white;
   font-weight: bold;
   font-size: large;
-  position: fixed;
+  position: absolute;
   top: 0;
   height: 66px;
   width: 120px;
   line-height: 66px;
   text-align: center;
-  left: 120px;
+  cursor: pointer;
 }
 
 .navbar-option:hover {
   background-color: white;
   color: black;
   font-size: x-large;
+  transition: color 0.1s ease-in-out, font-size 0.5s ease-in-out, background-color 0.3s ease-in-out;
+/*  color: yellow;
+  font-size: x-large;
+  transition: color 0.5s ease-in-out, font-size 0.5s ease-in-out;*/
 }
 
 #sports {
@@ -37,8 +42,34 @@
   left: 480px;
 }
 
-.auth-btn {
-  background-color: red;
-  position: fixed;
-  top: 0;
+#map-btn {
+  left: 600px;
 }
+
+#more-btn {
+  right: 50px;
+}
+
+#login-btn {
+  right: 170px;
+}
+
+#myacc-btn {
+  right: 170px;
+  width: 150px;
+}
+
+/* Everything for the footer: */
+.footer-background {
+/*  background-color: lightgray;*/
+  background-color: rgb(215,208,215);
+  padding-top: 5px;
+}
+
+.footer-logo {
+  width: 100px;
+}
+
+
+
+
