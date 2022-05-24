@@ -1,8 +1,15 @@
 .event-imgs {
-  overflow: auto;
+  overflow: hidden;
   white-space: nowrap;
   height: 300px;
-    float: left;
+    display: inline-block;
+}
+
+.column {
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    overflow-y:hidden;
 }
 
 .date-loc {
