@@ -8,4 +8,5 @@ class Users(models.Model):
     image = models.CharField(max_length=9999)
     favorite_categories = models.CharField(max_length=9999)
     email = models.CharField(max_length=255)
+    booking = models.CharField(max_length=1000)
 
