@@ -1,17 +1,27 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <img src="{{ events.image }}" class="event-imgs" alt="Image of event" />
+    <div class="container">
+    <div class="row" >
+        <div class="column">
+            {% for image in events.image %}
+                <img src="{{ image }}" class="event-imgs" alt="Image of event" />
+            {% endfor %}
+    </div>
+        </div>
     <div class="date-loc">
         <h2>{{ events.name }}</h2>
-        <p>{{ events.address }}</p>
-        <p>{{ events.date }}</p>
+        <p>{{ events.address }}
+        <br>{{ events.date }}</p>
     </div>
+        </div>
 
-
+    <div class="desc">
     <p>event desc{{ events.description }}</p>
+    </div>
+    <div>
     <p>{{ events.ticets_sold }}</p>
     <p>{{ events.ticets }}</p>
-
+    </div>
 
 {% endblock %}
