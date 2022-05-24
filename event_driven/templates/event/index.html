@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="container">
-    <div class="row" >
-        <div class="column">
+    <div class="container_event">
+    <div class="row_photos" >
+        <div class="column_photos">
             {% for image in events.image %}
                 <img src="{{ image }}" class="event-imgs" alt="Image of event" />
             {% endfor %}
