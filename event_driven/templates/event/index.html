@@ -6,9 +6,19 @@
 
 
     <div class="date-loc">
-        <h2>{{ events.name }}</h2>
-        <p>{{ events.address }}</p>
+        {% for event in events %}
+        <h2>{{ event.name }}</h2>
+        <p>{{ event.address }}</p>
+        {% endfor %}
     </div>
+    </div>
+
+    <div>
+    <div>
+    <p>event desc{{ events.description }}</p>
+    </div>
+    <p>{{ events.ticets_sold }}</p>
+    <p>{{ events.ticets }}</p>
     </div>
 
 
