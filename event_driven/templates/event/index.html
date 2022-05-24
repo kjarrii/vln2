@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block content %}
+    <div>
+        <img src="{{ events.image }}" class="event-imgs" alt="Image of event" />
+
+
+    <div class="date-loc">
+        <h2>{{ events.name }}</h2>
+        <p>{{ events.address }}</p>
+    </div>
+    </div>
+
+
+{% endblock %}
