@@ -4,6 +4,13 @@
       <a class="navbar-brand" href="">
         <img id=barlogo alt="Brand" src="../static/images/eventdriven-logo.png">
       </a>
+        {% if true %} {% comment %}if the user is logged, the user icon is shown{% endcomment %}
+        {% else %} {% comment %}if not, the login and register buttons are shown{% endcomment %}
+            <div class="navbar-option">Login</div>
+            <div class="navbar-option">Register</div>
+        {% endif %}
+
+
     </div>
   </div>
 </nav>
