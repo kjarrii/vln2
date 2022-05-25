@@ -57,7 +57,11 @@
 }
 
 #register-btn {
-  right: 290px;
+  right: 350px;
+}
+
+#logout-btn {
+  right: 190px;
 }
 
 #myacc-btn {
