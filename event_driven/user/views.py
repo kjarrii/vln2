@@ -4,6 +4,8 @@ from user.models import Users
 from user.forms.profile_form import ProfileForm
 
 # Create your views here.
+
+
 def register(request):
     if request.method == 'POST':
         form = UserCreationForm(data=request.POST)
@@ -13,6 +15,7 @@ def register(request):
     return render(request, 'user/register.html', {
         'form': UserCreationForm()
     })
+
 
 def profile(request):
     profile = Users.objects.filter(user=request.user).first()
@@ -26,3 +29,7 @@ def profile(request):
     return render(request, 'user/profile.html', {
         'form': ProfileForm(instance=profile)
     })
+
+
+def login(request):
+    return render(request, 'user/login-correct.html')

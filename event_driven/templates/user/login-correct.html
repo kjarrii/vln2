@@ -1,0 +1,24 @@
+{% extends 'user/login-reg-base.html' %}
+{% block content %}
+    <div class="big-box" id="big-box-login">
+        <h1 class="title">Login</h1>
+
+        <div class="input-box" id="mail-box">
+            <img src="../../static/images/mail-icon-purple.png" alt="mail icon" id="mail-icon">
+            <input type="text" class="input-text" placeholder="E-mail:">
+        </div>
+
+        <div class="input-box" id="pw-box">
+            <img src="../../static/images/lock-icon-purple.png" alt="password icon" id="pw-icon">
+            <input type="text" class="input-text" placeholder="Password:">
+        </div>
+
+        <a href="" id="forgot-pw">Forgot your password?</a>
+    </div>
+
+    <div class="logreg-bottom">
+        <input type="submit" class="logreg-btn" value="Login">
+    </div>
+
+
+{% endblock %}
