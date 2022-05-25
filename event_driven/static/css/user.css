@@ -93,7 +93,7 @@
 }
 
 .logreg-btn {
-  width: 300px;
+  width: 320px;
   height: 50px;
   background-color: #561357;
   margin-top: 30px;
@@ -114,4 +114,17 @@
   width: 100%;
   display: flex;
   justify-content: center;
+}
+
+.bottom-text {
+  font-family: sans-serif;
+  text-align: center;
+  font-size: medium;
+  font-weight: bolder;
+  margin-top: 12px;
+}
+
+.register-link {
+  text-decoration:none;
+  color: #561357;
 }
