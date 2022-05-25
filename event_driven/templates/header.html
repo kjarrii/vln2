@@ -1,15 +1,17 @@
 <nav class="py-0 navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="">
+      <a class="navbar-brand" href="/">
         <img id=barlogo alt="Brand" src="../static/images/eventdriven-logo.png">
       </a>
 
-        {% if not True %} {% comment %}if the user is logged, the user icon is shown{% endcomment %}
+        {% if  user.is_authenticated  %} {% comment %}if the user is logged, the user icon is shown{% endcomment %}
             <div class="navbar-option" id="myacc-btn">My account</div>
             muna að setja profile image!!!!!!!!!!
         {% else %} {% comment %}if not, the login and register buttons are shown{% endcomment %}
+            <a href={% url 'register' %}>
             <div class="navbar-option" id="login-btn">Login</div>
+            </a>
         {% endif %}
 
     <div class="navbar-option" id="more-btn" onclick="">More</div>
