@@ -1,0 +1,130 @@
+/* Everything for the login/registration pages: */
+#big-bar {
+  background-color: #561357;
+  width:100%;
+  overflow:hidden;
+  height: 120px;
+}
+
+#loginreg-logo{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100px;
+  padding: 12px 0;
+}
+
+.big-box {
+  width: 40%;
+  background-color: RGB(215,208,215);
+  border-radius: 20px;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 0 9px rgba(0,0,0,0.22);
+  min-width: 600px;
+  max-width: 700px;
+}
+
+#big-box-login {
+  height: 300px;
+}
+
+.title {
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: bolder;
+  font-size: 2.5rem;
+  padding-top: 10px;
+}
+
+.input-box {
+  width: 500px;
+  height: 60px;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+}
+
+.input-text {
+  border: none transparent;
+  outline: none;
+  height: 50px;
+  width: 395px;
+  font-size: x-large;
+  margin-left: 75px;
+  margin-top: 4px
+}
+
+.input-text::placeholder {
+  color: #561357;
+}
+
+#mail-icon {
+  width: 75px;
+  position: absolute;
+  margin-top: -8px;
+}
+
+#pw-box {
+  margin-top: 20px;
+}
+
+#pw-icon {
+  width: 45px;
+  margin-top: 7px;
+  margin-left: 16px;
+  position: absolute;
+}
+
+#forgot-pw {
+  font-family: sans-serif;
+  font-weight: bolder;
+  text-decoration:none;
+  position: absolute;
+  margin-top: 15px;
+  margin-left: 110px;
+  color: #561357;
+}
+
+#forgot-pw:hover {
+  color: blue;
+}
+
+.logreg-btn {
+  width: 320px;
+  height: 50px;
+  background-color: #561357;
+  margin-top: 30px;
+  display: block;
+  color: white;
+  font-size: x-large;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.logreg-btn:hover {
+  background-color: #3B0D3C;
+}
+
+.logreg-bottom {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.bottom-text {
+  font-family: sans-serif;
+  text-align: center;
+  font-size: medium;
+  font-weight: bolder;
+  margin-top: 12px;
+}
+
+.register-link {
+  text-decoration:none;
+  color: #561357;
+}
