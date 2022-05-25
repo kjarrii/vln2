@@ -1,31 +1,31 @@
 {% extends 'user/login-reg-base.html' %}
 {% block content %}
     <form method="post">
-    {% csrf_token %}
+        {% csrf_token %}
 
-    <div class="big-box" id="big-box-login">
-        <h1 class="title">Login</h1>
+        <div class="big-box" id="big-box-login">
+            <h1 class="title">Login</h1>
 
-        <div class="input-box" id="mail-box">
-            <img src="../../static/images/mail-icon-purple.png" alt="mail icon" id="mail-icon">
-            <input type="text" class="input-text" placeholder="E-mail:" name="username">
+            <div class="input-box" id="mail-box">
+                <img src="../../static/images/mail-icon-purple.png" alt="mail icon" id="mail-icon">
+                <input type="text" class="input-text" placeholder="E-mail:" name="username">
+            </div>
+
+            <div class="input-box" id="pw-box">
+                <img src="../../static/images/lock-icon-purple.png" alt="password icon" id="pw-icon">
+                <input type="password" class="input-text" placeholder="Password:" name="password">
+            </div>
+
+            <a href="" id="forgot-pw">Forgot your password?</a>
         </div>
 
-        <div class="input-box" id="pw-box">
-            <img src="../../static/images/lock-icon-purple.png" alt="password icon" id="pw-icon">
-            <input type="password" class="input-text" placeholder="Password:" name="password">
+        <div class="logreg-bottom">
+            <input id="login-page-button" type="submit" class="logreg-btn" value="Login">
         </div>
 
-        <a href="" id="forgot-pw">Forgot your password?</a>
-    </div>
-
-    <div class="logreg-bottom">
-        <input type="submit" class="logreg-btn" value="Login">
-    </div>
-    <p class="bottom-text">Don't have an account?
-        <a href="" class="register-link">Register</a>
-    </p>
-
+        <p class="bottom-text">Don't have an account?
+            <a href="" class="register-link">Register</a>
+        </p>
 
     </form>
 
