@@ -31,5 +31,13 @@ def profile(request):
     })
 
 
+# def login(request):
+#     return render(request, 'user/login-correct.html')
+
 def login(request):
+    if request.method == 'POST':
+        form = UserCreationForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
     return render(request, 'user/login-correct.html')
