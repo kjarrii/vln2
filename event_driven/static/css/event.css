@@ -37,24 +37,15 @@
     display: inline-block;
     position: relative;
     top: auto;
-    background-color: #E5E5E5;
     width: 60%;
     margin: 10px;
     padding: 10px;
     border-radius: 10px;
 }
-.event-detail-box.map {
+.event-detail-box.more {
     position: absolute;
     top: auto;
     width: 35%;
     right: 0;
     height: 200px;
-}
-
-
-.event-detail-box.sold{
-    position: absolute;
-    display: inline-block;
-    width: 35%;
-    right: 0;
 }
