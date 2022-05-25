@@ -13,16 +13,15 @@
         <br>{{ events.date }}</p>
     </div>
     </div>
+    <div class="bottom-container-event">
         <p class="event-detail-box">{{ events.description }}</p>
-    <div class="bottom-container-event-right">
-        <div class="event-detail-box map">
-            <img src="static/images/sturla.jpeg" alt="map" />
-        </div>
 
-        <div class="event-detail-box sold">
-        <p>Sold tickets: {{ events.ticets_sold }}</p>
-        <p>Tickets left: {{ events.ticets }}</p>
+        <div class="event-detail-box more">
+            <img src="{{ image.1 }}" alt="map" />
+            <p>Sold tickets: {{ events.ticets_sold }}</p>
+            <p>Tickets left: {{ events.ticets }}</p>
         </div>
+        <br>
     </div>
 
 {% endblock %}
