@@ -27,12 +27,10 @@
   height: 300px;
 }
 
-.bottom-container-event-right {
-  position: absolute;
-    float:right;
+.bottom-container-event{
+  position: relative;
     text-align: left;
   color: black;
-    width: 30%;
 }
 
 .event-detail-box{
@@ -46,8 +44,7 @@
     border-radius: 10px;
 }
 .event-detail-box.map {
-    position: relative;
-    display: inline-flex;
+    position: absolute;
     top: auto;
     width: 35%;
     right: 0;
