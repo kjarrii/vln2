@@ -10,8 +10,12 @@
             muna að setja profile image!!!!!!!!!!
         {% else %} {% comment %}if not, the login and register buttons are shown{% endcomment %}
             <a href={% url 'register' %}>
-            <div class="navbar-option" id="login-btn">Login</div>
+                <div class="navbar-option" id="login-btn">Login</div>
             </a>
+            <a href={% url 'register' %}>
+                <div class="navbar-option" id="register-btn">Register</div>
+            </a>
+
         {% endif %}
 
     <div class="navbar-option" id="more-btn" onclick="">More</div>
