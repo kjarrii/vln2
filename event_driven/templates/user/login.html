@@ -6,6 +6,10 @@
         <div class="big-box" id="big-box-login">
             <h1 class="title">Login</h1>
 
+            {% if form.errors %}
+                <p>wHATUP NIGGA</p>
+            {% endif%}
+
             <div class="input-box" id="mail-box">
                 <img src="../../static/images/mail-icon-purple.png" alt="mail icon" id="mail-icon">
                 <input type="text" class="input-text" placeholder="E-mail:" name="username">
