@@ -8,7 +8,7 @@
         {% if  user.is_authenticated  %} {% comment %}if the user is logged, the user icon is shown{% endcomment %}
             <div class="navbar-option" id="myacc-btn">My account</div>
             <a href={% url 'logout' %}>
-            <div class="navbar-option" id="logout-btn">Logout</div>
+                <div class="navbar-option" id="logout-btn">Logout</div>
             </a>
             {% comment %}muna að setja profile image!!!!!!!!!!{% endcomment %}
         {% else %} {% comment %}if not, the login and register buttons are shown{% endcomment %}
