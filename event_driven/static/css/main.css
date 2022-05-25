@@ -2,6 +2,11 @@
 .navbar {
   background-color: #561357;
   z-index: 1;
+  height: 66px;
+}
+
+#bar-logo {
+  width: 60px;
 }
 
 .navbar-option {
