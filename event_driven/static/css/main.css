@@ -86,6 +86,80 @@
   width: 100px;
 }
 
+/* Menu page: */
+#menu-body {
+  margin-top: 5px;
+  margin-right: 40px;
+  margin-left: 40px;
+}
 
+.menu-title {
+  font-weight: bolder;
+  font-size : clamp(1rem, 5vw, 2rem);
+}
+
+.menu-options {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+
+}
+
+.option {
+  width: 25%;
+  aspect-ratio: 5/3;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid black;
+
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  cursor: pointer;
+
+  transition: transform 0.3s ease-in-out;
+}
+
+.img-overlay {
+  position: relative;
+  height: 18%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  transition: height 0.3s ease-in-out;
+}
+
+.option:hover .img-overlay {
+  height: 26%;
+  /*transition: height 0.3s ease-in-out;*/
+}
+
+.option:hover .small-text {
+  display: block;
+  /*transition: display 0.3s ease-in-out;*/
+}
+
+.option:hover {
+/*  background-size: 110%;*/
+  transform: scale(1.1);
+}
+
+.img-overlay-text {
+  width: 100%;
+  color: white;
+  margin-left: 7px;
+}
+
+.big-text {
+  font-size: 1.4vw;
+}
+
+.small-text {
+  font-size: 1vw;
+  margin-top: -1.3rem;
+  display: none;
+/*  transition: display 0.3s ease-in-out;*/
+}
 
 
