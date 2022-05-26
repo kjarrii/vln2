@@ -118,12 +118,13 @@
   font-weight: bold;
   border: none;
   border-radius: 10px;
+}
+
+.hover:hover {
+  background-color: #3B0D3C;
   cursor: pointer;
 }
 
-.logreg-btn:hover {
-  background-color: #3B0D3C;
-}
 
 .logreg-bottom {
   width: 100%;
@@ -163,6 +164,7 @@
   border: #561357 2px solid;
   background-color: white;
   -webkit-appearance:none;
+  cursor: pointer;
 }
 
 #terms-checkbox:checked {
