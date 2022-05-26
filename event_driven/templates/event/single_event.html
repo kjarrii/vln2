@@ -1,15 +1,15 @@
 
 
 <div class="thumbnail">
-	<button class= thumbnail-button>
+	<a class= thumbnail-button href="/event/{{ event.id }}">
     <img class="thumbnail-img" src="{{ event.image }}" alt="{{ events.name }}">
-	</button>
+	</a>
     <div class="thumbnail-info">
         <p class="thumbnail-title">{{ event.name }}</p>
         <p class="thumbnail-description">
             {{ event.address }} <br>
             {{ event.start }}
         </p>
-        <button class="normal-button"> See more </button>
+        <button class="normal-button" href="/event/{{ event.id }}"> See more </button>
     </div>
 </div>
