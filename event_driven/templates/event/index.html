@@ -3,45 +3,35 @@
 {% block content %}
     <div class="top-container-event">
     <div class="event-img-container">
-            {% for image in events.image %}
+            {% for image in events1.image %}
                 <img src="{{ image }}" class="event-imgs" alt="Image of event" />
             {% endfor %}
         </div>
     <div class="date-loc">
-        <h2>{{ events.name }}</h2>
-        <p>{{ events.address }}
-        <br>{{ events.date }}</p>
+        <h2>{{ events1.name }}</h2>
+        <p>{{ events1.address }}
+        <br>{{ events1.date }}</p>
     </div>
     </div>
     <div class="bottom-container-event">
     <p class="event-detail-box">
-        {% for col in events.description %}
+        {% for col in events1.description %}
         {{ col }}<br>
         {% endfor %}
     </p>
         <div class="event-detail-box more">
-            <img src="{{ events.image.1 }}" alt="map" />
-            <p>Total tickets: {{ events.tickets }} <br>
-                Sold tickets: {{ events.tickets_sold }} <br>
-                {% comment %} {{ events.tickets|sub:events.tickets_sold }} {% endcomment %} </p>
+            <img src="{{ events1.image.1 }}" alt="map" />
+            <p>Total tickets: {{ events1.tickets }} <br>
+                Sold tickets: {{ events1.tickets_sold }} <br>
+                {% comment %} Tickets left: {{ events.tickets|sub:events.tickets_sold }} {% endcomment %} </p>
         </div>
         <br>
     </div>
 
-    <h2>Similar events</h2>
 
-<div class="thumbnail">
-	<button class= thumbnail-button>
-    <img class="thumbnail-img" src="{{ events.image.2 }}" alt="{{ events.name }}">
-	</button>
-    <div class="thumbnail-info">
-        <p class="thumbnail-title">{{ events.name }}</p>
-        <p class="thumbnail-description">
-            {{ events.address|make_list|first }} <br>
-            {{ events.date }}
-        </p>
-        <button class="normal-button"> See more </button>
-    </div>
-</div>
+    <h2>Similar events</h2>
+    {% for event in events %}
+        {% include 'event/single_event.html' with event=event %}
+    {% endfor %}
 
 {% endblock %}
