@@ -9,6 +9,7 @@
 }
 
 .top-container-event {
+    margin-top: 50px;
   position: relative;
   text-align: left;
   color: white;
@@ -24,7 +25,8 @@
 .event-imgs {
   flex: 0 0 auto;
   width: auto;
-  height: 300px;
+    min-width: 25%;
+  height: 400px;
 }
 
 .bottom-container-event{
