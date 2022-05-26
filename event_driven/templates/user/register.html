@@ -3,6 +3,12 @@
     <form method="post">
         {% csrf_token %}
 
+        {% if field.errors %}
+            <div class="error-box">
+                <p id="error-message">E-mail or password is invalid. Please try again.</p>
+            </div>
+        {% endif %}
+
         <div class="big-box" id="big-box-register">
             <h1 class="title">Register</h1>
 
@@ -36,7 +42,7 @@
         </div>
 
         <div class="logreg-bottom">
-            <input id="login-page-button" type="submit" class="logreg-btn" value="Register" name="Sign up">
+            <input id="register-button" type="submit" class="logreg-btn" value="Register" name="Sign up">
         </div>
 
 

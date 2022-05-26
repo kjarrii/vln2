@@ -39,4 +39,4 @@ def login(request):
         form = LoginForm(data=request.POST)
         if form.is_valid():
             return redirect('/')
-    return render(request, 'user/login.html', {'form': form})
+    return render(request, 'user/login.html')
