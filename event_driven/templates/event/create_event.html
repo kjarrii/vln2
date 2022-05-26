@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <form class="form form-horizontal" action="{% url "create_event" %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Create" class="btn btn-primary pull-right" style="clear:both; margin: 10px 0" />
+    </form>
+{% endblock %}

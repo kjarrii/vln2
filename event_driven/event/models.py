@@ -15,4 +15,5 @@ class Event(models.Model):
     tickets_amount = models.CharField(max_length=255)
     desc = models.CharField(max_length=9999)
 
-
+    def images_as_list(self):
+        return self.image.split(',')
