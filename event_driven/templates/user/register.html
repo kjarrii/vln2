@@ -3,9 +3,13 @@
     <form action="{% url 'register' %}" method="post">
         {% csrf_token %}
 
-        {% if field.errors %}
-            <div class="error-box">
-                <p id="error-message">E-mail or password is invalid. Please try again.</p>
+        {% if form.errors %}
+            <div class="error-box" id="register-error-box">
+                <ul id="reg-requirements">
+                  <li class="list-item">Email has to be on an email form: example@example.com</li>
+                  <li class="list-item">Password must contain at least 8 characters, with numbers and letters</li>
+                  <li class="list-item">Password can't be too similar to your other personal information</li>
+                </ul>
             </div>
         {% endif %}
 
