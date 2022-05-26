@@ -1,12 +1,49 @@
-{% extends "base.html" %}
+{% extends 'user/login-reg-base.html' %}
 {% block content %}
-    <br>
-    <br>
-    <br>
-    <h1>Sign up now!</h1>
-    <form class="from from-horizontal" method="post">
+    <form method="post">
         {% csrf_token %}
-        {{ form }}
-        <input type="submit" class="btn btn-primary" value="Sign up" />
+
+        <div class="big-box" id="big-box-register">
+            <h1 class="title">Register</h1>
+
+            <div class="input-box" id="user-box">
+                <img src="../../static/images/profile-icon-purple.png" alt="user icon" id="user-icon">
+                <input type="text" class="input-text" placeholder="Name:" name="username2">
+            </div>
+
+            <div class="input-box" id="mail-box">
+                <img src="../../static/images/mail-icon-purple.png" alt="mail icon" id="mail-icon">
+                <input type="text" class="input-text" placeholder="E-mail:" name="username">
+            </div>
+
+            <div class="input-box" id="pw-box">
+                <img src="../../static/images/lock-icon-purple.png" alt="password icon" id="pw-icon">
+                <input type="password" class="input-text" placeholder="Password:" name="password">
+            </div>
+
+            <div class="input-box" id="pw-box">
+                <img src="../../static/images/lock-icon-purple.png" alt="password icon" id="pw-icon">
+                <input type="password" class="input-text" placeholder="Password again:" name="password2">
+            </div>
+
+            <div id="checkbox-div">
+                <input type="checkbox" id="terms-checkbox">
+                <p class="bottom-text">I read and agree to
+                    <a href="" class="register-link">Terms & Conditions</a>
+                </p>
+            </div>
+
+        </div>
+
+        <div class="logreg-bottom">
+            <input id="login-page-button" type="submit" class="logreg-btn" value="Register" name="Sign up">
+        </div>
+
+
+        <p class="bottom-text">Already have an account?
+            <a href="{% url "login" %}" class="register-link">Sign in</a>
+        </p>
+
     </form>
+
 {% endblock %}

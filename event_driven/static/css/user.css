@@ -28,6 +28,10 @@
   height: 300px;
 }
 
+#big-box-register {
+  height: 480px;
+}
+
 .title {
   text-align: center;
   font-family: sans-serif;
@@ -43,6 +47,7 @@
   margin-left: auto;
   margin-right: auto;
   border-radius: 20px;
+  position: relative;
 }
 
 .input-text {
@@ -69,10 +74,22 @@
   margin-top: 20px;
 }
 
+#user-box {
+  margin-bottom: 20px;
+}
+
+#user-icon {
+  width: 45px;
+  position: absolute;
+  margin-top: 8px;
+  margin-left: 16px;
+
+}
+
 #pw-icon {
   width: 45px;
   margin-top: 7px;
-  margin-left: 16px;
+  margin-left: 15px;
   position: absolute;
 }
 
@@ -125,4 +142,38 @@
 .register-link {
   text-decoration:none;
   color: #561357;
+}
+
+.register-link:hover {
+  color: #3B0D3C;
+}
+
+#checkbox-div {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+#terms-checkbox {
+  width:30px;
+  height:30px;
+  border-radius:5px;
+  margin-top: 6px;
+  margin-right: 8px;
+  border: #561357 2px solid;
+  background-color: white;
+  -webkit-appearance:none;
+}
+
+#terms-checkbox:checked {
+  -webkit-appearance: checkbox;
+  accent-color: #561357;
+}
+
+
+
+.red-box {
+  border: red 2px solid; !important;
+  margin-top: -2px; !important;
+  margin-bottom: -2px; !important;
 }
