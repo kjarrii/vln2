@@ -47,19 +47,29 @@
 .event-detail-box.more {
     position: absolute;
     top: auto;
-    width: 35%;
+    width: 20%;
     right: 0;
     height: 200px;
 }
 
+.detail-box-map{
+    width: 100%;
+}
+
+
 .thumbnail {
-    position: relative;
-    width: 400px;
+    position: sticky;
+    width: 20%;
+    height: 300px;
+    min-width: 400px;
+    display: inline-block;
 }
 
 .thumbnail-img {
     display: block;
     width: 100%;
+    min-width: 400px;
+    height: 300px;
 }
 
 .thumbnail-button{
@@ -72,7 +82,7 @@
 
 .thumbnail-info {
     position: absolute;
-    bottom: 6px;
+    bottom: 0;
     left: 0;
     width: 100%;
     height: 10%;
@@ -137,4 +147,9 @@
 
 .normal-button:hover {
 	font-weight: bold;
+}
+
+.similar-events{
+    padding: 5%;
+    padding-bottom: 2em;
 }

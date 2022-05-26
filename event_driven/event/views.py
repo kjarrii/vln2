@@ -12,3 +12,8 @@ events1 = { 'id': 1, 'image': ['/static/images/sturla1.jpeg', '/static/images/st
 def index(request):
     context = {'events': Event.objects.all().order_by('id')}
     return render(request, 'event/index.html', context)
+
+def get_event_by_id(request, id):
+    return render(request, 'event/index.html', {
+        'event': get_object_or_404(Event, pk=id)
+    })
