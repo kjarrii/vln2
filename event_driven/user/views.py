@@ -4,6 +4,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from user.models import Users
 from user.forms.profile_form import ProfileForm
 from user.forms.register_form import RegisterForm
+from user.forms.login_form import LoginForm
 
 # Create your views here.
 
@@ -35,7 +36,7 @@ def profile(request):
 
 def login(request):
     if request.method == 'POST':
-        form = AuthenticationForm(data=request.POST)
+        form = LoginForm(data=request.POST)
         if form.is_valid():
             return redirect('/')
     return render(request, 'user/login.html')
