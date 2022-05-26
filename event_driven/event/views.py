@@ -10,5 +10,6 @@ events1 = { 'id': 1, 'image': ['/static/images/sturla1.jpeg', '/static/images/st
         'price': {'Student': 2300, 'Adult': 2349}}
 
 def index(request):
+    #context = {'events1': events1}
     context = {'events': Event.objects.all().order_by('id')}
     return render(request, 'event/index.html', context)

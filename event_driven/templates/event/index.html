@@ -28,10 +28,12 @@
         <br>
     </div>
 
-
+    <div class="similar-events">
     <h2>Similar events</h2>
     {% for event in events %}
         {% include 'event/single_event.html' with event=event %}
     {% endfor %}
+    </div>
+
 
 {% endblock %}

@@ -1,12 +1,14 @@
+
+
 <div class="thumbnail">
 	<button class= thumbnail-button>
-    <img class="thumbnail-img" src="{{ events.image.first.image }}" alt="{{ events.name }}">
+    <img class="thumbnail-img" src="{{ event.image }}" alt="{{ events.name }}">
 	</button>
     <div class="thumbnail-info">
-        <p class="thumbnail-title">{{ events.name }}</p>
+        <p class="thumbnail-title">{{ event.name }}</p>
         <p class="thumbnail-description">
-            {{ events.address }} <br>
-            {{ events.date }}
+            {{ event.address }} <br>
+            {{ event.start }}
         </p>
         <button class="normal-button"> See more </button>
     </div>
