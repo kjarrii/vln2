@@ -10,3 +10,4 @@ class Users(AbstractUser):
     email = models.EmailField(_('email address'), unique=True)
     booking = models.CharField(max_length=1000)
     username = models.CharField(max_length=255, unique=False)
+    user = models.CharField(max_length=255, unique=False)
