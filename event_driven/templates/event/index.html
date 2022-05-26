@@ -14,8 +14,11 @@
     </div>
     </div>
     <div class="bottom-container-event">
-        <p class="event-detail-box">{{ events.description }}</p>
-
+    <p class="event-detail-box">
+        {% for col in events.description %}
+        {{ col }}<br>
+        {% endfor %}
+    </p>
         <div class="event-detail-box more">
             <img src="{{ image.1 }}" alt="map" />
             <p>Sold tickets: {{ events.ticets_sold }}</p>
