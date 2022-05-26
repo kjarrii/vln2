@@ -37,4 +37,4 @@ def login(request):
         form = AuthenticationForm(data=request.POST)
         if form.is_valid():
             return redirect('/')
-    return render(request, 'user/login.html')
+    return render(request, 'user/login.html', {'form': form})
