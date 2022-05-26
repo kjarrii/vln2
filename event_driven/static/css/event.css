@@ -47,10 +47,15 @@
 .event-detail-box.more {
     position: absolute;
     top: auto;
-    width: 35%;
+    width: 20%;
     right: 0;
     height: 200px;
 }
+
+.detail-box-map{
+    width: 100%;
+}
+
 
 .thumbnail {
     position: sticky;
