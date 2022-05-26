@@ -9,3 +9,4 @@ class Users(AbstractUser):
     favorite_categories = models.CharField(max_length=9999)
     email = models.EmailField(_('email address'), unique=True)
     booking = models.CharField(max_length=1000)
+    username = models.CharField(max_length=255, unique=False)
