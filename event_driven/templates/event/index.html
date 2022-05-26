@@ -3,13 +3,12 @@
 {% block content %}
     <div class="top-container-event">
     <div class="event-img-container">
-            <img src="{{ event.image }}" class="event-imgs" alt="Image of event" />
 
-        {% comment %}
-        {% for image in event.image %}
+
+        {% for image in event.image_as_list %}
                 <img src="{{ image }}" class="event-imgs" alt="Image of event" />
-            {% endfor %}
-         {% endcomment %}
+        {% endfor %}
+
         </div>
     <div class="date-loc">
         <h2>{{ event.name }}</h2>
