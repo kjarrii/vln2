@@ -20,11 +20,14 @@
         {% endfor %}
     </p>
         <div class="event-detail-box more">
-            <img src="{{ image.1 }}" alt="map" />
-            <p>Sold tickets: {{ events.ticets_sold }}</p>
-            <p>Tickets left: {{ events.ticets }}</p>
+            <img src="{{ events.image.1 }}" alt="map" />
+            <p>Total tickets: {{ events.tickets }} <br>
+                Sold tickets: {{ events.tickets_sold }} <br>
+                {% comment %} {{ events.tickets|sub:events.tickets_sold }} {% endcomment %} </p>
         </div>
         <br>
     </div>
+
+    <h2>Similar events</h2>
 
 {% endblock %}
