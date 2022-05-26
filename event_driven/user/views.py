@@ -25,8 +25,8 @@ from user.forms.forms import LoginForm, RegisterForm
 
 
 def profile(request):
-    profile = Users.objects.get(email__exact='karigeorgs@gmail.com')
-    #profile = Users.objects.filter(user=request.email).first()
+    #profile = Users.objects.get(email__exact='karigeorgs@gmail.com')
+    profile = Users.objects.filter(email=request.user).first()
     if request.method == 'POST':
         form = ProfileForm(instance=profile, data=request.POST)
         if form.is_valid():
