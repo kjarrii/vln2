@@ -1,6 +1,6 @@
 {% extends 'user/login-reg-base.html' %}
 {% block content %}
-    <form action="{% url 'login' %}" method="post">
+    <form method="post">
         {% csrf_token %}
 
         {% if form.errors %}

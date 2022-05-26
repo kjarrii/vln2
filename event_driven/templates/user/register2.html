@@ -1,6 +1,6 @@
 {% extends 'user/login-reg-base.html' %}
 {% block content %}
-    <form action="{% url 'register' %}" method="post">
+    <form method="post">
         {% csrf_token %}
 
         <div class="big-box" id="big-box-register">
