@@ -3,10 +3,17 @@
     <form method="post">
         {% csrf_token %}
 
+        {% if form.errors %}
+            <div class="error-box">
+                <p id="error-message">E-mail or password is invalid. Please try again.</p>
+            </div>
+        {% endif %}
+
+
         <div class="big-box" id="big-box-login">
             <h1 class="title">Login</h1>
 
-            <div class="input-box {% if form.errors %} red-box{% endif%}" id="mail-box">
+            <div class="input-box" id="mail-box"> {% comment %}{% if form.errors %} red-box{% endif%}{% endcomment %}
                 <img src="../../static/images/mail-icon-purple.png" alt="mail icon" id="mail-icon">
                 <input type="text" class="input-text" placeholder="E-mail:" name="username">
             </div>
