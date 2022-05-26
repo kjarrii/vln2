@@ -3,18 +3,19 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
 from user.models import Users
 from user.forms.profile_form import ProfileForm
+from user.forms.register_form import RegisterForm
 
 # Create your views here.
 
 
 def register(request):
     if request.method == 'POST':
-        form = UserCreationForm(data=request.POST)
+        form = RegisterForm(data=request.POST)
         if form.is_valid():
             form.save()
             return redirect('login')
     return render(request, 'user/register.html', {
-        'form': UserCreationForm()
+        'form': RegisterForm()
     })
 
 
