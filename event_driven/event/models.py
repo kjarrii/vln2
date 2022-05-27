@@ -23,3 +23,23 @@ class Event(models.Model):
 
     def desc_paragraphs(self):
         return self.desc.split('<br>')
+
+    def min_price(self):
+        Dict = dict((x.strip(), y.strip())
+        for x, y in (element.split('-')
+        for element in self.prices.split(', ')))
+        vals = Dict.values()
+        priceInt = []
+        for val in vals:
+            priceInt.append(val)
+        return max(priceInt)
+
+    def max_price(self):
+        Dict = dict((x.strip(), y.strip())
+        for x, y in (element.split('-')
+        for element in self.prices.split(', ')))
+        vals = Dict.values()
+        priceInt = []
+        for val in vals:
+            priceInt.append(val)
+        return min(priceInt)
