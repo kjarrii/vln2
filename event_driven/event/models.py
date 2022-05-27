@@ -24,7 +24,7 @@ class Event(models.Model):
     def desc_paragraphs(self):
         return self.desc.split('<br>')
 
-    def min_price(self):
+    def price_range(self):
         Dict = dict((x.strip(), y.strip())
         for x, y in (element.split('-')
         for element in self.prices.split(', ')))
@@ -32,14 +32,6 @@ class Event(models.Model):
         priceInt = []
         for val in vals:
             priceInt.append(val)
-        return max(priceInt)
-
-    def max_price(self):
-        Dict = dict((x.strip(), y.strip())
-        for x, y in (element.split('-')
-        for element in self.prices.split(', ')))
-        vals = Dict.values()
-        priceInt = []
-        for val in vals:
-            priceInt.append(val)
+        if max(priceInt) != min(priceInt):
+            return str(max(priceInt), '-', min(priceInt))
         return min(priceInt)
