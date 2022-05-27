@@ -17,3 +17,4 @@ class Event(models.Model):
 
     def images_as_list(self):
         return self.image.split(',')
+

@@ -3,9 +3,7 @@
 {% block content %}
     <div class="top-container-event">
     <div class="event-img-container">
-
-
-        {% for image in event.image_as_list %}
+        {% for image in event.images_as_list %}
                 <img src="{{ image }}" class="event-imgs" alt="Image of event" />
         {% endfor %}
 
@@ -37,7 +35,9 @@
     <div class="similar-events">
     <h2>Similar events</h2>
     {% for event in events %}
+        {% if forloop.counter <= 4 %}
         {% include 'event/single_event.html' with event=event %}
+        {% endif %}
     {% endfor %}
     </div>
 
