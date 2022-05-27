@@ -15,9 +15,12 @@
 
                 <div class="option" onclick="location.href='/event/{{ event.id }}'" style="background-image: url('{{ event.image }}')">
                     <div class="img-overlay">
-                        <p class="big-text img-overlay-text">{{ event.name }}</p>
-                        {% comment %}<p class="small-text img-overlay-text">{{ event.address }}</p>{% endcomment %}
-                        {% comment %}<p class="small-text img-overlay-text">{{ event.start }}</p>{% endcomment %}
+                        <div class="sameline">
+                            <p class="big-text img-overlay-text">{{ event.name }}</p>
+                            <p class="eventdate big-text img-overlay-text">{{ event.start|date:"M d, Y"}}</p>
+                        </div>
+                        <p class="small-text img-overlay-text">{{ event.address }}</p>
+                        <p class="small-text img-overlay-text">{{ event.price_range }}</p>
                     </div>
                 </div>
 
