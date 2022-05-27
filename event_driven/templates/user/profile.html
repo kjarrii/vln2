@@ -1,23 +1,31 @@
 {% extends "base.html" %}
+{% load static %}
 {% load widget_tweaks %}
 {% block content %}
-    <br>
+    <link rel="stylesheet" href="{% static "css/profile.css" %}"/>
     <br>
     <br>
     <br>
     <form class="form from-horizontal" method="post" enctype="multipart/form-data">
         {% csrf_token %}
+        {% if user.image %}
+            <img src="{{ user.image.url }}" height="500" alt="User Profile Image" />
+        {% else %}
+
+        {% endif %}
 
         <div class="field">
         <label class="label">Favorite Categories:</label>
         {% render_field form.favorite_categories %}
         </div>
 
-        <div class="field">
+        <div class="image_field">
         <label class="label">Image:</label>
         {% render_field form.image %}
         </div>
 
         <input type="submit" class="btn btn-primary" value="Update" />
     </form>
+
+
 {% endblock %}
