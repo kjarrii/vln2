@@ -130,7 +130,7 @@ AUTHENTICATION_BACKENDS = ['user.backends.EmailBackend']
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/profile_image')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]

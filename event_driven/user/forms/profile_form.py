@@ -5,5 +5,4 @@ from user.models import UserProfile
 class ProfileForm(ModelForm):
     class Meta:
         model = UserProfile
-        exclude = ['id', 'booking', 'image']
-        fields = ['favorite_categories']
+        fields = ['favorite_categories', 'image']

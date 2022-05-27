@@ -24,20 +24,34 @@ from user.forms.forms import LoginForm, RegisterForm
 #    })
 
 
+#def profile(request):
+#    #profile = Users.objects.get(email__exact='karigeorgs@gmail.com')
+#    profile = Users.objects.filter(email=request.user).first()
+#    if request.method == 'POST':
+#        form = ProfileForm(instance=profile, data=request.POST)
+#        if form.is_valid():
+#            profile = form.save(commit=False)
+#            profile.user = request.user
+#            profile.save()
+#            return redirect('profile')
+#    return render(request, 'user/profile.html', {
+#        'form': ProfileForm(instance=profile)
+#    })
+
+
 def profile(request):
-    #profile = Users.objects.get(email__exact='karigeorgs@gmail.com')
     profile = Users.objects.filter(email=request.user).first()
     if request.method == 'POST':
-        form = ProfileForm(instance=profile, data=request.POST)
+        #form = ProfileForm(request.POST, request.FILES)
+        form = ProfileForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
             profile = form.save(commit=False)
             profile.user = request.user
             profile.save()
             return redirect('profile')
-    return render(request, 'user/profile.html', {
-        'form': ProfileForm(instance=profile)
-    })
-
+    else:
+        form = ProfileForm()
+    return render(request, 'user/profile.html', {'form': ProfileForm(instance=profile)})
 
 #def login(request):
 #    if request.method == 'POST':

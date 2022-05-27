@@ -6,7 +6,7 @@ from django.db.models import Q
 UserModel = get_user_model()
 
 
-class EmailBackend(ModelBackend):
+class EmailBackend(ModelBackend): # Lets us verify by email rather than with username
     def authenticate(self, request, username=None, password=None, **kwargs):
         try:
             user = UserModel.objects.get(Q(username__iexact=username) | Q(email__iexact=username))

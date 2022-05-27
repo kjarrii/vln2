@@ -15,3 +15,5 @@ urlpatterns = [
     path('register/', RegisterView.as_view(), name='register')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+
+
