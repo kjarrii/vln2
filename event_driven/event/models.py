@@ -33,5 +33,5 @@ class Event(models.Model):
         for val in vals:
             priceInt.append(val)
         if max(priceInt) != min(priceInt):
-            return str(max(priceInt), '-', min(priceInt))
+            return "{} - {}".format(max(priceInt), min(priceInt))
         return min(priceInt)

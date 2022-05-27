@@ -24,8 +24,7 @@
             <img class="detail-box-map" src="{{ event.image }}" alt="map" />
             <p>Total tickets:  {{ event.max }} <br>
                 Sold tickets:  {{ event.tickets_amount }} <br>
-                price: {{ event.price_range }}
-                {% endif %}
+                Price: {{ event.price_range }} <br>
                 {% comment %} Tickets left: {{ events.tickets|sub:events.tickets_sold }} {% endcomment %} </p>
         </div>
         <br>
