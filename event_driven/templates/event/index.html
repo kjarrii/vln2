@@ -16,12 +16,9 @@
     </div>
     <div class="bottom-container-event">
     <p class="event-detail-box">
-        {{ event.desc }}
-        {% comment %}
-        {% for col in event.desc %}
-        {{ col }}<br>
+        {% for col in event.desc_paragraphs %}
+        {{ col }}<br><br>
         {% endfor %}
-        {% endcomment %}
     </p>
         <div class="event-detail-box more">
             <img class="detail-box-map" src="{{ event.image }}" alt="map" />
