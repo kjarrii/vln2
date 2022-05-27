@@ -17,16 +17,23 @@
 }
 
 .event-img-container {
-  display: flex;
+    display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
 
 }
+
+
 .event-imgs {
+    cursor: grab;
   flex: 0 0 auto;
     aspect-ratio: 5/3;
     height: 450px;
 
+}
+
+.event-imgs:active {
+    cursor: grabbing;
 }
 
 .bottom-container-event{
