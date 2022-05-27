@@ -18,3 +18,8 @@ class Event(models.Model):
     def images_as_list(self):
         return self.image.split(',')
 
+    def keywords_as_list(self):
+        return self.keywords.split(',')
+
+    def desc_paragraphs(self):
+        return self.desc.split('<br>')
