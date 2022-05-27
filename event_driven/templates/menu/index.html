@@ -12,48 +12,22 @@
         <h1 class="menu-title">Most popular</h1>
         <div class="menu-options">
 
-            <div class="option" style="background-image: url('../../static/images/sturla1.jpeg')">
-                <div class="img-overlay">
-                    <p class="big-text img-overlay-text">Sturla Atlas release party</p>
-                    <p class="small-text img-overlay-text">February 29th</p>
-                </div>
-            </div>
+            {% for event in events|slice:":4" %}
 
-            <div class="option" style="background-image: url('../../static/images/sturla2.jpeg')">
-                <div class="img-overlay">
-                    <p class="big-text img-overlay-text">Sturla Atlas release party</p>
-                    <p class="small-text img-overlay-text">February 29th</p>
+                <div class="option" onclick="location.href='/event/{{ event.id }}'" style="background-image: url('{{ event.image }}')">
+                    <div class="img-overlay">
+                        <p class="big-text img-overlay-text">{{ event.name }}</p>
+                        {% comment %}<p class="small-text img-overlay-text">{{ event.address }}</p>{% endcomment %}
+                        {% comment %}<p class="small-text img-overlay-text">{{ event.start }}</p>{% endcomment %}
+                    </div>
                 </div>
-            </div>
 
-            <div class="option" style="background-image: url('../../static/images/sturla3.jpeg')">
-                <div class="img-overlay">
-                    <p class="big-text img-overlay-text">Sturla Atlas release party</p>
-                    <p class="small-text img-overlay-text">February 29th</p>
-                </div>
-            </div>
-
-            <div class="option" style="background-image: url('../../static/images/sturla4.jpeg')">
-                <div class="img-overlay">
-                    <p class="big-text img-overlay-text">Sturla Atlas release party</p>
-                    <p class="small-text img-overlay-text">February 29th</p>
-                </div>
-            </div>
-
+            {% endfor %}
         </div>
 
         <br>
-        <h1 class="menu-title">Selling out</h1>
-        <div class="menu-options">
-            <div class="option"></div>
-            <div class="option" style="background-color:blue"></div>
-            <div class="option"></div>
-            <div class="option" style="background-color:blue"></div>
-        </div>
+
     </div>
-
-
-
 
 
 

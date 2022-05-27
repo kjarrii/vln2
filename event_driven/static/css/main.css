@@ -124,42 +124,45 @@
 
 .img-overlay {
   position: relative;
-  height: 18%;
+  height: 14%;
   width: 100%;
   background: rgba(0, 0, 0, 0.5);
   transition: height 0.3s ease-in-out;
 }
 
+.img-overlay-text {
+  color: white;
+  margin-left: 7px;
+  font-size: 1.1vw;
+  font-weight: bold;
+}
+
 .option:hover .img-overlay {
-  height: 26%;
+  height: 40%;
   /*transition: height 0.3s ease-in-out;*/
 }
 
-.option:hover .small-text {
-  display: block;
-  /*transition: display 0.3s ease-in-out;*/
+.option:hover .big-text {
+  font-size: 1.4vw;
 }
 
-.option:hover {
+/*.option:hover .small-text {
+  display: block;
+  !*transition: display 0.3s ease-in-out;*!
+}*/
+
+.option:hover { /*Makes the option box bigger*/
 /*  background-size: 110%;*/
   transform: scale(1.1);
 }
 
-.img-overlay-text {
-  width: 100%;
-  color: white;
-  margin-left: 7px;
-}
-
 .big-text {
-  font-size: 1.4vw;
+  font-size: 1.1vw;
+  transition: font-size 0.3s ease-in-out;
 }
 
 .small-text {
-  font-size: 1vw;
-  margin-top: -1.3rem;
-  display: none;
-/*  transition: display 0.3s ease-in-out;*/
+
 }
 
 
