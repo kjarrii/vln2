@@ -3,7 +3,7 @@ from event.models import Event
 
 # Create your views here.
 def index(request):
-    all_events = Event.objects.all().order_by('id')
+    all_events = Event.objects.all().order_by('name')
     ordered_events = []
     most_popular = []
     ordered_selling_out = []
