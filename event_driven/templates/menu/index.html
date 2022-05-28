@@ -3,9 +3,8 @@
 
 {% block content %}
     {% include 'menu/menu-navbar.html' %}
-    <br>
-    <br>
-    <br>
+
+    {% include 'menu/menu-searchbar.html' %}
 
     <div id="menu-body">
         <h1 class="menu-title">Most popular</h1>
@@ -25,15 +24,35 @@
                 </div>
 
             {% endfor %}
+
+        </div>
+
+        <br> <br>
+
+        <h1 class="menu-title">Selling out</h1>
+        <div class="menu-options">
+
+            {% for event in events|slice:":4" %}
+
+                <div class="option" onclick="location.href='/event/{{ event.id }}'" style="background-image: url('{{ event.images_as_list.0 }}')">
+                    <div class="img-overlay">
+                        <div class="sameline">
+                            <p class="big-text img-overlay-text">{{ event.name }}</p>
+                            <p class="eventdate big-text img-overlay-text">{{ event.start|date:"M d, Y"}}</p>
+                        </div>
+                        <p class="small-text img-overlay-text">{{ event.address }}</p>
+                        <p class="small-text img-overlay-text">{{ event.price_range }}</p>
+                    </div>
+                </div>
+
+            {% endfor %}
+
+
         </div>
 
         <br>
 
     </div>
-
-
-
-
 
 {% endblock %}
 

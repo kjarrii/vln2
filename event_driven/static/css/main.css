@@ -1,4 +1,4 @@
-/* Everything for the navbar: */
+/* Navbar: */
 .navbar {
   background-color: #561357;
   z-index: 1;
@@ -75,7 +75,33 @@
   width: 120px;
 }
 
-/* Everything for the footer: */
+/* Searchbar: */
+.searchbar-background {
+  position: relative;
+  top: 66px;
+  width: 100%;
+  height: 70px;
+  background-color: #561357;
+  margin-bottom: 80px;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+}
+
+.searchbar-box {
+  width: 30%;
+  height: 40px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+#searchbar-input {
+  width: 70%;
+  height: 96%;
+  border-radius: 10px;
+}
+
+/* Footer: */
 .footer-background {
 /*  background-color: lightgray;*/
   background-color: rgb(215,208,215);
@@ -176,4 +202,6 @@
 .eventdate {
   margin-right: 7px;
 }
+
+
 
