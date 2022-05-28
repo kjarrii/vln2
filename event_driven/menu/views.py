@@ -7,3 +7,12 @@ def index(request):
     return render(request, 'menu/index.html', context)
 
 
+def get_category_by_string(request, category):
+    all_events = Event.objects.all().order_by('id')
+    return_events = []
+    for event in all_events:
+        temp_list_of_keywords = event.keywords.split(',')
+        if category in temp_list_of_keywords:
+            return_events.append(event)
+    context = {'events': return_events}
+    return render(request, 'menu/index.html', context)
