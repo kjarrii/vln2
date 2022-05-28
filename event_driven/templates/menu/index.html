@@ -11,7 +11,7 @@
         <h1 class="menu-title">Most popular</h1>
         <div class="option-wrapper">
             <div class="option-rows">
-                {% for event in events|slice:":4" %}
+                {% for event in most_popular|slice:":4" %}
                     <div class="option" onclick="location.href='/event/{{ event.id }}'" style="background-image: url('{{ event.images_as_list.0 }}')">
                         <div class="img-overlay">
                             <div class="sameline">
@@ -19,7 +19,7 @@
                                 <p class="eventdate big-text img-overlay-text">{{ event.start|date:"M d, Y"}}</p>
                             </div>
                             <p class="small-text img-overlay-text">{{ event.address }}</p>
-                            <p class="small-text img-overlay-text">{{ event.price_range }}</p>
+                            <p class="small-text img-overlay-text">Price ISK: {{ event.price_range }}</p>
                         </div>
                     </div>
 
@@ -32,7 +32,7 @@
         <h1 class="menu-title">Selling out</h1>
         <div class="option-wrapper">
             <div class="option-rows">
-                {% for event in events|slice:":4" %}
+                {% for event in selling_out|slice:":4" %}
                     <div class="option" onclick="location.href='/event/{{ event.id }}'" style="background-image: url('{{ event.images_as_list.0 }}')">
                         <div class="img-overlay">
                             <div class="sameline">
@@ -40,7 +40,7 @@
                                 <p class="eventdate big-text img-overlay-text">{{ event.start|date:"M d, Y"}}</p>
                             </div>
                             <p class="small-text img-overlay-text">{{ event.address }}</p>
-                            <p class="small-text img-overlay-text">{{ event.price_range }}</p>
+                            <p class="small-text img-overlay-text">Price ISK: {{ event.price_range }}</p>
                         </div>
                     </div>
 
@@ -53,7 +53,7 @@
         <h1 class="menu-title">All events</h1>
         <div class="option-wrapper">
             <div class="option-rows">
-                {% for event in events %}
+                {% for event in all_events %}
                     <div class="option" onclick="location.href='/event/{{ event.id }}'" style="background-image: url('{{ event.images_as_list.0 }}')">
                         <div class="img-overlay">
                             <div class="sameline">
@@ -61,7 +61,7 @@
                                 <p class="eventdate big-text img-overlay-text">{{ event.start|date:"M d, Y"}}</p>
                             </div>
                             <p class="small-text img-overlay-text">{{ event.address }}</p>
-                            <p class="small-text img-overlay-text">{{ event.price_range }}</p>
+                            <p class="small-text img-overlay-text">Price ISK: {{ event.price_range }}</p>
                         </div>
                     </div>
                 {% endfor %}

@@ -8,6 +8,7 @@ def index(request):
     most_popular = []
     ordered_selling_out = []
     selling_out = []
+    ordered_name = []
     for event in all_events: # Creates most popular list
         types = event.tickets_amount.split(',')
         total_tickets = 0
@@ -56,7 +57,8 @@ def index(request):
 
     for event in ordered_selling_out:
         selling_out.append(event[0])
-    context = {'most_popular': most_popular, 'selling_out': selling_out}
+
+    context = {'most_popular': most_popular, 'selling_out': selling_out, 'all_events': all_events}
     return render(request, 'menu/index.html', context)
 
 def get_category_by_string(request, category):
