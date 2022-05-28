@@ -5,8 +5,10 @@ from event.models import Event
 def index(request):
     all_events = Event.objects.all().order_by('id')
     ordered_events = []
-    return_events = []
-    for event in all_events: # Finds all events
+    most_popular = []
+    ordered_selling_out = []
+    selling_out = []
+    for event in all_events: # Creates most popular list
         types = event.tickets_amount.split(',')
         total_tickets = 0
         for ticket_type in types: # Splits all tickets and counts the total
@@ -24,12 +26,38 @@ def index(request):
             if not inserted:
                 ordered_events.append([event, total_tickets])
 
-
     for event in ordered_events:
-        return_events.append(event[0])
-    context = {'events': return_events}
-    return render(request, 'menu/index.html', context)
+        most_popular.append(event[0])
 
+    for event in all_events: # Creates selling out list
+        types = event.tickets_amount.split(',')
+        maximum_types = event.max.split(',')
+        total_tickets = 0
+        maximum_tickets = 0
+        for ticket_type in types: # Splits all tickets and counts the total
+            tickets = ticket_type.split(':')
+            total_tickets += int(tickets[1])
+        for ticket_type in maximum_types:
+            maximum = ticket_type.split(':')
+            maximum_tickets += int(maximum[1])
+
+        difference = maximum_tickets - total_tickets
+        if len(ordered_selling_out) == 0:
+            ordered_selling_out.append([event, difference])
+        else:
+            inserted = False
+            for i in range(0, len(ordered_selling_out)):
+                if ordered_selling_out[i][1] > difference:
+                    ordered_selling_out.insert(i, [event, difference])
+                    inserted = True
+                    break
+                if not inserted:
+                    ordered_selling_out.append([event, difference])
+
+    for event in ordered_selling_out:
+        selling_out.append(event[0])
+    context = {'most_popular': most_popular, 'selling_out': selling_out}
+    return render(request, 'menu/index.html', context)
 
 def get_category_by_string(request, category):
     all_events = Event.objects.all().order_by('id')
