@@ -8,6 +8,7 @@
         {% if user.image %}
             <img src="{{ user.image.url }}" height="500" alt="User Profile Image" />
         {% else %}
+            <img src="../static/images/empty_profile.png" height="500" alt="User Profile Image" />
         {% endif %}
         {% if  user.is_authenticated  %} {% comment %}if the user is logged, the user icon is shown{% endcomment %}
             <a href={% url 'profile' %}>
