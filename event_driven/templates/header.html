@@ -4,7 +4,11 @@
       <a class="navbar-brand" href="/">
         <img id=bar-logo alt="Brand" src="../static/images/eventdriven-logo.png">
       </a>
-
+        {% csrf_token %}
+        {% if user.image %}
+            <img src="{{ user.image.url }}" height="500" alt="User Profile Image" />
+        {% else %}
+        {% endif %}
         {% if  user.is_authenticated  %} {% comment %}if the user is logged, the user icon is shown{% endcomment %}
             {% csrf_token %}
             <a href={% url 'profile' %}>
