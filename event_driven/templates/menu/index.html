@@ -13,7 +13,7 @@
 
             {% for event in events|slice:":4" %}
 
-                <div class="option" onclick="location.href='/event/{{ event.id }}'" style="background-image: url('{{ event.image }}')">
+                <div class="option" onclick="location.href='/event/{{ event.id }}'" style="background-image: url('{{ event.images_as_list.0 }}')">
                     <div class="img-overlay">
                         <div class="sameline">
                             <p class="big-text img-overlay-text">{{ event.name }}</p>
