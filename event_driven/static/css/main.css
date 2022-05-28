@@ -67,9 +67,23 @@
   right: 290px;
 }
 
-#myacc-btn {
+#navbar-image-div {
   right: 170px;
   width: 120px;
+}
+
+.profile-image-small {
+  position: relative;
+  top: 10px;
+  width: 50px;
+  border-radius: 50%;
+  border: 3px solid white;
+  transition: width 0.3s ease-in-out, top 0.3s ease-in-out;
+}
+
+#navbar-image-div:hover .profile-image-small {
+  top: 5px;
+  width: 60px;
 }
 
 /* Searchbar: */
@@ -229,6 +243,7 @@
 .eventdate {
   margin-right: 7px;
 }
+
 
 
 

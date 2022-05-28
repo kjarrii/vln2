@@ -4,20 +4,25 @@
       <a class="navbar-brand" href="/">
         <img id=bar-logo alt="Brand" src="../static/images/eventdriven-logo.png">
       </a>
-        {% csrf_token %}
-        {% if user.image %}
-            <img src="{{ user.image.url }}" height="500" alt="User Profile Image" />
-        {% else %}
-            <img src="../static/images/empty_profile.png" height="500" alt="User Profile Image" />
-        {% endif %}
+
         {% if  user.is_authenticated  %} {% comment %}if the user is logged, the user icon is shown{% endcomment %}
+
             {% csrf_token %}
+
             <a href={% url 'profile' %}>
-                <div class="navbar-option" id="myacc-btn">Profile</div>
+                {% comment %}<div class="navbar-option" id="myacc-btn">Profile</div>{% endcomment %}
+                    <div class="navbar-option" id="navbar-image-div">
+                        {% if user.image %}
+                            <input class="profile-image-small" type="image" src="{{ user.image.url }}" alt="User Profile Image">
+                        {% else %}
+                            <input class="profile-image-small" type="image" src="../static/images/empty_profile.png" alt="User Profile Image">
+                        {% endif %}
+                    </div>
             </a>
-            <a href={% url 'logout' %}>
+
+{% comment %}            <a href={% url 'logout' %}>
                 <div class="navbar-option" id="logout-btn">Logout</div>
-            </a>
+            </a>{% endcomment %}
 
         {% else %} {% comment %}if not, the login button is shown{% endcomment %}
             <a href={% url 'login' %}>
