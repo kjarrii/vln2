@@ -29,9 +29,6 @@
   color: black;
   font-size: x-large;
   transition: color 0.1s ease-in-out, font-size 0.5s ease-in-out, background-color 0.3s ease-in-out;
-/*  color: yellow;
-  font-size: x-large;
-  transition: color 0.5s ease-in-out, font-size 0.5s ease-in-out;*/
 }
 
 #sports {
@@ -76,29 +73,56 @@
 }
 
 /* Searchbar: */
+.welcome-text {
+  color: white;
+  font-weight: bold;
+}
+
+.welcome-under-text {
+  color: white;
+  margin-bottom: 30px;
+}
+
 .searchbar-background {
   position: relative;
   top: 66px;
   width: 100%;
-  height: 70px;
+  height: 200px;
   background-color: #561357;
   margin-bottom: 80px;
   display: flex;
   justify-content: center;
   align-items:center;
+  flex-direction: column;
 }
 
 .searchbar-box {
   width: 30%;
-  height: 40px;
+  height: 48px;
   background-color: white;
   border-radius: 10px;
+  border: 3px solid RGB(215,208,215);
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
 }
 
 #searchbar-input {
-  width: 70%;
-  height: 96%;
+  width: 84%;
+  height: 93%;
+  margin-left: 8px;
   border-radius: 10px;
+  border: none;
+  outline:none;
+  font-size: x-large;
+}
+
+#search-button {
+  position: relative;
+  top: 6px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
 }
 
 /* Footer: */
@@ -124,16 +148,19 @@
   font-size : clamp(1rem, 5vw, 2rem);
 }
 
-.menu-options {
+.option-wrapper {
+  height: 100%;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
+}
 
+.option-rows {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .option {
-  width: 25%;
+  width: 100%;
   aspect-ratio: 5/3;
   background-size: cover;
   background-repeat: no-repeat;
@@ -158,7 +185,6 @@
 
 .img-overlay-text {
   color: white;
-  margin-left: 7px;
   font-size: 1.1vw;
   font-weight: bold;
   margin: 0 0 0 7px;
@@ -202,6 +228,7 @@
 .eventdate {
   margin-right: 7px;
 }
+
 
 
 
