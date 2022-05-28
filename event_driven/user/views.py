@@ -61,6 +61,7 @@ def profile(request):
 #    return render(request, 'user/login.html', {'form': form})
 
 
+
 class LoginView(auth_views.LoginView):
     form_class = LoginForm
     template_name = 'user/login.html'

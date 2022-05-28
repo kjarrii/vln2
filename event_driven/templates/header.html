@@ -11,20 +11,18 @@
             <img src="../static/images/empty_profile.png" height="500" alt="User Profile Image" />
         {% endif %}
         {% if  user.is_authenticated  %} {% comment %}if the user is logged, the user icon is shown{% endcomment %}
+            {% csrf_token %}
             <a href={% url 'profile' %}>
                 <div class="navbar-option" id="myacc-btn">Profile</div>
             </a>
             <a href={% url 'logout' %}>
                 <div class="navbar-option" id="logout-btn">Logout</div>
             </a>
-            {% comment %}muna að setja profile image!!!!!!!!!!{% endcomment %}
-        {% else %} {% comment %}if not, the login and register buttons are shown{% endcomment %}
+
+        {% else %} {% comment %}if not, the login button is shown{% endcomment %}
             <a href={% url 'login' %}>
                 <div class="navbar-option" id="login-btn">Login</div>
             </a>
-{% comment %}            <a href={% url 'register' %}>
-                <div class="navbar-option" id="register-btn">Register</div>
-            </a>{% endcomment %}
 
         {% endif %}
 
@@ -33,6 +31,4 @@
     </div>
   </div>
 </nav>
-
-
 
