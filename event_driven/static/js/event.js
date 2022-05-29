@@ -19,17 +19,13 @@ const mouseDownHandler = function (e) {
 };
 
 const mouseMoveHandler = function (e) {
-    // How far the mouse has been moved
     const dx = e.clientX - pos.x;
     const dy = e.clientY - pos.y;
-
-    // Scroll the element
     ele.scrollTop = pos.top - dy;
     ele.scrollLeft = pos.left - dx;
 };
 
 const mouseDownHandler = function(e) {
-    // Change the cursor and prevent user from selecting the text
     ele.style.cursor = 'grabbing';
     ele.style.userSelect = 'none';
 };
@@ -41,3 +37,11 @@ const mouseUpHandler = function () {
     ele.style.cursor = 'grab';
     ele.style.removeProperty('user-select');
 };
+
+let map;
+function initMap(lat,lon) {
+  map = new google.maps.Map(document.getElementById("event-detail-map"), {
+    center: { lat: lat, lng: lon},
+    zoom: 15,
+  });
+}
