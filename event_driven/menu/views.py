@@ -135,11 +135,21 @@ def get_category_by_string(request, category):
 
     for event in ordered_selling_out:
         selling_out.append(event[0])
-
+    if len(all_events) == 0:
+        most_popular = False
+        selling_out = False
+        all_events = False
     context = {'most_popular': most_popular, 'selling_out': selling_out, 'all_events': all_events}
     return render(request, 'menu/index.html', context)
 
 def get_all_events(request):
     org_events = Event.objects.all().order_by('name')
-    context = {'most_popular': False, 'selling_out': False, 'all_events': org_events}
+    all_events = []
+    utc = pytz.UTC
+    curr_date = utc.localize(datetime.datetime.now())
+    for event in org_events:
+        start_date = event.start
+        if start_date > curr_date:
+            all_events.append(event)
+    context = {'most_popular': False, 'selling_out': False, 'all_events': all_events}
     return render(request, 'menu/index.html', context)
