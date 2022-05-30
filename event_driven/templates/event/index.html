@@ -38,7 +38,6 @@
     <h2>Similar events</h2>
     <div class="option-wrapper">
             <div class="option-rows">
-            <p>{{ similar_events }}</p>
                 {% for event in similar_events|slice:":4" %}
                     <div class="option" onclick="location.href='{{ event.id }}'" style="background-image: url('{{ event.images_as_list.0 }}')">
                         <div class="img-overlay">
