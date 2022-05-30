@@ -138,3 +138,8 @@ def get_category_by_string(request, category):
 
     context = {'most_popular': most_popular, 'selling_out': selling_out, 'all_events': all_events}
     return render(request, 'menu/index.html', context)
+
+def get_all_events(request):
+    org_events = Event.objects.all().order_by('name')
+    context = {'most_popular': False, 'selling_out': False, 'all_events': org_events}
+    return render(request, 'menu/index.html', context)

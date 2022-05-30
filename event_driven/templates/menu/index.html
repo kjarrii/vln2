@@ -7,6 +7,7 @@
     {% include 'menu/menu-searchbar.html' %}
 
     <div id="menu-body">
+        {% if most_popular %}
         <h1 class="menu-title">Most popular</h1>
         <div class="option-wrapper">
             <div class="option-rows">
@@ -25,7 +26,8 @@
                 {% endfor %}
             </div>
         </div>
-
+        {% endif %}
+        {% if selling_out %}
         <br> <br>
 
         <h1 class="menu-title">Selling out</h1>
@@ -46,7 +48,7 @@
                 {% endfor %}
             </div>
         </div>
-
+        {% endif %}
         <br> <br>
 
         <h1 class="menu-title">All events</h1>
