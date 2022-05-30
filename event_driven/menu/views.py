@@ -70,11 +70,12 @@ def index(request):
     return render(request, 'menu/index.html', context)
 
 def get_category_by_string(request, category):
+    key = category.lower()
     org_events = Event.objects.all().order_by('name')
     keyword_events = []
     for event in org_events:
         temp_list_of_keywords = event.keywords.split(',')
-        if category in temp_list_of_keywords:
+        if key in temp_list_of_keywords:
             keyword_events.append(event)
     all_events = []
     utc = pytz.UTC
