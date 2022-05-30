@@ -28,7 +28,13 @@
     display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 
+}
+
+.event-img-container::-webkit-scrollbar {
+  display: none;
 }
 
 
@@ -67,9 +73,10 @@
 }
 
 .detail-box-map{
-    width: 100%;
-    display: inline-block;
-    position: relative;
+    height: 380px;
+  width: 90%;
+  display: inline-block;
+
 }
 
 

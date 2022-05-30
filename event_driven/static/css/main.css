@@ -280,6 +280,18 @@
   margin-right: 7px;
 }
 
+/*Search result site:*/
+.filter-sort-box {
+  width: 13%;
+  height: 40px;
+  border-radius: 10px;
+  border: solid 2px #561357;
+}
+
+#sort-by-box {
+  margin-left: 30px
+}
+
 
 
 
