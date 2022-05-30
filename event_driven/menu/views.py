@@ -1,9 +1,18 @@
 from django.shortcuts import render, get_object_or_404
 from event.models import Event
+import datetime
+import pytz
 
 # Create your views here.
 def index(request):
-    all_events = Event.objects.all().order_by('name')
+    org_events = Event.objects.all().order_by('name')
+    all_events = []
+    utc = pytz.UTC
+    curr_date = utc.localize(datetime.datetime.now())
+    for event in org_events:
+        start_date = event.start
+        if start_date > curr_date:
+            all_events.append(event)
     ordered_events = []
     most_popular = []
     ordered_selling_out = []
@@ -62,10 +71,17 @@ def index(request):
 
 def get_category_by_string(request, category):
     org_events = Event.objects.all().order_by('name')
-    all_events = []
+    keyword_events = []
     for event in org_events:
         temp_list_of_keywords = event.keywords.split(',')
         if category in temp_list_of_keywords:
+            keyword_events.append(event)
+    all_events = []
+    utc = pytz.UTC
+    curr_date = utc.localize(datetime.datetime.now())
+    for event in keyword_events:
+        start_date = event.start
+        if start_date > curr_date:
             all_events.append(event)
     ordered_events = []
     most_popular = []
