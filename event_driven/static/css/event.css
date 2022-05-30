@@ -68,6 +68,8 @@
 
 .detail-box-map{
     width: 100%;
+    display: inline-block;
+    position: relative;
 }
 
 

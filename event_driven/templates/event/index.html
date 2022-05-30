@@ -25,7 +25,7 @@
         {% endfor %}
     </p>
         <div class="event-detail-box more">
-            <div class="detail-box-map" id="map"></div>
+            <div class="detail-box-map" id="event-map" lat="{{ event.lat }}" lon="{{ event.long }}"></div>
             <p>Total tickets:  {{ event.max }} <br>
                 Sold tickets:  {{ event.tickets_amount }} <br>
                 Price: {{ event.price_range }} <br>
@@ -53,7 +53,10 @@
             </div>
         </div>
     </div>
-
+    <script src="../../static/js/event.js"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_pW9Fd6hstpL9qABONoGDfzxICm4McE8&callback=initMap&v=weekly" async
+    ></script>
 
 
 {% endblock %}
