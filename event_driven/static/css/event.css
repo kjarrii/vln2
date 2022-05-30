@@ -28,7 +28,13 @@
     display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 
+}
+
+.event-img-container::-webkit-scrollbar {
+  display: none;
 }
 
 
