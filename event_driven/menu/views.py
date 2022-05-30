@@ -162,8 +162,33 @@ def get_all_events(request):
 def map(request):
     return render(request, 'menu/search_result.html')
 
+def only_future(all_events):
+    return_events = []
+    utc = pytz.UTC
+    curr_date = utc.localize(datetime.datetime.now())
+    for event in all_events:
+        start_date = event.start
+        if start_date > curr_date:
+            return_events.append(event)
+    return return_events
+
+def contains_keyword(query, events):
+    search_list = query.split(' ')
+    return_list = []
+    for event in events:
+        keywords_string = event.keywords
+        keywords = keywords_string.split(',')
+        for word in keywords:
+            for search in search_list:
+                if search in word:
+                    if event not in return_list:
+                        return_list.append(event)
+    return return_list
+
 def search_query(request, search_str):
     org_events = Event.objects.all().order_by('name')
-    number_of_events = len(org_events)
-    context = {'search_query': search_str, 'number_of_events': number_of_events, 'all_events': org_events}
+    future_events = only_future(org_events)
+    keyword_list = contains_keyword(search_str, future_events)
+    number_of_events = len(keyword_list)
+    context = {'search_query': search_str, 'number_of_events': number_of_events, 'all_events': keyword_list}
     return render(request, 'menu/search_result.html', context)
