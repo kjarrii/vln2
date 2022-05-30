@@ -158,3 +158,6 @@ def get_all_events(request):
             all_events.append(event)
     context = {'most_popular': False, 'selling_out': False, 'all_events': all_events}
     return render(request, 'menu/index.html', context)
+
+def map(request):
+    return render(request, 'menu/search_result.html')
