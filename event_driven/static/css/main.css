@@ -91,6 +91,37 @@
   height: 55px;
 }
 
+.dropdown-look {
+  display: flex;
+  float: right;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  top: 66px;
+  right: 170px;
+  width: 170px;
+  height: 112px;
+  background-color: white;
+  border-radius: 5px 0 5px 5px;
+  filter: drop-shadow(0 0 0.2rem black);
+}
+
+.dropdown-option  {
+  font-size: large;
+  width: 160px;
+  text-decoration: none;
+  color: black;
+  margin-left: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-left: 10px;
+}
+
+.dropdown-option:hover {
+  background-color: black;
+  color: white;
+}
+
 /* Searchbar: */
 .welcome-text {
   color: white;

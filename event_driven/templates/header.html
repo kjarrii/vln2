@@ -11,20 +11,25 @@
 
             {% comment %}<a href={% url 'profile' %}>{% endcomment %}
                 {% comment %}<div class="navbar-option" id="myacc-btn">Profile</div>{% endcomment %}
-                    <div class="navbar-option" id="navbar-image-div" onclick="dropdown()">
+                    <div class="navbar-option" id="navbar-image-div" onclick="displayDropdown()">
                         {% if user.image %}
                             <input class="profile-image-small" type="image" src="{{ user.image.url }}" alt="User Profile Image">
                         {% else %}
                             <input class="profile-image-small" type="image" src="../static/images/empty_profile.png" alt="User Profile Image">
                         {% endif %}
                     </div>
-            {% comment %}</a>{% endcomment %}
 
-{% comment %}            <a href={% url 'logout' %}>
-                <div class="navbar-option" id="logout-btn">Logout</div>
-            </a>{% endcomment %}
+                    <div id="dropdown-visibility" class="invisible">
+                        <div class="dropdown-look">
+                            <a class="dropdown-option" href={% url 'profile' %}>My profile</a>
+                            <a class="dropdown-option" href="#">My tickets</a>
+                            <a class="dropdown-option" href={% url 'logout' %}>Log out</a>
+                        </div>
+                    </div>
 
-        {% else %} {% comment %}if not, the login button is shown{% endcomment %}
+
+
+        {% else %}
             <a href={% url 'login' %}>
                 <div class="navbar-option" id="login-btn">Login</div>
             </a>
