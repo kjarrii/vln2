@@ -6,7 +6,13 @@ from event.models import Event
 def index(request,id):
     if request.user.is_authenticated:
         current_event = Event.objects.get(pk=id)
-        context = {'event': current_event}
+        return_prices = []
+        return_type = []
+        for i in current_event.prices.split(','):
+            x = i.split(':')
+            return_prices.append(x[1])
+            return_type.append(x[0])
+        context = {'event': current_event, 'prices': return_prices, 'types': return_type}
         return render(request, 'booking/select_tickets.html', context)
     else:
         return render(request, 'user/login.html')

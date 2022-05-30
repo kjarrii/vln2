@@ -26,8 +26,8 @@ class Event(models.Model):
 
     def price_range(self):
         Dict = dict((x.strip(), y.strip())
-        for x, y in (element.split('-')
-        for element in self.prices.split(', ')))
+        for x, y in (element.split(':')
+        for element in self.prices.split(',')))
         vals = Dict.values()
         priceInt = []
         for val in vals:

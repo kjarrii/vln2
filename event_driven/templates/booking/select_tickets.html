@@ -7,5 +7,16 @@
     <br>
     <h1>Selecting Tickets</h1>
     <h1 >{{ event.name }}</h1>
+    <h1> Prices </h1>
+    {% for price in prices %}
+    <h1 >{{ price }}</h1>
+    {% endfor %}
+    <h1> Types of tickets </h1>
+    {% for type in types %}
+    <h1 >{{ type }}</h1>
+    {% endfor %}
 
+    <input name='amount_of_tickets' value="10" type="hidden">
+    <button id="submit-button"> Continue</button>
+    <script src="../../static/js/select_tickets.js"></script>
 {% endblock %}
