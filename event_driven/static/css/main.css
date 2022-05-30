@@ -242,6 +242,10 @@
   transform: scale(1.1);
 }
 
+.higher {
+  height: 13% !important;
+}
+
 .img-overlay {
   position: relative;
   height: 12%;
