@@ -185,7 +185,7 @@ def contains_keyword(query, events):
                         return_list.append(event)
     return return_list
 
-def search_query(request, search_str):
+def search_query(request, search_str, category, method):
     org_events = Event.objects.all().order_by('name')
     future_events = only_future(org_events)
     keyword_list = contains_keyword(search_str, future_events)
