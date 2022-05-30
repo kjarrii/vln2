@@ -217,13 +217,29 @@
   background-repeat: no-repeat;
   background-position: center;
   border: 1px solid black;
-
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
   cursor: pointer;
-
   transition: transform 0.3s ease-in-out;
+}
+
+.option-no-hover {
+  width: 100%;
+  aspect-ratio: 5/3;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid black;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.option-no-hover:hover {
+  transform: scale(1.1);
 }
 
 .img-overlay {
@@ -250,7 +266,6 @@
 }
 
 .option:hover { /*Makes the option box bigger*/
-/*  background-size: 110%;*/
   transform: scale(1.1);
 }
 
