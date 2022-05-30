@@ -31,7 +31,7 @@ class Event(models.Model):
         vals = Dict.values()
         priceInt = []
         for val in vals:
-            priceInt.append(val)
+            priceInt.append(int(val))
         if max(priceInt) != min(priceInt):
-            return "{} - {}".format(max(priceInt), min(priceInt))
+            return "{} - {}".format(min(priceInt), max(priceInt))
         return min(priceInt)
