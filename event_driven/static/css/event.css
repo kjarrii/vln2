@@ -67,9 +67,10 @@
 }
 
 .detail-box-map{
-    width: 100%;
-    display: inline-block;
-    position: relative;
+    height: 380px;
+  width: 90%;
+  display: inline-block;
+
 }
 
 
