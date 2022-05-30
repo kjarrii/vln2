@@ -286,13 +286,23 @@
 .small-text {
   display: none;
   margin-top: -2px;
-  margin-bottom: 2px;
   font-weight: normal;
   font-size: 0.8vw;
+  margin-bottom: 2px;
 }
 
 .option:hover .small-text {
   display: block;
+  animation: fadeIn 0.4s;
+}
+
+@keyframes fadeIn {
+     from {
+          opacity: 0;
+     }
+     to {
+          opacity: 1;
+     }
 }
 
 .eventdate {
