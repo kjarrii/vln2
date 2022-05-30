@@ -13,7 +13,7 @@
         <p>{{ event.address }}
         <br>{{ event.start }} - {{ event.end }}</p>
         <div class="price-button">
-           <h3> {{ event.price_range }}ISK </h3>
+           <h3> {{ event.price_range }} ISK </h3>
             <button class="normal-butt" onclick="location.href='/booking/{{ event.id }}'">Book now</button>
         </div>
     </div>
@@ -26,9 +26,8 @@
     </p>
         <div class="event-detail-box more">
             <div class="detail-box-map" id="event-map" lat="{{ event.lat }}" lon="{{ event.long }}"></div>
-            <p>Total tickets:  {{ event.max }} <br>
-                Sold tickets:  {{ event.tickets_amount }} <br>
-                Price: {{ event.price_range }} <br>
+            <p>Total tickets: {{ event.max }} <br>
+                Sold tickets: {{ event.tickets_amount }} <br>
                 {% comment %} Tickets left: {{ events.tickets|sub:events.tickets_sold }} {% endcomment %} </p>
         </div>
         <br>
@@ -55,8 +54,7 @@
     </div>
     <script src="../../static/js/event.js"></script>
     <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_pW9Fd6hstpL9qABONoGDfzxICm4McE8&callback=initMap&v=weekly" async
-    ></script>
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_pW9Fd6hstpL9qABONoGDfzxICm4McE8&callback=initMap&v=weekly" async></script>
 
 
 {% endblock %}
