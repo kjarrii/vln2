@@ -4,6 +4,6 @@ from . import views
 urlpatterns = [
     path('', views.index, name='menu-index'),
     path('all_events', views.get_all_events, name="all_events"),
-    path('<str:category>', views.get_category_by_string, name="category"),
-    path('map', views.map, name="map")
+    path('map', views.map, name="map"),
+    path('<str:category>', views.get_category_by_string, name="category")
 ]
