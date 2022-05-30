@@ -50,7 +50,7 @@
         </div>
         {% endif %}
         <br> <br>
-
+        {% if all_events %}
         <h1 class="menu-title">All events</h1>
         <div class="option-wrapper">
             <div class="option-rows">
@@ -68,7 +68,9 @@
                 {% endfor %}
             </div>
         </div>
-
+        {% else %}
+            <h1 class="menu-title">Nothing found... </h1>
+        {% endif %}
     </div>
 
 {% endblock %}
