@@ -1,12 +1,18 @@
-let mapOptions = {
-    center:[51.958, 9.141],
-    zoom:10
+var element = document.getElementById('event-map')
+var lat = element.getAttribute('lat')
+var lon = element.getAttribute('lon')
+
+let map;
+let currentMapMarker;
+function initMap() {
+  map = new google.maps.Map(document.getElementById("event-map"), {
+    center: {lat: parseFloat(lat), lng: parseFloat(lon)},
+    zoom: 15,
+  });
+  const marker = new google.maps.Marker({
+    position: {lat: parseFloat(lat), lng: parseFloat(lon)},
+    map: map,
+  });
 }
 
-let map = new L.map('map' , mapOptions);
-
-let layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
-map.addLayer(layer);
-
-let marker = new L.Marker([51.958, 9.141]);
-marker.addTo(map);
+window.initMap = initMap;
