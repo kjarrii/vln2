@@ -70,13 +70,17 @@ def index(request):
     return render(request, 'menu/index.html', context)
 
 def get_category_by_string(request, category):
+    # Parturinn sem sér um keywords
     key = category.lower()
+    keys = key.split(' ')
     org_events = Event.objects.all().order_by('name')
     keyword_events = []
     for event in org_events:
         temp_list_of_keywords = event.keywords.split(',')
-        if key in temp_list_of_keywords:
-            keyword_events.append(event)
+        for word in keys:
+            if word in temp_list_of_keywords:
+                keyword_events.append(event)
+    ##################################
     all_events = []
     utc = pytz.UTC
     curr_date = utc.localize(datetime.datetime.now())
