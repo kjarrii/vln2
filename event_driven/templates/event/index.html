@@ -14,7 +14,7 @@
         <br>{{ event.start }} - {{ event.end }}</p>
         <div class="price-button">
            <h3> {{ event.price_range }}ISK </h3>
-            <button class="normal-butt">Book now</button>
+            <button class="normal-butt" onclick="location.href='/booking/{{ event.id }}'">Book now</button>
         </div>
     </div>
     </div>
