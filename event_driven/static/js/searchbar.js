@@ -6,13 +6,9 @@ searchbar_btn.addEventListener('click', function (){
     window.location.href = searchbar_inp.value
 });
 
-termsCheckBox.addEventListener("click", function () {
-    if (registerButton.disabled === true) {
-        registerButton.disabled = false;
-        registerButton.classList.add("hover")
+searchbar_inp.addEventListener('keypress', function(e) {
+    console.log(e.key)
+    if (e.key === 'Enter') {
+        window.location.href = searchbar_inp.value
     }
-    else {
-        registerButton.disabled = true;
-        registerButton.classList.remove("hover")
-    }
-});
+})
