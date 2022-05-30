@@ -66,7 +66,7 @@ def index(request):
     for event in ordered_selling_out:
         selling_out.append(event[0])
 
-    context = {'most_popular': most_popular, 'selling_out': selling_out, 'all_events': all_events}
+    context = {'most_popular': most_popular, 'selling_out': selling_out, 'all_events': False, 'browse': True}
     return render(request, 'menu/index.html', context)
 
 def get_category_by_string(request, category):

@@ -50,9 +50,32 @@
         </div>
         <br> <br>
         {% endif %}
+        {% if all_events %}
+        <h1 class="menu-title">All events</h1>
+        <div class="option-wrapper">
+            <div class="option-rows">
+                {% for event in all_events %}
+                    <div class="option" onclick="location.href='/event/{{ event.id }}'" style="background-image: url('{{ event.images_as_list.0 }}')">
+                        <div class="img-overlay">
+                            <div class="sameline">
+                                <p class="big-text img-overlay-text">{{ event.name }}</p>
+                                <p class="eventdate big-text img-overlay-text">{{ event.start|date:"M d, Y"}}</p>
+                            </div>
+                            <p class="small-text img-overlay-text">{{ event.address }}</p>
+                            <p class="small-text img-overlay-text">Price ISK: {{ event.price_range }}</p>
+                        </div>
+                    </div>
 
+                {% endfor %}
+            </div>
+        </div>
+        <br> <br>
+        {% endif %}
+
+        {% if browse %}
         <h1 class="menu-title">Browse by category</h1>
         {% include 'menu/browse-by-cat.html' %}
+        {% endif %}
 
     </div>
 
