@@ -21,7 +21,7 @@
         {% endfor %}
     </p>
         <div class="event-detail-box more">
-            <img class="detail-box-map" src="{{ event.image }}" alt="map" />
+            <div class="detail-box-map" id="event-detail-map"></div>
             <p>Total tickets:  {{ event.max }} <br>
                 Sold tickets:  {{ event.tickets_amount }} <br>
                 Price: {{ event.price_range }} <br>
@@ -33,11 +33,14 @@
     <div class="similar-events">
     <h2>Similar events</h2>
     {% for event in events %}
-        {% if forloop.counter <= 4 %}
+        {% if forloop.counter <= 100 %}
         {% include 'event/single_event.html' with event=event %}
         {% endif %}
     {% endfor %}
     </div>
+        <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&v=weekly" async></script>
+    <script src="../../static/js/event.js"></script>
+
 
 
 {% endblock %}
