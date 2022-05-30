@@ -161,3 +161,9 @@ def get_all_events(request):
 
 def map(request):
     return render(request, 'menu/search_result.html')
+
+def search_query(request, search_str):
+    org_events = Event.objects.all().order_by('name')
+    number_of_events = len(org_events)
+    context = {'search_query': search_str, 'number_of_events': number_of_events, 'all_events': org_events}
+    return render(request, 'menu/search_result.html', context)
