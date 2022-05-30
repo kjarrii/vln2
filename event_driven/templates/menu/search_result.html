@@ -3,9 +3,53 @@
 
 {% block content %}
     {% include 'menu/menu-navbar.html' %}
-
-    <h1>Search result síða</h1>
-
     {% include 'menu/menu-searchbar.html' %}
+
+    <div id="menu-body">
+        <h1 class="menu-title">There are X result(s) for: XX</h1>
+
+        <select class="filter-sort-box" id="filter-by-box">
+            <option value="">Select category:</option>
+            <option value="concert">Concerts</option>
+            <option value="theater">Theater</option>
+            <option value="sports">Sports</option>
+            <option value="cinema">Cinema</option>
+        </select>
+
+        <select class="filter-sort-box" id="sort-by-box">
+            <option value="">Sort by:</option>
+            <option value="concert">Most popular</option>
+            <option value="theater">Least popular</option>
+            <option value="sports">Date: Closest</option>
+            <option value="cinema">Date: Furthest</option>
+            <option value="sports">Name: A-Z</option>
+            <option value="cinema">Name: Z-A</option>
+        </select>
+
+
+        <div class="option-wrapper">
+            <div class="option-rows">
+                {% for event in most_popular|slice:":4" %}
+                    <div class="option" onclick="location.href='/event/{{ event.id }}'" style="background-image: url('{{ event.images_as_list.0 }}')">
+                        <div class="img-overlay">
+                            <div class="sameline">
+                                <p class="big-text img-overlay-text">{{ event.name }}</p>
+                                <p class="eventdate big-text img-overlay-text">{{ event.start|date:"M d, Y"}}</p>
+                            </div>
+                            <p class="small-text img-overlay-text">{{ event.address }}</p>
+                            <p class="small-text img-overlay-text">Price ISK: {{ event.price_range }}</p>
+                        </div>
+                    </div>
+
+                {% endfor %}
+            </div>
+        </div>
+        <br> <br>
+
+
+
+    </div>
+
+
 
 {% endblock %}
