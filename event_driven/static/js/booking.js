@@ -15,9 +15,7 @@ function prevPage() {
 
 function loadPage() {
     if (currentPage === 1) {
-        fetch('../../templates/booking/select_tickets.html')
-        .then(response=> response.text())
-        .then(text=> body.innerHTML = text);
+
     }
     else if (currentPage === 2) {
 
