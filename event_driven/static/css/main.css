@@ -27,7 +27,7 @@
 .navbar-option:hover {
   background-color: white;
   color: black;
-  font-size: x-large;
+  font-size: 23px;
   transition: color 0.1s ease-in-out, font-size 0.5s ease-in-out, background-color 0.3s ease-in-out;
 }
 
@@ -43,12 +43,14 @@
   left: 360px;
 }
 
-#family {
+#all-events-btn {
   left: 480px;
+  width: 130px;
 }
 
 #map-btn {
-  left: 600px;
+  left: 610px;
+  width: 110px;
 }
 
 #more-btn {
@@ -75,15 +77,18 @@
 .profile-image-small {
   position: relative;
   top: 10px;
-  width: 50px;
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
   border-radius: 50%;
   border: 3px solid white;
-  transition: width 0.3s ease-in-out, top 0.3s ease-in-out;
+  transition: width 0.3s ease-in-out, height 0.3s ease-in-out, top 0.3s ease-in-out;
 }
 
 #navbar-image-div:hover .profile-image-small {
-  top: 5px;
-  width: 60px;
+  top: 4px;
+  width: 55px;
+  height: 55px;
 }
 
 /* Searchbar: */
@@ -192,7 +197,7 @@
 
 .img-overlay {
   position: relative;
-  height: 14%;
+  height: 12%;
   width: 100%;
   background: rgba(0, 0, 0, 0.5);
   transition: height 0.3s ease-in-out;
@@ -206,11 +211,11 @@
 }
 
 .option:hover .img-overlay {
-  height: 34%;
+  height: 32%;
 }
 
 .option:hover .big-text {
-  font-size: 1.3vw;
+  font-size: 1.1vw;
 }
 
 .option:hover { /*Makes the option box bigger*/
@@ -219,7 +224,7 @@
 }
 
 .big-text {
-  font-size: 1.1vw;
+  font-size: 1vw;
   transition: font-size 0.3s ease-in-out;
 }
 

@@ -9,16 +9,16 @@
 
             {% csrf_token %}
 
-            <a href={% url 'profile' %}>
+            {% comment %}<a href={% url 'profile' %}>{% endcomment %}
                 {% comment %}<div class="navbar-option" id="myacc-btn">Profile</div>{% endcomment %}
-                    <div class="navbar-option" id="navbar-image-div">
+                    <div class="navbar-option" id="navbar-image-div" onclick="dropdown()">
                         {% if user.image %}
                             <input class="profile-image-small" type="image" src="{{ user.image.url }}" alt="User Profile Image">
                         {% else %}
                             <input class="profile-image-small" type="image" src="../static/images/empty_profile.png" alt="User Profile Image">
                         {% endif %}
                     </div>
-            </a>
+            {% comment %}</a>{% endcomment %}
 
 {% comment %}            <a href={% url 'logout' %}>
                 <div class="navbar-option" id="logout-btn">Logout</div>
