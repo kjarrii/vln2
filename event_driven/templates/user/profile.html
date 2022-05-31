@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="{% static "css/profile.css" %}"/>
     <link rel="stylesheet" href="{% static "css/user.css" %}"/>
     <form class="form from-horizontal" method="post" enctype="multipart/form-data">
-    <div>
+    <div class="profile-top-container">
         <div class="img-n-e-container">
             <div>
                 {% csrf_token %}
@@ -27,6 +27,18 @@
                 <input type="text" class="input-text" placeholder="E-mail: {{ user.email }}" name="username" disabled>
             </div>
 
+
+        </div>
+
+        <div class="fav-cat-container">
+            <h3>Favorite categories</h3>
+            <div class="fav-cats">
+                {% for fav in user.favcat_as_list %}
+                <div class="fav-cat">{{ fav }} <a class="del-fav-btn">X</a></div>
+                {% endfor %}
+
+
+            </div>
 
         </div>
     </div>

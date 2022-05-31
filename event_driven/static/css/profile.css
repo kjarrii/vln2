@@ -1,14 +1,61 @@
-.img-n-e-container{
-    display: inline-block;
-    margin: 40px;
+.profile-top-container{
+    display: flex;
     margin-top: 100px;
+
+}
+.img-n-e-container{
+    margin: 0 40px;
     width: 40%;
     background-color: #D7D0D7;
-    border: 6px;
+    border: 6px solid #561357;
     border-radius: 20px;
     position: relative;
     padding: 40px;
     min-width: 600px;
+}
+
+.fav-cat-container{
+    flex-grow: 1;
+    margin-right:40px;
+    background-color: #D7D0D7;
+    border: 6px solid #561357;
+    border-radius: 20px;
+    min-width: 200px;
+    padding: 40px;
+}
+
+.fav-cats{
+    margin:auto;
+    border: 6px solid #561357;
+    border-radius: 10px;
+    padding: 20px;
+    min-height: 450px;
+    background-color: #FFFFFF;
+}
+
+.fav-cat{
+    display: inline-block;
+    background-color: #784279;
+    border-radius: 10px;
+    padding: 5px 10px 5px 30px;
+    color:white;
+    font-weight: bold;
+    margin-bottom: 10px;
+    width: auto;
+}
+
+.del-fav-btn{
+    color: #784279;
+    padding-left: 10px;
+    text-decoration: none;
+}
+
+.fav-cat:hover .del-fav-btn{
+    color: white;
+}
+
+.del-fav-btn:hover{
+    cursor: pointer;
 }
 
 .profile-img{

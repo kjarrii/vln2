@@ -12,6 +12,10 @@ class Users(AbstractUser):
     image = models.ImageField(upload_to='profile_image', blank=True)
     booking_reference = models.CharField(max_length=1000, blank=True)
 
+    def favcat_as_list(self):
+        favcat = self.favorite_categories.split(',')
+        return favcat
+
 class UserProfile(models.Model): # Þarf þennan clasa til að reference-a rétt en veit ekki nákvæmlega af hverju.
     user = models.OneToOneField(Users, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='profile_image', blank=True)
