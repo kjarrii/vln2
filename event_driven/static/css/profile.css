@@ -58,6 +58,13 @@
     cursor: pointer;
 }
 
+.add-cat{
+
+
+    right: 0;
+    bottom: 0;
+}
+
 .profile-img{
     width: 100%;
     border: 12px solid #561357;
@@ -71,7 +78,7 @@
     position: absolute;
     border-radius: 50%;
     right:15px;
-    bottom:200px;
+    top:45%;
     cursor: pointer;
 }
 

@@ -37,13 +37,16 @@
                 <div class="fav-cat">{{ fav }} <a class="del-fav-btn">X</a></div>
                 {% endfor %}
 
-
+                <select class="add-cat"name="Add">
+                    <option value="Halló">Nei</option>
+                </select>
             </div>
-
         </div>
+
     </div>
 
 
+        <br><br><br><br>
         <div class="field">
         <label class="label">Favorite Categories:</label>
         {% render_field form.favorite_categories %}
