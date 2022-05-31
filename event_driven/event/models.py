@@ -35,3 +35,34 @@ class Event(models.Model):
         if max(priceInt) != min(priceInt):
             return "{} - {}".format(min(priceInt), max(priceInt))
         return min(priceInt)
+
+    def tickets_left(self):
+        sold = dict((x.strip(), y.strip())
+        for x, y in (element.split(':')
+        for element in self.tickets_amount.split(',')))
+        soldInt = []
+        for val in sold.values():
+            soldInt.append(int(val))
+
+        maxT = dict((x.strip(), y.strip())
+        for x, y in (element.split(':')
+        for element in self.max.split(',')))
+        maxInt = []
+        for val in maxT.values():
+            maxInt.append(int(val))
+
+        left = []
+        for i in range(len(sold.values())):
+            left.append(maxInt[i] - soldInt[i])
+        re = f"{sum(left):,}"
+        return re
+
+    def total_tickets(self):
+        t = dict((x.strip(), y.strip())
+        for x, y in (element.split(':')
+        for element in self.max.split(',')))
+        totInt = []
+        for val in t.values():
+            totInt.append(int(val))
+        re = f"{sum(totInt):,}"
+        return re
