@@ -1,11 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block content %}
+    <p id="path_url" class="invisible">{{ request.path }}</p>
+    <div id="booking-body">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h1>Selecting Payment</h1>
 
-</body>
-    <script src="../../static/js/select_delivery.js"></script>
-</html>
+
+        <input id='event_id' value=10 type="hidden">
+        <button onclick="go_back()"> Back</button>
+        <button onclick="go_forward()"> Continue</button>
+    </div>
+
+    <form action="{% url 'finish_booking' %}" method="post">
+        {% csrf_token %}
+    {{ form }}
+    <button type="submit", name="save">Finish booking</button>
+    </form>
+    <script src="../../static/js/select_payment.js"></script>
+
+{% endblock %}

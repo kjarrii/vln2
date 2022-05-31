@@ -1,2 +1,5 @@
 let eventid = sessionStorage.getItem('eventid')
-console.log(eventid)
+
+function go_back () {
+    window.location.href = eventid
+}
