@@ -51,8 +51,8 @@ function go_forward (){
     total_tickets.push(split_ticket2[0].toString() + ":" + element3.children[i].value.toString())
     }
     if (verify_input(total_tickets)) {
-        sessionStorage.setItem('selected_tickets', total_tickets);
-        console.log(sessionStorage.getItem('selected_tickets'))
+        sessionStorage.setItem('tickets', total_tickets);
+        console.log(sessionStorage.getItem('tickets'))
         window.location.href = 'select_delivery'
     }
 }

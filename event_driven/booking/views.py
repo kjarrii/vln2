@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from event.models import Event
+from booking.forms import booking_form
 
 # Create your views here.
 def index(request,id):
@@ -32,3 +33,4 @@ def reciept(request):
         return render(request, 'booking/reciept.html', context)
     else:
         return render(request, 'user/login.html')
+
