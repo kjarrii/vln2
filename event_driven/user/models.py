@@ -16,6 +16,11 @@ class Users(AbstractUser):
         favcat = self.favorite_categories.split(',')
         return favcat
 
+    def all_favcat_as_list(self):
+        all_favcat = 'concert,sports,pop,rock,rap,ekkert'
+        return all_favcat
+
+
 class UserProfile(models.Model): # Þarf þennan clasa til að reference-a rétt en veit ekki nákvæmlega af hverju.
     user = models.OneToOneField(Users, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='profile_image', blank=True)
