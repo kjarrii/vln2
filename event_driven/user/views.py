@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
 from user.models import Users
@@ -71,3 +71,9 @@ class RegisterView(generic.CreateView):
     form_class = RegisterForm
     template_name = 'user/register.html'
     success_url = reverse_lazy('login')
+
+
+def get_user_by_id(request, id):
+    return render(request, 'user/profile.html', {
+        'user': get_object_or_404(Users, pk=id)
+    })

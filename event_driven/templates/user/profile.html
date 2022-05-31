@@ -3,16 +3,34 @@
 {% load widget_tweaks %}
 {% block content %}
     <link rel="stylesheet" href="{% static "css/profile.css" %}"/>
-    <br>
-    <br>
-    <br>
+    <link rel="stylesheet" href="{% static "css/user.css" %}"/>
     <form class="form from-horizontal" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
+    <div>
+        <div class="img-n-e-container">
+            <div>
+                {% csrf_token %}
         {% if user.image %}
-            <img src="{{ user.image.url }}" height="500" alt="User Profile Image" />
+            <img class="profile-img" src="{{ user.image.url }}" alt="User Profile Image" />
         {% else %}
-            <img src="../../static/images/empty_profile.png" height="500" alt="User Profile Image" />
+            <img class="profile-img" src="../../static/images/empty_profile.png" alt="User Profile Image" />
         {% endif %}
+            <button class="img-add-button"><span>+</span></button>
+            </div>
+            <br>
+            <br>
+            <div class="input-box" id="user-box">
+                <img src="../../static/images/profile-icon-purple.png" alt="user icon" id="user-icon">
+                <input type="text" class="input-text" placeholder="Name: {{ user.first_name }}" name="first_name">
+            </div>
+            <div class="input-box" id="mail-box" style="background-color: #BDBDBD">
+                <img src="../../static/images/mail-icon-purple.png" alt="mail icon" id="mail-icon">
+                <input type="text" class="input-text" placeholder="E-mail: {{ user.email }}" name="username" disabled>
+            </div>
+
+
+        </div>
+    </div>
+
 
         <div class="field">
         <label class="label">Favorite Categories:</label>

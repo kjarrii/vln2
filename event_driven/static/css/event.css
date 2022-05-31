@@ -52,7 +52,7 @@
 
 .bottom-container-event{
   position: relative;
-    text-align: left;
+  text-align: left;
   color: black;
 }
 
@@ -65,6 +65,7 @@
     padding: 10px;
     padding-left: 30px;
     border-radius: 10px;
+    min-height: 400px;
 }
 .event-detail-box.more {
     position: absolute;

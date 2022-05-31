@@ -1,0 +1,40 @@
+.img-n-e-container{
+    display: inline-block;
+    margin: 40px;
+    margin-top: 100px;
+    width: 40%;
+    background-color: #D7D0D7;
+    border: 6px;
+    border-radius: 20px;
+    position: relative;
+    padding: 40px;
+    min-width: 600px;
+}
+
+.profile-img{
+    width: 100%;
+    border: 12px solid #561357;
+}
+
+.img-add-button{
+    width: 100px;
+    height: 100px;
+    background-color: #FFF;
+    border: 6px solid #561357;
+    position: absolute;
+    border-radius: 50%;
+    right:15px;
+    bottom:200px;
+    cursor: pointer;
+}
+
+.img-add-button span{
+    color: #561357;
+    position: absolute;
+    font-size: 6em;
+    font-weight: bold;
+    top:-32px;
+    left:13px;
+}
+
+
