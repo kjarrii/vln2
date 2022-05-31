@@ -1,22 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
-    <p id="path_url" class="invisible">{{ request.path }}</p>
+    <p id="path_url" style="display:none">{{ request.path }}</p>
     <div id="booking-body">
+        <p id="event_name" style="display:none">{{ event.name }}</p><p id="event_address" style="display:none">{{ event.address }}</p><p id="event_start" style="display:none">{{ event.start }}</p><p id="event_max" style="display:none">{{ event.max }}</p><p id="event_prices" style="display:none">{{ event.prices }}</p><p id="event_end" style="display:none">{{ event.end }}</p><p id="event_tickets_amount" style="display:none">{{ event.tickets_amount }}</p><p id="event_desc" style="display:none">{{ event.desc }}</p><p id="event_image" style="display:none">{{ event.image }}</p><p id="event_lat" style="display:none">{{ event.lat }}</p><p id="event_long" style="display:none">{{ event.long }}</p>
         <br>
         <br>
         <br>
         <br>
         <br>
         <h1>Selecting Tickets</h1>
-        <h1 >{{ event.name }}</h1>
-        <h1> Prices </h1>
-        {% for price in prices %}
-        <h1 >{{ price }}</h1>
-        {% endfor %}
-        <h1> Types of tickets </h1>
-        {% for type in types %}
-        <h1 >{{ type }}</h1>
-        {% endfor %}
+        <div id="ticket_selection" >
+        </div>
 
         <input id='event_id' value=10 type="hidden">
         <button onclick="location.href='select_delivery'"> Continue</button>
