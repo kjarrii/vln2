@@ -235,8 +235,7 @@ def sort_by_most_popular(events):
         most_popular.append(event[0])
     return most_popular
 
-def search_query(request, search_str, category='asdf', method='asdf'):
-
+def search_query(request, search_str):
     arguments = search_str.split('=')
     search_str = arguments[0]
     category = arguments[1]

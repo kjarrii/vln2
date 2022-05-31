@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+    <p id="path_url" class="invisible">{{ request.path }}</p>
     <div id="booking-body">
         <br>
         <br>
@@ -18,10 +19,10 @@
         {% endfor %}
 
         <input id='event_id' value=10 type="hidden">
-        <button onclick=""> Continue</button>
+        <button onclick="location.href='select_delivery'"> Continue</button>
     </div>
 
 
-    <script src="../../static/js/booking.js"></script>
+    <script src="../../static/js/select_tickets.js"></script>
 
 {% endblock %}

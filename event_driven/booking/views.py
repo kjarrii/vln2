@@ -17,3 +17,10 @@ def index(request,id):
     else:
         return render(request, 'user/login.html')
 
+
+def select_delivery(request):
+    context = {}
+    if request.user.is_authenticated:
+        return render(request, 'booking/select_delivery.html', context)
+    else:
+        return render(request, 'user/login.html')
