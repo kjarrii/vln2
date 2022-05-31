@@ -21,7 +21,7 @@
     background-color: #D7D0D7;
     border: 6px solid #561357;
     border-radius: 20px;
-    min-width: 200px;
+    min-width: 400px;
     padding: 40px;
 }
 
@@ -69,6 +69,7 @@
 .profile-img{
     width: 100%;
     border: 12px solid #561357;
+    aspect-ratio: 5/3;
 }
 
 .img-add-button{
@@ -79,7 +80,7 @@
     position: absolute;
     border-radius: 50%;
     right:15px;
-    top:45%;
+    top: 280px;
     cursor: pointer;
 }
 
@@ -88,7 +89,7 @@
     position: absolute;
     font-size: 6em;
     font-weight: bold;
-    top:-32px;
+    top:-34px;
     left:13px;
 }
 
