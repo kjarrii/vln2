@@ -10,14 +10,17 @@
         <div class="img-n-e-container">
             <div>
                 {% csrf_token %}
-        {% if user.image %}
-            <img class="profile-img" src="{{ user.image.url }}" alt="User Profile Image" />
-        {% else %}
-            <img class="profile-img" src="../../static/images/empty_profile.png" alt="User Profile Image" />
-        {% endif %}
-            <input class="img-add-button" type="file" name="image" accept="image/*" id="id_image" value="+">
-            {% comment %}<button class="img-add-button"><span>+</span></button>{% endcomment %}
+                {% if user.image %}
+                    <img class="profile-img" src="{{ user.image.url }}" alt="User Profile Image" />
+                {% else %}
+                    <img class="profile-img" src="../../static/images/empty_profile.png" alt="User Profile Image" />
+                {% endif %}
+
+                <label for="upload-btn" class="btn btn-default">mella</label>
+                <input id="upload-btn" class="img-add-button" type="file" name="image" accept="image/*" id="id_image" value="+">
+                {% comment %}<button class="img-add-button"><span>+</span></button>{% endcomment %}
             </div>
+
             <br>
             <br>
             <div class="input-box" id="user-box">
