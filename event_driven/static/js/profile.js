@@ -1,5 +1,15 @@
 
 
+function pop_fav() {
+    let element = document.getElementById('favorite_categories');
+    let now_fav = element.getAttribute('nowFav');
+    const fav = now_fav.split(",");
+        for (let i = 0; i < fav.length; i++) {
+            let di = document.createElement('div');
+            di.innerHTML = '<div class="fav-cat">'+ fav[i] +'<a class="del-fav-btn" >X</a></div>';
+            element.appendChild(di);
+}}
+
 function not_fav() {
     let element = document.getElementById('favorite_categories');
     let now_fav = element.getAttribute('nowFav');
@@ -11,11 +21,13 @@ function not_fav() {
 
     let drp = document.getElementById('fav-dropdwn');
     for(var i = 0; i < notFav.length; i++) {
-        var opt = notFav[i].charAt(0).toUpperCase() + notFav[i].slice(1);;
+        var opt = notFav[i];
         var el = document.createElement("option");
         el.textContent = opt;
         el.value = opt;
         drp.appendChild(el);
+
 }}
 
 not_fav()
+pop_fav()
