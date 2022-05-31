@@ -185,10 +185,91 @@ def contains_keyword(query, events):
                         return_list.append(event)
     return return_list
 
-def search_query(request, search_str, category, method):
+def sort_by_category(category, events):
+    return_list = []
+    for event in events:
+        keywords_string = event.keywords
+        keywords = keywords_string.split(',')
+        for word in keywords:
+            if word.lower() == category.lower():
+                if event not in return_list:
+                    return_list.append(event)
+    return return_list
+
+def sort_by_furthest(events):
+    return_list = []
+    for event in events:
+        if len(return_list) == 0:
+            return_list.append(event)
+        else:
+            for i in range(0, len(return_list)):
+                if return_list[i].start < event.start:
+                    return_list.insert(i, event)
+                    break
+            if event not in return_list:
+                return_list.append(event)
+    return return_list
+
+def sort_by_most_popular(events):
+    ordered_events = []
+    most_popular = []
+    for event in events: # Creates most popular list
+        types = event.tickets_amount.split(',')
+        total_tickets = 0
+        for ticket_type in types: # Splits all tickets and counts the total
+            tickets = ticket_type.split(':')
+            total_tickets += int(tickets[1])
+        if len(ordered_events) == 0:
+            ordered_events.append([event, total_tickets])
+        else:
+            inserted = False
+            for i in range(0, len(ordered_events)):
+                if ordered_events[i][1] < total_tickets:
+                    ordered_events.insert(i, [event, total_tickets])
+                    inserted = True
+                    break
+            if not inserted:
+                ordered_events.append([event, total_tickets])
+
+    for event in ordered_events:
+        most_popular.append(event[0])
+    return most_popular
+
+def search_query(request, search_str, category='asdf', method='asdf'):
+
+    arguments = search_str.split('=')
+    search_str = arguments[0]
+    category = arguments[1]
+    method = arguments[2]
     org_events = Event.objects.all().order_by('name')
     future_events = only_future(org_events)
     keyword_list = contains_keyword(search_str, future_events)
-    number_of_events = len(keyword_list)
-    context = {'search_query': search_str, 'number_of_events': number_of_events, 'all_events': keyword_list}
+    if category != 'any':
+        category_list = sort_by_category(category, keyword_list)
+    else:
+        category_list = keyword_list
+    if method != 'any':
+        if method == 'most_popular':
+            method_list = sort_by_most_popular(category_list)
+        elif method == 'least_popular':
+            temp = sort_by_most_popular(category_list)
+            temp.reverse()
+            method_list = temp
+        elif method == 'closest':
+            temp = sort_by_furthest(category_list)
+            temp.reverse()
+            method_list = temp
+        elif method == 'furthest':
+            method_list = sort_by_furthest(category_list)
+        elif method == 'a-z':
+            method_list = category_list
+        elif method == 'z-a':
+            category_list.reverse()
+            method_list = category_list
+        else:
+            method_list = category_list
+    else:
+        method_list = category_list
+    number_of_events = len(method_list)
+    context = {'search_query': search_str, 'number_of_events': number_of_events, 'all_events': method_list}
     return render(request, 'menu/search_result.html', context)
