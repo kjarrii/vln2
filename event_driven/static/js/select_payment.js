@@ -23,7 +23,7 @@ function delete_this_function() {
 function go_forward (){
     delete_this_function()
     if (verify_input()) {
-        console.log(sessionStorage.getItem('selected_tickets'))
+        console.log(sessionStorage.getItem('tickets'))
         window.location.href = 'reciept'
     }
 }

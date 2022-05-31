@@ -30,7 +30,13 @@ def select_payment(request):
 def reciept(request):
     context = {}
     if request.user.is_authenticated:
+        form = booking_form
         return render(request, 'booking/reciept.html', context)
     else:
         return render(request, 'user/login.html')
 
+
+def finish_booking(request):
+    form = booking_form
+    context = {"form": form}
+    return render(request, 'booking/select_payment.html', context)
