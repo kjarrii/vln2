@@ -26,9 +26,9 @@
     </p>
         <div class="event-detail-box more">
             <div class="detail-box-map" id="event-map" lat="{{ event.lat }}" lon="{{ event.long }}"></div>
-            <p>Total tickets: {{ event.max }} <br>
-                Sold tickets: {{ event.tickets_amount }} <br>
-                {% comment %} Tickets left: {{ events.tickets|sub:events.tickets_sold }} {% endcomment %} </p>
+        <p style="font-size: larger"> <span style="font-weight: bold">Total tickets: </span>{{ event.total_tickets }} <br>
+                <span style="font-weight: bold">Tickets left: </span>{{ event.tickets_left }} </p>
+                {% comment %} Tickets left: {{ events.tickets|sub:events.tickets_sold }} {% endcomment %}
         </div>
         <br>
     </div>

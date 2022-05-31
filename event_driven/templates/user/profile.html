@@ -4,18 +4,22 @@
 {% block content %}
     <link rel="stylesheet" href="{% static "css/profile.css" %}"/>
     <link rel="stylesheet" href="{% static "css/user.css" %}"/>
+
     <form class="form from-horizontal" method="post" enctype="multipart/form-data">
     <div class="profile-top-container">
         <div class="img-n-e-container">
             <div>
                 {% csrf_token %}
-        {% if user.image %}
-            <img class="profile-img" src="{{ user.image.url }}" alt="User Profile Image" />
-        {% else %}
-            <img class="profile-img" src="../../static/images/empty_profile.png" alt="User Profile Image" />
-        {% endif %}
-            <button class="img-add-button"> {% render_field form.image %} <span>+</span></button>
+                {% if user.image %}
+                    <img class="profile-img" src="{{ user.image.url }}" alt="User Profile Image" />
+                {% else %}
+                    <img class="profile-img" src="../../static/images/empty_profile.png" alt="User Profile Image" />
+                {% endif %}
+
+                <input id="upload-btn" class="img-add-button" type="file" name="image" accept="image/*" id="id_image" value="+">
+                <label for="upload-btn" class="img-add-button"><span>+</span></label>
             </div>
+
             <br>
             <br>
             <div class="input-box" id="user-box">
@@ -53,15 +57,16 @@
         <h2>Events for you</h2>
     </div>
 
-        <div class="field">
+
+        <div class="field" style="display: none">
         <label class="label">Favorite Categories:</label>
         {% render_field form.favorite_categories %}
         </div>
 
-        <div class="image_field">
-        <label class="label">Image:</label>
-        {% render_field form.image %}
-        </div>
+{% comment %}        <div class="image_field">
+            DJANGO ER RUSL
+        <input type="file" name="image" accept="image/*" id="id_image">
+        </div>{% endcomment %}
 
         <input type="submit" class="btn btn-primary" value="Update" />
     </form>
