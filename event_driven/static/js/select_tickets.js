@@ -6,4 +6,53 @@ let path_text2 = path_h2.textContent
 let temp12 = path_text2.split('/')
 let url_eventid = temp12[2]
 sessionStorage.setItem("eventid", url_eventid);
-//////////////
+
+
+
+
+////////////// Populate html
+let types_of_tickest = sessionStorage.getItem('event_prices').split(',')
+for (i in types_of_tickest) {
+    split_ticket = types_of_tickest[i].split(':')
+    var tag = document.createElement("p");
+    var text = document.createTextNode(split_ticket[0]);
+    tag.appendChild(text);
+    var element = document.getElementById("ticket_type");
+    element.appendChild(tag);
+}
+for (i in types_of_tickest) {
+    split_ticket2 = types_of_tickest[i].split(':')
+    var tag2 = document.createElement("p");
+    var text2 = document.createTextNode(split_ticket2[1] + " kr");
+    tag2.appendChild(text2);
+    var element2 = document.getElementById("ticket_price");
+    element2.appendChild(tag2);
+}
+
+for (i in types_of_tickest) {
+    var mi = document.createElement("input");
+    mi.setAttribute('type', 'number');
+    mi.setAttribute('value', '0');
+    var element3 = document.getElementById("ticket_amount");
+    element3.appendChild(mi)
+}
+
+
+//// Exporting
+function verify_input(total_tickets) {
+    return true
+}
+
+function go_forward (){
+    var total_tickets = []
+    for (i in types_of_tickest) {
+    split_ticket2 = types_of_tickest[i].split(':')
+    let test = 3000
+    total_tickets.push(split_ticket2[0].toString() + ":" + element3.children[i].value.toString())
+    }
+    if (verify_input(total_tickets)) {
+        sessionStorage.setItem('selected_tickets', total_tickets);
+        console.log(sessionStorage.getItem('selected_tickets'))
+        window.location.href = 'select_delivery'
+    }
+}
