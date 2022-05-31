@@ -1,8 +1,7 @@
 .profile-top-container{
     display: flex;
-    margin: 100px auto;
+    margin: 100px auto 0px;
     max-width: 1500px;
-
 
 }
 .img-n-e-container{
@@ -23,6 +22,7 @@
     border-radius: 20px;
     min-width: 400px;
     padding: 40px;
+
 }
 
 .fav-cats{
@@ -32,6 +32,7 @@
     padding: 20px;
     min-height: 450px;
     background-color: #FFFFFF;
+    position: relative;
 }
 
 .fav-cat{
@@ -60,16 +61,17 @@
 }
 
 .add-cat{
-
-
-    right: 0;
-    bottom: 0;
+    position:absolute;
+    right: 20px;
+    bottom: 20px;
+    padding-left: 10px;
 }
 
 .profile-img{
     width: 100%;
     border: 12px solid #561357;
     aspect-ratio: 5/3;
+    object-fit: cover;
 }
 
 .img-add-button{
@@ -93,4 +95,24 @@
     left:13px;
 }
 
+.butt-container {
+    display: flex;
+    margin: 30px auto 50px;
+    max-width: 1500px;
+    position: relative;
+    min-height: 50px;
 
+
+}
+
+.save-button {
+    position: absolute;
+    right: 40px;
+    color: rgba(255, 255, 255, 1);
+  background: rgba(86, 19, 87, 1);
+  width: 200px;
+  font-size: 2em;
+  cursor: pointer;
+  border-radius: 0.4em;
+    border: none;
+}

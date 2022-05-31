@@ -37,16 +37,23 @@
                 <div class="fav-cat">{{ fav }} <a class="del-fav-btn">X</a></div>
                 {% endfor %}
 
-                <select class="add-cat"name="Add">
-                    <option value="Halló">Nei</option>
+                <select class="fav-cat add-cat">
+                    <option value="0">Add category</option>
+                    <option value="1">Nei</option>
                 </select>
             </div>
         </div>
 
     </div>
 
+    <div class="butt-container">
+        <input type="submit" class="save-button" value="Save" />
+    </div>
 
-        <br><br><br><br>
+    <div class="similar-events">
+        <h2>Events for you</h2>
+    </div>
+
         <div class="field">
         <label class="label">Favorite Categories:</label>
         {% render_field form.favorite_categories %}
