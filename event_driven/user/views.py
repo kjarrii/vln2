@@ -19,7 +19,7 @@ def my_tickets_upcoming(request):
     context = {'events': org_events, 'bookings': org_bookings}
     return render(request, 'user/myticket_upcoming.html', context)
 
-def my_tickets_upcoming(request):
+def my_tickets_past(request):
     #org_bookings = Bookings.objects.filter(userid=request.user).first()
     org_bookings = Bookings.objects.filter(userid=str(request.user))
     print("asdf")
