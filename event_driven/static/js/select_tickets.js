@@ -49,13 +49,14 @@ for (i in types_of_tickest) {
 // sum of prices
 for (i in types_of_tickest) {
     var tag3 = document.createElement("p");
-    var totalCalculated = document.createTextNode(0 + " kr");
+    var totalCalculated = document.createTextNode('');
     tag3.appendChild(totalCalculated);
     var element4 = document.getElementById("total");
     element4.appendChild(tag3);
 }
     var lin = document.createElement("hr");
-    lin.style.border = "5px solid black";
+    lin.setAttribute('class', 'totalLine');
+    lin.style.display = "none";
     element4.appendChild(lin);
 
 
@@ -79,15 +80,13 @@ function total(){
         totArr.push(parseInt(amountArr[i]) * parseInt(priceArr[i]));
     }
 
-    console.log(element4);
-    console.log(tag3);
-    console.log(totalCalculated);
-    for (let i in totalCalculated) {
-        totalCalculated[i].nodeValue = totArr[i] + ' kr';
+    for (let i in totArr) {
+        element4.children[i].innerHTML = totArr[i].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ' kr';
     }
+    lin.style.display = "block";
 
     let sum = totArr.reduce((partialSum, a) => partialSum + a, 0);
-    toto_by_africa.nodeValue = sum + " kr";
+    toto_by_africa.nodeValue = sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " kr";
 
 }
 

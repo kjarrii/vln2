@@ -143,3 +143,9 @@
     margin: 300px 0;
     max-width: 50px;
 }
+
+.totalLine {
+    width: 120px;
+    height: 10px;
+    border: 5px solid rgba(0,0,0,1);
+}
