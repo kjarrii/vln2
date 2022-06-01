@@ -58,7 +58,9 @@ class Event(models.Model):
         for i in range(len(sold.values())):
             left.append(maxInt[i] - soldInt[i])
         re = sum(left)
-        return re
+        if sum(left) < 1000:
+            return re
+        return '{:,}'.format(sum(left)).replace(',', '.')
 
     def total_tickets(self):
         t = dict((x.strip(), y.strip())
@@ -67,5 +69,6 @@ class Event(models.Model):
         totInt = []
         for val in t.values():
             totInt.append(int(val))
-        re = f"{sum(totInt):,}"
-        return re
+        if sum(totInt) < 1000:
+            return sum(totInt)
+        return '{:,}'.format(sum(totInt)).replace(',', '.')
