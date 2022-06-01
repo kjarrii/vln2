@@ -4,13 +4,64 @@
 {% block content %}
     <p id="path_url" class="invisible">{{ request.path }}</p>
     <div id="booking-body">
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <h1>Selecting Payment</h1>
+        <br> <br> <br> <br>
 
+        <div class="center-div">
+            <div class="booking-top-section">
+                <a href=""><div class="btn-div"><button id="btn1" class="booking-nav-btn">1</button> <label class="booking-nav-btn-text" for="btn1">Select ticket(s)</label></div></a>
+                <a href=""><div class="btn-div"><button id="btn2" class="booking-nav-btn">2</button> <label class="booking-nav-btn-text" for="btn1">Delivery</label></div></a>
+                <a href=""><div class="btn-div"><button id="btn3" class="active-btn booking-nav-btn">3</button> <label class="active-text booking-nav-btn-text" for="btn1">Payment</label></div></a>
+                <a href=""><div class="btn-div"><button id="btn4" class="booking-nav-btn">4</button> <label class="booking-nav-btn-text" for="btn1">Receipt</label></div></a>
+            </div>
+        </div>
+        <br> <br> <br> <br>
+        <h3>Payment</h3>
+        <div class="payment-container">
+
+            <div class="center-div">
+
+                <div class="with-border smallest-event-box">
+                    <div class="delivery-content">
+                        <div class="delivery-text" style="margin-left: -20px;">
+                            <label>Cardholder name:</label> <br>
+                            <label>Card number:</label><br>
+                            <label>Expiration date:</label><br>
+                        </div>
+                        <div class="delivery-input">
+                            <input id="name_on_card_input" required> <br>
+                            <input id="card_number_input" required> <br>
+                            <input id="expiration_date_input" type="number" style="width: 100px;" required>
+                            <label style="margin-left: 34px;">CVC:</label>
+                            <input id="cvc_input" type="number" style="width: 100px;" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="center-div">
+                <div class="black small-event-box">
+                    <div class="smaller-content">
+                        <div>Type</div>
+                        <div>Price</div>
+                        <div>Amount</div>
+                        <div>Total</div>
+                    </div>
+                </div>
+            </div>
+        <br>
+        <div class="center-div">
+            <div class="with-border small-event-box">
+                <div class="smaller-content">
+                    <div id="ticket_type">
+                    </div>
+                    <div id="ticket_price">
+                    </div>
+                    <div class="ticket-amount" id="ticket_amount">
+                    </div>
+                    <div id="total"></div>
+                </div>
+            </div>
+        </div>
+        </div>
         <div>
             <label>Name on card:</label>
             <input id="name_on_card_input">
@@ -38,8 +89,11 @@
 
 
 
-        <button onclick="go_back()"> Back</button>
-        <button onclick="go_forward()"> Continue</button>
+        <div class="button-cont">
+            <button onclick="go_back()" class="normal-butt" style="left:0"> Back</button>
+            <button onclick="go_forward()" class="normal-butt" > Continue</button>
+        </div>
+        <br><br><br><br>
     </div>
 
     <form class="form form-horizontal" style="display: none" action="{% url 'select_payment' %}" method="post">

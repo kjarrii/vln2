@@ -200,3 +200,10 @@
     margin-right: 30px;
 }
 
+.payment-container {
+    display: grid;
+    white-space: nowrap;
+    grid-template-columns: 600px 350px;
+    grid-gap: 50px;
+    position: relative;
+}
