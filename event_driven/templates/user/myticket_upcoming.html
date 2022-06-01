@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static "css/mytickets.css" %}"/>
+
+    <br> <br> <br> <br> <br>
+    <div class="my-tickets-body">
+
+        <div class="my-tickets-top">
+            <button id="upcoming" class="active-btn my-tickets-btn">Upcoming</button>
+            <button id="past" class="my-tickets-btn">Past</button>
+        </div>
+        <hr>
+
+        <h3 class="you-have-title">You have XX upcoming events</h3>
+
+        <div class="center-div">
+            <div class="ticket-box">
+
+                <div class="event-ticket-box">
+                    <img class="event-ticket-img" src="../../static/images/sturla2.jpeg">
+                    <div class="event-ticket-info">
+                        <h3 class="event-ticket-title">Birnir</h3>
+                        <h5>Location:  Gróttuhöllin</h5>
+                        <h5>Date:  21. júní 2022, 22:00-12:00</h5>
+                        <br> <br> <br>
+                        <h6>Booking number: 123</h6>
+                    </div>
+                    <div class="view-ticket-img-div"><img class="view-ticket-img" src="../../static/images/view-ticket.png"></div>
+
+                </div>
+
+                <br> <br>
+            </div>
+        </div>
+
+        <br> <br> <br> <br> <br> <br> <br> <br>
+
+
+    </div>
+
+{% endblock %}

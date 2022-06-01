@@ -1,44 +1,17 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.forms import AuthenticationForm
 from user.models import Users
 from user.forms.profile_form import ProfileForm
-from user.forms.register_form import RegisterForm
-from user.forms.login_form import LoginForm
 from django.contrib.auth import views as auth_views
 from django.views import generic
 from django.urls import reverse_lazy
+from event.models import Event
+from booking.models import Bookings
 
 from user.forms.forms import LoginForm, RegisterForm
 # Create your views here.
 
-
-#def register(request):
-#    if request.method == 'POST':
-#        form = RegisterForm(data=request.POST)
-#        if form.is_valid():
-#            form.save()
-#            return redirect('login')
-#    return render(request, 'user/register.html', {
-#        'form': RegisterForm()
-#    })
-
-
-#def profile(request):
-#    #profile = Users.objects.get(email__exact='karigeorgs@gmail.com')
-#    profile = Users.objects.filter(email=request.user).first()
-#    if request.method == 'POST':
-#        form = ProfileForm(instance=profile, data=request.POST)
-#        if form.is_valid():
-#            profile = form.save(commit=False)
-#            profile.user = request.user
-#            profile.save()
-#            return redirect('profile')
-#    return render(request, 'user/profile.html', {
-#        'form': ProfileForm(instance=profile)
-#    })
-def my_tickets(request):
-    return render(request, 'user/mytickets.html')
+def my_tickets_upcoming(request):
+    return render(request, 'user/myticket_upcoming.html')
 
 def profile(request):
     profile = Users.objects.filter(email=request.user).first()
@@ -53,14 +26,6 @@ def profile(request):
     else:
         form = ProfileForm()
     return render(request, 'user/profile.html', {'form': ProfileForm(instance=profile)})
-
-#def login(request):
-#    if request.method == 'POST':
-#        form = LoginForm(data=request.POST)
-#        if form.is_valid():
-#            return redirect('/')
-#    return render(request, 'user/login.html', {'form': form})
-
 
 
 class LoginView(auth_views.LoginView):
