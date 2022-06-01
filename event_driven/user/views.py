@@ -11,11 +11,22 @@ from user.forms.forms import LoginForm, RegisterForm
 # Create your views here.
 
 def my_tickets_upcoming(request):
-    org_events = Event.objects.all().order_by('name')
-    org_bookings = Bookings.objects.all().order_by('name')
+    #org_bookings = Bookings.objects.filter(userid=request.user).first()
+    org_bookings = Bookings.objects.filter(userid=str(request.user))
+    print("asdf")
+    print(org_bookings)
+    org_events = []
     context = {'events': org_events, 'bookings': org_bookings}
     return render(request, 'user/myticket_upcoming.html', context)
 
+def my_tickets_upcoming(request):
+    #org_bookings = Bookings.objects.filter(userid=request.user).first()
+    org_bookings = Bookings.objects.filter(userid=str(request.user))
+    print("asdf")
+    print(org_bookings)
+    org_events = []
+    context = {'events': org_events, 'bookings': org_bookings}
+    return render(request, 'user/myticket_past.html', context)
 def profile(request):
     profile = Users.objects.filter(email=request.user).first()
     if request.method == 'POST':
