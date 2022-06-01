@@ -38,6 +38,9 @@ for (i in types_of_tickest) {
     var mi = document.createElement("input");
     mi.setAttribute('type', 'number');
     mi.setAttribute('value', '0');
+    mi.setAttribute('max', '10');
+    mi.setAttribute('min', '0');
+    mi.style.margin = "3px 100px 3px 3px";
     var element3 = document.getElementById("ticket_amount");
     element3.appendChild(mi)
 }

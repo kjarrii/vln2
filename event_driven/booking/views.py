@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 from event.models import Event
-from booking.forms import booking_form
+from booking.forms.booking_form import BookingForm
 
 # Create your views here.
 def index(request,id):
@@ -21,22 +21,22 @@ def select_delivery(request):
         return render(request, 'user/login.html')
 
 def select_payment(request):
-    context = {}
     if request.user.is_authenticated:
-        return render(request, 'booking/select_payment.html', context)
+        if request.method == 'POST':
+            form = BookingForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return HttpResponseRedirect('reciept')
+        else:
+            form = BookingForm()
+            context = {'form': form}
+            return render(request, 'booking/select_payment.html', context)
     else:
         return render(request, 'user/login.html')
 
 def reciept(request):
-    context = {}
     if request.user.is_authenticated:
-        form = booking_form
+        context = {}
         return render(request, 'booking/reciept.html', context)
     else:
         return render(request, 'user/login.html')
-
-
-def finish_booking(request):
-    form = booking_form
-    context = {"form": form}
-    return render(request, 'booking/select_payment.html', context)

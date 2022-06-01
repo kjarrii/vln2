@@ -69,10 +69,23 @@ a {
     height: 60px;
 }
 
+.small-event-box{
+    width: 800px;
+    padding: 15px 0;
+}
+
 .event-box-content {
     margin-left: 50px;
     display: grid;
     grid-template-columns: 270px 240px 240px 240px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.smaller-content{
+    margin-left: 50px;
+    display: grid;
+    grid-template-columns: 230px 185px 185px 185px;
     font-weight: bold;
     font-size: 20px;
 }
@@ -90,6 +103,27 @@ a {
     align-items: center;
 }
 
+.with-border {
+    color: black;
+    background-color: #D7D0D7;
+    width: 800px;
+    border: 4px solid #561357;
+}
 
+.button-cont{
+    width: 1000px;
+    position: relative;
+    margin: auto;
+}
 
-
+.cont-button  {
+        position: absolute;
+    right: 0;
+    color: rgba(255, 255, 255, 1);
+  background: rgba(86, 19, 87, 1);
+  width: 200px;
+  font-size: 2em;
+  cursor: pointer;
+  border-radius: 0.4em;
+    border: none;
+}
