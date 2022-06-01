@@ -40,34 +40,84 @@ for (i in types_of_tickest) {
     mi.setAttribute('value', '0');
     mi.setAttribute('max', '10');
     mi.setAttribute('min', '0');
-    mi.setAttribute('class', 'amount')
-
-    let less = document.createElement("button"); //Mínustakki
-    less.setAttribute("onClick", "this.parentNode.querySelector('input[type=number]').stepDown()");
-    let more = document.createElement("button"); //Plústakki
-    more.setAttribute("onClick", "this.parentNode.querySelector('input[type=number]').stepUp()");
-    more.setAttribute("class", "plus");
+    mi.style.margin = "5px 100px 5px 0px";
+    mi.onchange = total;
     var element3 = document.getElementById("ticket_amount");
-    element3.appendChild(less)
     element3.appendChild(mi)
-    element3.appendChild(more)
+}
+
+// sum of prices
+for (i in types_of_tickest) {
+    var tag3 = document.createElement("p");
+    var totalCalculated = document.createTextNode('');
+    tag3.appendChild(totalCalculated);
+    var element4 = document.getElementById("total");
+    element4.appendChild(tag3);
+}
+    var lin = document.createElement("hr");
+    lin.setAttribute('class', 'totalLine');
+    lin.style.display = "none";
+    element4.appendChild(lin);
+
+
+    let toto_by_africa = document.createTextNode('');
+    element4.appendChild(toto_by_africa);
+
+// Total calculations
+function total(){
+    let nooftickets = element3.children;
+    let amountArr = [];
+    for (let i in nooftickets){
+        amountArr.push(nooftickets[i].value)
+    }
+    let priceArr = [];
+    for (let i in types_of_tickest) {
+        let tkt_price = types_of_tickest[i].split(':');
+        priceArr.push(tkt_price[1]);
+    }
+    let totArr = [];
+    for (let i in priceArr){
+        totArr.push(parseInt(amountArr[i]) * parseInt(priceArr[i]));
+    }
+
+    for (let i in totArr) {
+        element4.children[i].innerHTML = totArr[i].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ' kr';
+    }
+    lin.style.display = "block";
+
+    let sum = totArr.reduce((partialSum, a) => partialSum + a, 0);
+    toto_by_africa.nodeValue = sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " kr";
+
 }
 
 //// Exporting
 function verify_input(total_tickets) {
-    return true
+    let total = 0
+    for (i in total_tickets) {
+        let temp = total_tickets[i].split(':')
+        total = total + parseInt(temp[1])
+    }
+    if (total > 0 && total <= 10) {
+        return true
+    }
+    else {
+        return false
+    }
 }
 
 function go_forward (){
     var total_tickets = []
     for (i in types_of_tickest) {
-    split_ticket2 = types_of_tickest[i].split(':')
-    let test = 3000
-    total_tickets.push(split_ticket2[0].toString() + ":" + element3.children[i].value.toString())
+        split_ticket2 = types_of_tickest[i].split(':')
+        if (element3.children[i].value !== '') {
+            total_tickets.push(split_ticket2[0].toString() + ":" + element3.children[i].value.toString())
+        }
+        else {
+            total_tickets.push(split_ticket2[0].toString() + ":" + '0')
+        }
     }
     if (verify_input(total_tickets)) {
         sessionStorage.setItem('tickets', total_tickets);
-        console.log(sessionStorage.getItem('tickets'))
         window.location.href = 'select_delivery'
     }
 }
