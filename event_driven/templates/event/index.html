@@ -35,8 +35,9 @@
     </div>
 
     <br> <br> <br> <br>
+
     <div class="similar-events">
-    <h2>Similar events</h2>
+    <h1 class="menu-title">Similar events</h1>
     <div class="option-wrapper">
             <div class="option-rows">
                 {% for event in similar_events|slice:":4" %}
@@ -54,9 +55,9 @@
             </div>
         </div>
     </div>
+
     <script src="../../static/js/event.js"></script>
-    <script
-      src="https://maps.googleapis.com/maps/api/js?callback=initMap&v=weekly" async></script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&v=weekly" async></script>
 
 {% endblock %}
 
