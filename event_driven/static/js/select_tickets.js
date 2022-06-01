@@ -40,17 +40,55 @@ for (i in types_of_tickest) {
     mi.setAttribute('value', '0');
     mi.setAttribute('max', '10');
     mi.setAttribute('min', '0');
-    mi.setAttribute('class', 'amount')
-
-    let less = document.createElement("button"); //Mínustakki
-    less.setAttribute("onClick", "this.parentNode.querySelector('input[type=number]').stepDown()");
-    let more = document.createElement("button"); //Plústakki
-    more.setAttribute("onClick", "this.parentNode.querySelector('input[type=number]').stepUp()");
-    more.setAttribute("class", "plus");
+    mi.style.margin = "5px 100px 5px 0px";
+    mi.onchange = total;
     var element3 = document.getElementById("ticket_amount");
-    element3.appendChild(less)
     element3.appendChild(mi)
-    element3.appendChild(more)
+}
+
+// sum of prices
+for (i in types_of_tickest) {
+    var tag3 = document.createElement("p");
+    var totalCalculated = document.createTextNode(0 + " kr");
+    tag3.appendChild(totalCalculated);
+    var element4 = document.getElementById("total");
+    element4.appendChild(tag3);
+}
+    var lin = document.createElement("hr");
+    lin.style.border = "5px solid black";
+    element4.appendChild(lin);
+
+
+    let toto_by_africa = document.createTextNode('');
+    element4.appendChild(toto_by_africa);
+
+// Total calculations
+function total(){
+    let nooftickets = element3.children;
+    let amountArr = [];
+    for (let i in nooftickets){
+        amountArr.push(nooftickets[i].value)
+    }
+    let priceArr = [];
+    for (let i in types_of_tickest) {
+        let tkt_price = types_of_tickest[i].split(':');
+        priceArr.push(tkt_price[1]);
+    }
+    let totArr = [];
+    for (let i in priceArr){
+        totArr.push(parseInt(amountArr[i]) * parseInt(priceArr[i]));
+    }
+
+    console.log(element4);
+    console.log(tag3);
+    console.log(totalCalculated);
+    for (let i in totalCalculated) {
+        totalCalculated[i].nodeValue = totArr[i] + ' kr';
+    }
+
+    let sum = totArr.reduce((partialSum, a) => partialSum + a, 0);
+    toto_by_africa.nodeValue = sum + " kr";
+
 }
 
 //// Exporting
