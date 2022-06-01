@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% load static %}
 
 {% block content %}
     <link rel="stylesheet" href="{% static "css/mytickets.css" %}"/>
@@ -8,8 +7,8 @@
     <div class="my-tickets-body">
 
         <div class="my-tickets-top">
-            <button id="upcoming" class="my-tickets-btn" onclick="location.href={% url "my_tickets_upcoming" %}">Upcoming</button>
-            <button id="past" class="active-btn my-tickets-btn" onclick="location.href={% url "my_tickets_past" %}">Past</button>
+            <button id="upcoming" class="my-tickets-btn" onclick="location.href={% url "user/my_tickets_upcoming" %}">Upcoming</button>
+            <button id="past" class="active-btn my-tickets-btn" onclick="location.href={% url "user/my_tickets_past" %}">Past</button>
         </div>
         <hr>
 
