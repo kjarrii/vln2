@@ -93,19 +93,32 @@ function total(){
 
 //// Exporting
 function verify_input(total_tickets) {
-    return true
+    let total = 0
+    for (i in total_tickets) {
+        let temp = total_tickets[i].split(':')
+        total = total + parseInt(temp[1])
+    }
+    if (total > 0 && total <= 10) {
+        return true
+    }
+    else {
+        return false
+    }
 }
 
 function go_forward (){
     var total_tickets = []
     for (i in types_of_tickest) {
-    split_ticket2 = types_of_tickest[i].split(':')
-    let test = 3000
-    total_tickets.push(split_ticket2[0].toString() + ":" + element3.children[i].value.toString())
+        split_ticket2 = types_of_tickest[i].split(':')
+        if (element3.children[i].value !== '') {
+            total_tickets.push(split_ticket2[0].toString() + ":" + element3.children[i].value.toString())
+        }
+        else {
+            total_tickets.push(split_ticket2[0].toString() + ":" + '0')
+        }
     }
     if (verify_input(total_tickets)) {
         sessionStorage.setItem('tickets', total_tickets);
-        console.log(sessionStorage.getItem('tickets'))
         window.location.href = 'select_delivery'
     }
 }
