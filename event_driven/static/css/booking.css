@@ -126,16 +126,9 @@
     margin: auto;
 }
 
-.cont-button  {
-        position: absolute;
+.button-cont button{
+    position: absolute;
     right: 0;
-    color: rgba(255, 255, 255, 1);
-  background: rgba(86, 19, 87, 1);
-  width: 200px;
-  font-size: 2em;
-  cursor: pointer;
-  border-radius: 0.4em;
-    border: none;
 }
 
 .ticket-amount input[type=number] {

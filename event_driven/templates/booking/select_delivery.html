@@ -2,12 +2,17 @@
 {% block content %}
     <p id="path_url" class="invisible">{{ request.path }}</p>
     <div class="delivery-body" id="booking-body">
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <h1>Selecting Delivery</h1>
+        <br><br><br><br>
+        <div class="center-div">
+            <div class="booking-top-section">
+                <a href=""><div class="btn-div"><button id="btn1" class="booking-nav-btn">1</button> <label class="booking-nav-btn-text" for="btn1">Select ticket(s)</label></div></a>
+                <a href=""><div class="btn-div"><button id="btn2" class="active-btn booking-nav-btn">2</button> <label class="active-text booking-nav-btn-text" for="btn1">Delivery</label></div></a>
+                <a href=""><div class="btn-div"><button id="btn3" class="booking-nav-btn">3</button> <label class="booking-nav-btn-text" for="btn1">Payment</label></div></a>
+                <a href=""><div class="btn-div"><button id="btn4" class="booking-nav-btn">4</button> <label class="booking-nav-btn-text" for="btn1">Receipt</label></div></a>
+            </div>
+        </div>
+        <br><br><br><br>
+
         <div class="h-delivery">
         <h3>Information about buyer</h3>
         </div>
@@ -43,8 +48,11 @@
                         <label for="select_postal_service">Postal Service</label>
                         <span class="checkmark"></span><br>
                     </div>
+
                 <div id="postal_service_div" style="display:none">
+                    <br>
                     <div class="delivery-content">
+
                         <div class="delivery-text">
                             <label>Full Name:</label>
                             <label>Street:</label> <br>
@@ -67,8 +75,8 @@
         </div>
         <br>
         <div class="button-cont">
-            <button onclick="go_back()" class="cont-button"> Back</button>
-            <button onclick="go_forward()" class="cont-button" style="left:0"> Continue</button>
+            <button onclick="go_back()" class="normal-butt" style="left:0"> Back</button>
+            <button onclick="go_forward()" class="normal-butt" > Continue</button>
         </div>
     </div>
 
