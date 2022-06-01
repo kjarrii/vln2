@@ -1,62 +1,78 @@
 {% extends 'base.html' %}
 {% block content %}
     <p id="path_url" class="invisible">{{ request.path }}</p>
-    <div id="booking-body">
+    <div class="delivery-body" id="booking-body">
         <br>
         <br>
         <br>
         <br>
         <br>
         <h1>Selecting Delivery</h1>
-        <div>
-        <label>*Name:</label>
-        <input id="name_input" required>
+        <div class="h-delivery">
+        <h3>Information about buyer</h3>
         </div>
-        <div>
-            <label>*Email:</label>
-            <input id="email_input" required>
-        </div>
-        <div>
-            <label>*Phone:</label>
-            <input id="phone_input" required>
-        </div>
-        <div>
-            <input type="radio" id="select_electronic_ticket" name="ticket_type" value="electronic_ticket">
-            <label for="select_electronic_ticket">Electronic Ticket</label><br>
-            <input type="radio" id="select_postal_service" name="ticket_type" value="postal_service">
-            <label for="select_postal_service">Postal Service</label><br>
-        </div>
-        <div id="postal_service_div" style="display:none">
-            <div>
-                <label>Full Name:</label>
-                <input id="full_name_input">
-            </div>
-            <div>
-                <label>Street:</label>
-                <input id="street_input">
-            </div>
-            <div>
-                <label>City:</label>
-                <input id="city_input">
-            </div>
-            <div>
-                <label>No:</label>
-                <input id="no_input" type="number">
-            </div>
-            <div>
-                <label>Zip:</label>
-                <input id="zip_input" type="number">
-            </div>
-            <div>
-                <label>Country:</label>
-                <input id="country_input">
+        <div class="center-div">
+            <div class="with-border smallest-event-box">
+                <div class="delivery-content">
+                    <div class="delivery-text">
+                        <label>*Name:</label>
+                        <label>*Email:</label>
+                        <label>*Phone:</label>
+
+                    </div>
+                    <div class="delivery-input">
+                        <input id="name_input" required>
+                        <input id="email_input" required>
+                        <input id="phone_input" required>
+                    </div>
+                </div>
             </div>
         </div>
-        <button onclick="go_back()"> Back</button>
-        <button onclick="go_forward()"> Continue</button>
+        <br>
+        <div class="h-delivery">
+        <h3>Delivery method</h3>
+        </div>
+        <div class="center-div">
+
+            <div class="with-border smallest-event-box">
+                    <div class="radio-select">
+                        <input type="radio" id="select_electronic_ticket" name="ticket_type" value="electronic_ticket" checked>
+                        <label for="select_electronic_ticket">Electronic Ticket</label>
+                        <span class="checkmark"></span>
+                        <input type="radio" id="select_postal_service" name="ticket_type" value="postal_service">
+                        <label for="select_postal_service">Postal Service</label>
+                        <span class="checkmark"></span><br>
+                    </div>
+                <div id="postal_service_div" style="display:none">
+                    <div class="delivery-content">
+                        <div class="delivery-text">
+                            <label>Full Name:</label>
+                            <label>Street:</label> <br>
+                            <label>City:</label>
+                            <label>Country:</label>
+                        </div>
+                        <div class="delivery-input">
+                            <input id="full_name_input">
+                            <input id="street_input" style="width:160px">
+                            <label>No:</label>
+                            <input id="no_input" type="number" style="width:88px">
+                            <input id="city_input" style="width:160px">
+                            <label>Zip:</label>
+                            <input id="zip_input" type="number" style="width:85px">
+                            <input id="country_input">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="button-cont">
+            <button onclick="go_back()" class="cont-button"> Back</button>
+            <button onclick="go_forward()" class="cont-button" style="left:0"> Continue</button>
+        </div>
     </div>
 
-
+    <br><br><br><br><br>
     <script src="../../static/js/select_delivery.js"></script>
 
 {% endblock %}
