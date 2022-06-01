@@ -1,7 +1,13 @@
 .my-tickets-body {
     margin-left: 5%;
     margin-right: 5%;
+/*!*    filter: blur(5px);*/
+/*    z-index: 1;*!*/
 }
+
+/*.event-popup {
+    z-index: 2;
+}*/
 
 .my-tickets-top {
     display: flex;
