@@ -6,21 +6,45 @@ from django.views import generic
 from django.urls import reverse_lazy
 from event.models import Event
 from booking.models import Bookings
+import datetime
+import pytz
 
 from user.forms.forms import LoginForm, RegisterForm
 # Create your views here.
 
 def my_tickets_upcoming(request):
+    utc = pytz.UTC
+    curr_date = utc.localize(datetime.datetime.now())
     org_bookings = Bookings.objects.filter(userid=str(request.user.id))
     event_list = []
+    return_bookings = []
+    return_events = []
     for booking in org_bookings:
-        event = Event.objects.filter(id=booking.eventid)
+        event = Event.objects.filter(id=booking.eventid).first()
         event_list.append(event)
-    context = {'events': event_list, 'bookings': org_bookings}
+    for i in range(0, len(event_list)):
+        if event_list[i].start > curr_date:
+            return_events.append(event_list[i])
+            return_bookings.append(org_bookings[i])
+    context = {'events': return_events, 'bookings': return_bookings}
     return render(request, 'user/myticket_upcoming.html', context)
 
 def my_tickets_past(request):
-    return render(request, 'user/myticket_past.html')
+    utc = pytz.UTC
+    curr_date = utc.localize(datetime.datetime.now())
+    org_bookings = Bookings.objects.filter(userid=str(request.user.id))
+    event_list = []
+    return_bookings = []
+    return_events = []
+    for booking in org_bookings:
+        event = Event.objects.filter(id=booking.eventid).first()
+        event_list.append(event)
+    for i in range(0, len(event_list)):
+        if event_list[i].start < curr_date:
+            return_events.append(event_list[i])
+            return_bookings.append(org_bookings[i])
+    context = {'events': return_events, 'bookings': return_bookings}
+    return render(request, 'user/myticket_past.html', context)
 
 def profile(request):
     profile = Users.objects.filter(email=request.user).first()
