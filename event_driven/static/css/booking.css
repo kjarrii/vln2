@@ -1,0 +1,95 @@
+.booking-body {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.booking-top-section {
+    display: grid;
+    white-space: nowrap;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 60px;
+}
+
+.booking-nav-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 50%;
+
+    height: 50px;
+    width: 50px;
+    min-height: 50px;
+    min-width: 50px;
+
+    font-size: 30px;
+    background-color: #989898;
+    /*border: 3px solid black;*/
+    border: none;
+    color: white;
+    font-weight: bold;
+    /*color: #989898;*/
+}
+
+.btn-div {
+    display: flex;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+.active-btn {
+    background-color: #561357 !important;
+    color: white;
+    font-weight: bold;
+}
+
+.booking-nav-btn-text {
+    margin-left: 10px;
+    font-size: x-large;
+    color: #989898;
+    font-weight: bold;
+    cursor:pointer
+}
+
+.active-text {
+    font-weight: bold;
+    color: black !important;
+}
+
+.center-div {
+    display: flex;
+    justify-content: center;
+}
+
+
+.event-box {
+    width: 1000px;
+    height: 60px;
+}
+
+.event-box-content {
+    margin-left: 50px;
+    display: grid;
+    grid-template-columns: 270px 240px 240px 240px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.black {
+    height: 30px;
+    color: black;
+    background-color: white;
+}
+
+.purple {
+    color: white;
+    background-color: #561357;
+    display: flex;
+    align-items: center;
+}
+
+
+
+

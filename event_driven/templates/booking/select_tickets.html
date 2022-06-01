@@ -1,13 +1,49 @@
 {% extends 'base.html' %}
 {% block content %}
+
     <p id="path_url" style="display:none">{{ request.path }}</p>
-    <div id="booking-body">
+
+    <div class="booking-body">
         <p id="event_name" style="display:none">{{ event.name }}</p><p id="event_address" style="display:none">{{ event.address }}</p><p id="event_start" style="display:none">{{ event.start }}</p><p id="event_max" style="display:none">{{ event.max }}</p><p id="event_prices" style="display:none">{{ event.prices }}</p><p id="event_end" style="display:none">{{ event.end }}</p><p id="event_tickets_amount" style="display:none">{{ event.tickets_amount }}</p><p id="event_desc" style="display:none">{{ event.desc }}</p><p id="event_image" style="display:none">{{ event.image }}</p><p id="event_lat" style="display:none">{{ event.lat }}</p><p id="event_long" style="display:none">{{ event.long }}</p>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+        <br> <br> <br> <br>
+
+        <div class="center-div">
+            <div class="booking-top-section">
+                <a href=""><div class="btn-div"><button id="btn1" class="active-btn booking-nav-btn">1</button> <label class="active-text booking-nav-btn-text" for="btn1">Select ticket(s)</label></div></a>
+                <a href=""><div class="btn-div"><button id="btn2" class="booking-nav-btn">2</button> <label class="booking-nav-btn-text" for="btn1">Delivery</label></div></a>
+                <a href=""><div class="btn-div"><button id="btn3" class="booking-nav-btn">3</button> <label class="booking-nav-btn-text" for="btn1">Payment</label></div></a>
+                <a href=""><div class="btn-div"><button id="btn4" class="booking-nav-btn">4</button> <label class="booking-nav-btn-text" for="btn1">Receipt</label></div></a>
+            </div>
+        </div>
+
+        <br> <br> <br> <br>
+
+        <div class="center-div">
+            <div class="black event-box">
+                <div class="event-box-content">
+                    <div>Event</div>
+                    <div>Location</div>
+                    <div>Price</div>
+                    <div>Date</div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="center-div">
+            <div class="purple event-box">
+                <div class="event-box-content">
+                    <div>Netherlands - Iceland</div>
+                    <div>Laugardalsvöllur</div>
+                    <div>6.990-12.990 kr</div>
+                    <div>Sep 15, 2022</div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
         <h1>Selecting Tickets</h1>
         <div id="ticket_type">
         </div>

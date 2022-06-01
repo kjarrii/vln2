@@ -11,6 +11,8 @@ sessionStorage.setItem("eventid", url_eventid);
 
 
 ////////////// Populate html
+
+// ticket types
 let types_of_tickest = sessionStorage.getItem('event_prices').split(',')
 for (i in types_of_tickest) {
     split_ticket = types_of_tickest[i].split(':')
@@ -20,6 +22,8 @@ for (i in types_of_tickest) {
     var element = document.getElementById("ticket_type");
     element.appendChild(tag);
 }
+
+// price
 for (i in types_of_tickest) {
     split_ticket2 = types_of_tickest[i].split(':')
     var tag2 = document.createElement("p");
@@ -29,6 +33,7 @@ for (i in types_of_tickest) {
     element2.appendChild(tag2);
 }
 
+// amount of tickets
 for (i in types_of_tickest) {
     var mi = document.createElement("input");
     mi.setAttribute('type', 'number');
