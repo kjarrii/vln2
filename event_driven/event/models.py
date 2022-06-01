@@ -33,8 +33,11 @@ class Event(models.Model):
         for val in vals:
             priceInt.append(int(val))
         if max(priceInt) != min(priceInt):
-            return "{} - {}".format(min(priceInt), max(priceInt))
-        return min(priceInt)
+            ma = '{:,}'.format(max(priceInt)).replace(',', '.')
+            mi = '{:,}'.format(min(priceInt)).replace(',', '.')
+            return '{} - {}'.format(mi, ma)
+        ma = '{:,}'.format(max(priceInt)).replace(',', '.')
+        return ma
 
     def tickets_left(self):
         sold = dict((x.strip(), y.strip())
