@@ -19,6 +19,7 @@ class Ticket(models.Model):
 
 class Bookings(models.Model):
     tickets = models.CharField(max_length=255)
+    delivery_method = models.CharField(max_length=255)
     name = models.CharField(max_length=255)
     email = models.CharField(max_length=255)
     phone = models.CharField(max_length=255)

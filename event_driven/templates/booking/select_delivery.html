@@ -8,11 +8,52 @@
         <br>
         <br>
         <h1>Selecting Delivery</h1>
-
-
-        <input id='event_id' value=10 type="hidden">
+        <div>
+        <label>*Name:</label>
+        <input id="name_input" required>
+        </div>
+        <div>
+            <label>*Email:</label>
+            <input id="email_input" required>
+        </div>
+        <div>
+            <label>*Phone:</label>
+            <input id="phone_input" required>
+        </div>
+        <div>
+            <input type="radio" id="select_electronic_ticket" name="ticket_type" value="electronic_ticket">
+            <label for="select_electronic_ticket">Electronic Ticket</label><br>
+            <input type="radio" id="select_postal_service" name="ticket_type" value="postal_service">
+            <label for="select_postal_service">Postal Service</label><br>
+        </div>
+        <div id="postal_service_div" style="display:none">
+            <div>
+                <label>Full Name:</label>
+                <input id="full_name_input">
+            </div>
+            <div>
+                <label>Street:</label>
+                <input id="street_input">
+            </div>
+            <div>
+                <label>City:</label>
+                <input id="city_input">
+            </div>
+            <div>
+                <label>No:</label>
+                <input id="no_input" type="number">
+            </div>
+            <div>
+                <label>Zip:</label>
+                <input id="zip_input" type="number">
+            </div>
+            <div>
+                <label>Country:</label>
+                <input id="country_input">
+            </div>
+        </div>
         <button onclick="go_back()"> Back</button>
-        <button onclick="location.href='select_payment'"> Continue</button>
+        <button onclick="go_forward()"> Continue</button>
     </div>
 
 

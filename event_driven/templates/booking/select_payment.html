@@ -31,6 +31,7 @@
         {% render_field form.country %}
         {% render_field form.eventid %}
         {% render_field form.userid %}
+        {% render_field form.delivery_method %}
         {{ request.user.id|json_script:"user_id" }}
 
     <button id ='submit_button' type="submit" name="save">Finish booking</button>

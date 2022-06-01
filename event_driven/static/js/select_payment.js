@@ -11,6 +11,7 @@ zip_element = document.getElementById('id_zip')
 country_element = document.getElementById('id_country')
 event_element = document.getElementById('id_eventid')
 user_element = document.getElementById('id_userid')
+delivery_element = document.getElementById('id_delivery_method')
 submit_button = document.getElementById('submit_button')
 console.log(ticket_element)
 
@@ -33,6 +34,7 @@ function delete_this_function() {
     sessionStorage.setItem('city', 'London');
     sessionStorage.setItem('zip', '210');
     sessionStorage.setItem('country', 'England');
+    sessionStorage.setItem('delivery_method', 'postal_service');
 }
 function go_forward (){
     delete_this_function()
@@ -47,6 +49,7 @@ function go_forward (){
     zip_element.value = sessionStorage.getItem('zip')
     country_element.value = sessionStorage.getItem('country')
     event_element.value = sessionStorage.getItem('eventid')
+    delivery_element.value = sessionStorage.getItem('delivery_method')
     user_element.value = JSON.parse(document.getElementById('user_id').textContent);
 
     if (verify_input()) {
