@@ -27,7 +27,7 @@ for (i in types_of_tickest) {
 for (i in types_of_tickest) {
     split_ticket2 = types_of_tickest[i].split(':')
     var tag2 = document.createElement("p");
-    var text2 = document.createTextNode(split_ticket2[1] + " kr");
+    var text2 = document.createTextNode(split_ticket2[1].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " ISK");
     tag2.appendChild(text2);
     var element2 = document.getElementById("ticket_price");
     element2.appendChild(tag2);
@@ -81,12 +81,12 @@ function total(){
     }
 
     for (let i in totArr) {
-        element4.children[i].innerHTML = totArr[i].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ' kr';
+        element4.children[i].innerHTML = totArr[i].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ' ISK';
     }
     lin.style.display = "block";
 
     let sum = totArr.reduce((partialSum, a) => partialSum + a, 0);
-    toto_by_africa.nodeValue = sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " kr";
+    toto_by_africa.nodeValue = sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " ISK";
 
 }
 

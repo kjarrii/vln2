@@ -33,8 +33,11 @@ class Event(models.Model):
         for val in vals:
             priceInt.append(int(val))
         if max(priceInt) != min(priceInt):
-            return "{} - {}".format(min(priceInt), max(priceInt))
-        return min(priceInt)
+            ma = '{:,}'.format(max(priceInt)).replace(',', '.')
+            mi = '{:,}'.format(min(priceInt)).replace(',', '.')
+            return '{} - {}'.format(mi, ma)
+        ma = '{:,}'.format(max(priceInt)).replace(',', '.')
+        return ma
 
     def tickets_left(self):
         sold = dict((x.strip(), y.strip())
@@ -54,8 +57,10 @@ class Event(models.Model):
         left = []
         for i in range(len(sold.values())):
             left.append(maxInt[i] - soldInt[i])
-        re = f"{sum(left):,}"
-        return re
+        re = sum(left)
+        if sum(left) < 1000:
+            return re
+        return '{:,}'.format(sum(left)).replace(',', '.')
 
     def total_tickets(self):
         t = dict((x.strip(), y.strip())
@@ -64,5 +69,6 @@ class Event(models.Model):
         totInt = []
         for val in t.values():
             totInt.append(int(val))
-        re = f"{sum(totInt):,}"
-        return re
+        if sum(totInt) < 1000:
+            return sum(totInt)
+        return '{:,}'.format(sum(totInt)).replace(',', '.')

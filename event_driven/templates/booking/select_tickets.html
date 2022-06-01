@@ -33,10 +33,10 @@
         <div class="center-div">
             <div class="purple event-box">
                 <div class="event-box-content">
-                    <div>Netherlands - Iceland</div>
-                    <div>Laugardalsvöllur</div>
-                    <div>6.990-12.990 kr</div>
-                    <div>Sep 15, 2022</div>
+                    <div>{{ event.name }}</div>
+                    <div>{{ event.address }}</div>
+                    <div>{{ event.price_range }} ISK</div>
+                    <div>{{ event.start|date:"M d, Y" }}</div>
                 </div>
             </div>
         </div>
@@ -74,7 +74,7 @@
             <input id='event_id' value=10 type="hidden">
         </div>
     <div class="button-cont">
-        <button class="cont-button" onclick="go_forward()"> Continue</button>
+        <button class="normal-butt" onclick="go_forward()"> Continue</button>
     </div>
     </div>
 

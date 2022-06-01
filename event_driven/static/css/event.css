@@ -168,6 +168,12 @@
     background-color: #3B0D3C;
 }
 
+.normal-butt:disabled {
+    cursor: auto;
+    background: #989898;
+    color: black;
+}
+
 .similar-events{
     padding: 40px 40px 2em;
 }
