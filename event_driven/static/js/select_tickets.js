@@ -55,6 +55,7 @@ for (i in types_of_tickest) {
     element4.appendChild(tag3);
 }
     var lin = document.createElement("hr");
+    lin.setAttribute('class', 'totalLine');
     lin.style.display = "none";
     element4.appendChild(lin);
 
@@ -83,7 +84,6 @@ function total(){
         element4.children[i].innerHTML = totArr[i].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ' kr';
     }
     lin.style.display = "block";
-    lin.style.border = "5px solid black";
 
     let sum = totArr.reduce((partialSum, a) => partialSum + a, 0);
     toto_by_africa.nodeValue = sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " kr";
