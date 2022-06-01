@@ -43,18 +43,42 @@
 
 
 
-        <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
-        <h1>Selecting Tickets</h1>
-        <div id="ticket_type">
+
+        <div class="center-div">
+            <div class="black small-event-box">
+                <div class="smaller-content">
+                    <div>Type</div>
+                    <div>Price</div>
+                    <div>Amount</div>
+                    <div>Total</div>
+                </div>
+            </div>
         </div>
-        <div id="ticket_price">
+        <br>
+        <div class="center-div">
+            <div class="with-border small-event-box">
+                <div class="smaller-content">
+                    <div id="ticket_type">
+                    </div>
+                    <div id="ticket_price">
+                    </div>
+                    <div id="ticket_amount">
+                    </div>
+                    <div id="total"></div>
+                </div>
+            </div>
         </div>
-        <div id="ticket_amount">
+
+        <br>
+
+            <input id='event_id' value=10 type="hidden">
         </div>
-        <input id='event_id' value=10 type="hidden">
-        <button onclick="go_forward()"> Continue</button>
+    <div class="button-cont">
+        <button class="cont-button" onclick="go_forward()"> Continue</button>
+    </div>
     </div>
 
+    <br> <br> <br>
 
     <script src="../../static/js/select_tickets.js"></script>
 

@@ -16,7 +16,7 @@
                     <img class="profile-img" src="../../static/images/empty_profile.png" alt="User Profile Image" />
                 {% endif %}
 
-                <input id="upload-btn" class="img-add-button" type="file" name="image" accept="image/*" id="id_image" value="+">
+                <input id="upload-btn" class="img-add-button" type="file" name="image" accept="image/*">
                 <label for="upload-btn" class="img-add-button"><span>+</span></label>
             </div>
 
@@ -24,11 +24,11 @@
             <br>
             <div class="input-box" id="user-box">
                 <img src="../../static/images/profile-icon-purple.png" alt="user icon" id="user-icon">
-                <input type="text" class="input-text" placeholder="Name: {{ user.first_name }}" name="first_name">
+                <input id="username-box-input" type="text" class="input-text" placeholder="Name: {{ user.first_name }}" name="first_name">
             </div>
             <div class="input-box" id="mail-box" style="background-color: #BDBDBD">
                 <img src="../../static/images/mail-icon-purple.png" alt="mail icon" id="mail-icon">
-                <input type="text" class="input-text" placeholder="E-mail: {{ user.email }}" name="username" disabled>
+                <input id="mail-box-input" type="text" class="input-text" placeholder="E-mail: {{ user.email }}" name="username" disabled style="background-color: #BDBDBD">
             </div>
 
 
