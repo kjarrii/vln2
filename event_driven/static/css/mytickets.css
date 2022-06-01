@@ -28,6 +28,7 @@
 }
 
 hr {
+    background-color: #561357;
     margin-top: 0px;
     opacity: 1;
     border: 3px solid #561357;
@@ -40,7 +41,8 @@ hr {
 
 .ticket-box {
     min-height: 300px;
-    width: 100%;
+    width: 90%;
+    min-width: 1100px;
     background-color: #D7D0D7;
     height: fit-content;
     display: flex;
@@ -55,10 +57,32 @@ hr {
     height: 240px;
     background-color: #561357;
     flex-basis: 100%;
+    box-shadow: 3px 4px 4px black;
+    display: grid;
+    grid-template-columns: 400px auto auto;
 }
 
 .event-ticket-img {
-
     height: 240px;
+}
 
+.event-ticket-info {
+    margin-top: 10px;
+    color: white;
+}
+
+.event-ticket-title {
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.view-ticket-img {
+    height: 220px;
+}
+
+.view-ticket-img-div {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 30px;
 }
