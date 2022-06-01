@@ -13,12 +13,13 @@
         <p>{{ event.address }}
         <br>{{ event.start }} - {{ event.end }}</p>
         <div class="price-button">
-           <h3> {{ event.price_range }} ISK </h3>
+            <h3 class="price-text"> {{ event.price_range }} ISK </h3>
             <button class="normal-butt" onclick="location.href='/booking/{{ event.id }}'">Book now</button>
         </div>
     </div>
     </div>
     <div class="bottom-container-event">
+    <h2 class="about-this-title">About this event</h2>
     <p class="event-detail-box">
         {% for col in event.desc_paragraphs %}
         {{ col }}<br><br>
@@ -33,6 +34,7 @@
         <br>
     </div>
 
+    <br> <br> <br> <br>
     <div class="similar-events">
     <h2>Similar events</h2>
     <div class="option-wrapper">
