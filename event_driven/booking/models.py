@@ -20,7 +20,6 @@ class Ticket(models.Model):
 class Bookings(models.Model):
     tickets = models.CharField(max_length=255)
     name = models.CharField(max_length=255)
-    tickets_id = models.CharField(max_length=255)
     email = models.CharField(max_length=255)
     phone = models.CharField(max_length=255)
     full_name = models.CharField(max_length=255)
