@@ -11,7 +11,7 @@
     border-radius: 20px;
     position: relative;
     padding: 40px;
-    width: 600px;
+    width: 500px;
 }
 
 .fav-cat-container{
@@ -69,30 +69,32 @@
 
 .profile-img{
     width: 100%;
-    border: 12px solid #561357;
+    border: 6px solid #561357;
     aspect-ratio: 5/3;
     object-fit: cover;
+    height: 350px;
 }
 
 .img-add-button{
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     background-color: #FFF;
     border: 6px solid #561357;
     position: absolute;
     border-radius: 50%;
     right:15px;
-    top: 280px;
+    top: 315px;
     cursor: pointer;
 }
 
 .img-add-button span{
     color: #561357;
-    position: absolute;
     font-size: 6em;
     font-weight: bold;
-    top:-34px;
-    left:13px;
+    top: -45px;
+    left:5px;
+    position: relative;
+
 }
 
 .butt-container {
@@ -101,18 +103,24 @@
     max-width: 1500px;
     position: relative;
     min-height: 50px;
-
-
 }
 
 .save-button {
     position: absolute;
     right: 40px;
     color: rgba(255, 255, 255, 1);
-  background: rgba(86, 19, 87, 1);
-  width: 200px;
-  font-size: 2em;
-  cursor: pointer;
-  border-radius: 0.4em;
+    background: rgba(86, 19, 87, 1);
+    width: 200px;
+    font-size: 2em;
+    cursor: pointer;
+    border-radius: 0.4em;
     border: none;
+}
+
+.input-box .input-text {
+    width: 320px;
+}
+
+.img-n-e-container .input-box {
+    width: 420px !important;
 }
