@@ -109,12 +109,16 @@
     position: absolute;
     right: 40px;
     color: rgba(255, 255, 255, 1);
-    background: rgba(86, 19, 87, 1);
+    background: #561357;
     width: 200px;
     font-size: 2em;
     cursor: pointer;
     border-radius: 0.4em;
     border: none;
+}
+
+.save-button:hover {
+    background-color: #3B0D3C;
 }
 
 .input-box .input-text {
