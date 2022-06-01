@@ -40,11 +40,18 @@ for (i in types_of_tickest) {
     mi.setAttribute('value', '0');
     mi.setAttribute('max', '10');
     mi.setAttribute('min', '0');
-    mi.style.margin = "3px 100px 3px 3px";
-    var element3 = document.getElementById("ticket_amount");
-    element3.appendChild(mi)
-}
+    mi.setAttribute('class', 'amount')
 
+    let less = document.createElement("button"); //Mínustakki
+    less.setAttribute("onClick", "this.parentNode.querySelector('input[type=number]').stepDown()");
+    let more = document.createElement("button"); //Plústakki
+    more.setAttribute("onClick", "this.parentNode.querySelector('input[type=number]').stepUp()");
+    more.setAttribute("class", "plus");
+    var element3 = document.getElementById("ticket_amount");
+    element3.appendChild(less)
+    element3.appendChild(mi)
+    element3.appendChild(more)
+}
 
 //// Exporting
 function verify_input(total_tickets) {
