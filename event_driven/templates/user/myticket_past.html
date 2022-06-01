@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
     <link rel="stylesheet" href="{% static "css/mytickets.css" %}"/>
@@ -7,12 +8,12 @@
     <div class="my-tickets-body">
 
         <div class="my-tickets-top">
-            <button id="upcoming" class="my-tickets-btn" onclick="location.href={% url "user/my_tickets_upcoming" %}">Upcoming</button>
-            <button id="past" class="active-btn my-tickets-btn" onclick="location.href={% url "user/my_tickets_past" %}">Past</button>
+            <button id="upcoming" class="active-btn my-tickets-btn" onclick="location.href='my_tickets_upcoming'">Upcoming</button>
+            <button id="past" class="my-tickets-btn" onclick="location.href='my_tickets_past'">Past</button>
         </div>
         <hr>
 
-        <h3 class="you-have-title">You have XX upcoming events</h3>
+        <h3 class="you-have-title">You have XX past events</h3>
 
         <div class="center-div">
             <div class="ticket-box">
@@ -33,8 +34,13 @@
                 <br> <br>
             </div>
         </div>
-
         <br> <br> <br> <br> <br> <br> <br> <br>
+        {% for event in events %}
+            {{ event.image }}
+        {% endfor %}
+        {% for booking in bookings %}
+            {{ booking.full_name }}
+        {% endfor %}
 
 
     </div>
