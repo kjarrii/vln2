@@ -54,7 +54,7 @@ class Event(models.Model):
         left = []
         for i in range(len(sold.values())):
             left.append(maxInt[i] - soldInt[i])
-        re = f"{sum(left):,}"
+        re = sum(left)
         return re
 
     def total_tickets(self):

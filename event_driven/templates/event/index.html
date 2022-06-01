@@ -14,7 +14,13 @@
         <br>{{ event.start }} - {{ event.end }}</p>
         <div class="price-button">
             <h3 class="price-text"> {{ event.price_range }} ISK </h3>
-            <button class="normal-butt" onclick="location.href='/booking/{{ event.id }}'">Book now</button>
+            {% if event.start < 1 %}
+                <button class="normal-butt" disabled>Passed</button>
+            {% elif event.tickets_left == 0 %}
+                <button class="normal-butt" disabled>Sold out</button>
+            {% else %}
+                <button class="normal-butt" onclick="location.href='/booking/{{ event.id }}'">Book now</button>
+            {% endif %}
         </div>
     </div>
     </div>
