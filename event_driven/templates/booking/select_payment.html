@@ -11,28 +11,40 @@
         <br>
         <h1>Selecting Payment</h1>
 
+        <div>
+            <label>Name on card:</label>
+            <input id="name_on_card_input">
+        </div>
+        <div>
+            <label>Card number:</label>
+            <input id="card_number_input">
+        </div>
+        <div>
+            <label>Expiration date:</label>
+            <input id="expiration_date_input">
+        </div>
+        <div id="type"></div>
+        <div id="amount"></div>
+        <div id="total"></div>
+        <div id="total_total"></div>
+        <div>
+            <label>CVC:</label>
+            <input id="cvc_input" type="number">
+        </div>
 
-        <input id='event_id' value=10 type="hidden">
+
+
+
+
+
+
         <button onclick="go_back()"> Back</button>
         <button onclick="go_forward()"> Continue</button>
     </div>
 
     <form class="form form-horizontal" style="display: none" action="{% url 'select_payment' %}" method="post">
         {% csrf_token %}
-        {% render_field form.tickets %}
-        {% render_field form.name %}
-        {% render_field form.email %}
-        {% render_field form.phone %}
-        {% render_field form.full_name %}
-        {% render_field form.street %}
-        {% render_field form.no %}
-        {% render_field form.city %}
-        {% render_field form.zip %}
-        {% render_field form.country %}
-        {% render_field form.eventid %}
-        {% render_field form.userid %}
-        {{ request.user.id|json_script:"user_id" }}
-
+        {% render_field form.tickets %}{% render_field form.name %}{% render_field form.email %}{% render_field form.phone %}{% render_field form.full_name %}{% render_field form.street %}{% render_field form.no %}{% render_field form.city %}{% render_field form.zip %}{% render_field form.country %}{% render_field form.eventid %}{% render_field form.userid %}{% render_field form.delivery_method %}{{ request.user.id|json_script:"user_id" }}
     <button id ='submit_button' type="submit" name="save">Finish booking</button>
     </form>
     <script src="../../static/js/select_payment.js"></script>
