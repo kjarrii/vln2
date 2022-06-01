@@ -49,7 +49,6 @@ def my_tickets_past(request):
 def profile(request):
     profile = Users.objects.filter(email=request.user).first()
     if request.method == 'POST':
-        #form = ProfileForm(request.POST, request.FILES)
         form = ProfileForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
             profile = form.save(commit=False)
