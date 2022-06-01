@@ -159,9 +159,6 @@ def get_all_events(request):
     context = {'most_popular': False, 'selling_out': False, 'all_events': all_events}
     return render(request, 'menu/index.html', context)
 
-def map(request):
-    return render(request, 'menu/search_result.html')
-
 def only_future(all_events):
     return_events = []
     utc = pytz.UTC
@@ -272,3 +269,7 @@ def search_query(request, search_str):
     number_of_events = len(method_list)
     context = {'search_query': search_str, 'number_of_events': number_of_events, 'all_events': method_list}
     return render(request, 'menu/search_result.html', context)
+
+
+def map(request):
+    return render(request, 'menu/map.html')
