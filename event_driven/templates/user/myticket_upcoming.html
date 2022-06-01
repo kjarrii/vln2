@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="{% static "css/mytickets.css" %}"/>
 
     <br> <br> <br> <br> <br>
-    <div class="my-tickets-body">
+    <div id="my-tickets-body" class="my-tickets-body">
 
         <div class="my-tickets-top">
             <button id="upcoming" class="active-btn my-tickets-btn" onclick="location.href='my_tickets_upcoming'">Upcoming</button>
@@ -13,10 +13,11 @@
         </div>
         <hr>
 
-        <h3 class="you-have-title">You have XX upcoming events</h3>
+        <h3 id="you-have-title" class="you-have-title"></h3>
 
-        <div class="center-div">
-            <div class="ticket-box">
+        <div id="ticket-box-div" class="center-div">
+
+{% comment %}            <div class="ticket-box">
 
                 <div class="event-ticket-box">
                     <img class="event-ticket-img" src="../../static/images/sturla2.jpeg">
@@ -28,21 +29,36 @@
                         <h6>Booking number: 123</h6>
                     </div>
                     <div class="view-ticket-img-div"><img class="view-ticket-img" src="../../static/images/view-ticket.png"></div>
-
                 </div>
 
                 <br> <br>
-            </div>
+
+            </div>{% endcomment %}
+
         </div>
         <br> <br> <br> <br> <br> <br> <br> <br>
-        {% for event in events %}
-            {{ event.start }}
-        {% endfor %}
-        {% for booking in bookings %}
-            {{ booking.full_name }}
-        {% endfor %}
+
+        <dpsn id="events" style="display: none">
+            {% for event in events %}
+                {{ event.name }}///
+                {{ event.address }}///
+                {{ event.start }}///
+                {{ event.prices }}///
+                {{ event.image }}&&&
+            {% endfor %}
+        </dpsn>
+        <div id="bookings" style="display: none">
+            {% for booking in bookings %}
+                {{ booking.id }}///
+                {{ booking.tickets }}&&&
+            {% endfor %}
+        </div>
+
+
+
 
 
     </div>
 
+    <script src="../../static/js/myticket.js"></script>
 {% endblock %}

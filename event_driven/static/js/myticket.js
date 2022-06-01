@@ -1,4 +1,92 @@
+let myTicketsBody = document.getElementById('my-tickets-body');
+let ticketBoxDiv = document.getElementById('ticket-box-div');
+ticketBoxDiv.classList.add('center-div')
 
-function createPopup(title, location, date, tickets, prices) {
+function getData() {
+    let events = document.getElementById('events').innerText.split('&&&').slice(0,-1);
+    let bookings = document.getElementById('bookings').innerText.split('&&&').slice(0,-1);
+    let userBookings = [];
+
+    // goes through the data and splits it up, then adds it to userBookings array
+    for (let i=0; i<events.length; i++) {
+        let eventItems = events[i].split('///');
+        let bookingItems = bookings[i].split('///');
+        let bookingId = bookingItems[0].split(' ').at(-1)
+        let eventImage = eventItems[4].split(' ').at(-1)
+        eventImage = eventImage.split(',').at(0)
+
+        userBookings.push({'booking_id': bookingId, 'title': eventItems[0].trim(), 'location': eventItems[1].trim(), 'date': eventItems[2].trim(), 'prices': eventItems[3].trim(), 'tickets': bookingItems[1].trim(), 'image': eventImage});
+    }
+
+    return userBookings;
+}
+
+generateEvents();
+function generateEvents() {
+    let userBookings = getData();
+    let userBookingsNum = userBookings.length
+
+    let h3 = document.getElementById('you-have-title')
+    h3.classList.add('you-have-title')
+    h3.innerHTML="You have " + userBookingsNum + " upcoming events";
+
+    if (userBookingsNum !== 0) {
+        let ticketBox = document.createElement('div') // creates the ticket box that halds all of the tickets
+        ticketBox.classList.add('ticket-box')
+
+        ticketBoxDiv.appendChild(ticketBox)
+
+        for (let i=0; i<5; i++) {
+        /*for (let i=0; i<userBookings; i++) {*/
+            //each box for the bookings
+            let eventTicketBox = document.createElement('div')
+            eventTicketBox.classList.add('event-ticket-box')
+
+
+            // image for the box
+            let eventTicketImg = document.createElement('img')
+            eventTicketImg.classList.add('event-ticket-img')
+            eventTicketImg.src = userBookings[i].image
+
+            eventTicketBox.appendChild(eventTicketImg)
+
+            ticketBox.appendChild(eventTicketBox)
+
+            /// info div
+            let eventTicketInfo = document.createElement('div')
+            eventTicketInfo.classList.add('event-ticket-info')
+
+            let h3 = document.createElement('h3')
+            h3.classList.add('event-ticket-title')
+            h3.textContent = userBookings[i].title
+            eventTicketInfo.appendChild(h3)
+
+            let h5_loc = document.createElement('h5')
+            h5_loc.textContent = userBookings[i].location
+            eventTicketInfo.appendChild(h5_loc)
+
+            let h5_date = document.createElement('h5')
+            h5_date.textContent = userBookings[i].date
+            eventTicketInfo.appendChild(h5_date)
+
+            let h6 = document.createElement('h6')
+            h6.textContent = userBookings[i].id
+            eventTicketInfo.appendChild(h6)
+
+            eventTicketBox.appendChild(eventTicketInfo)
+
+            // view ticket img
+            let viewTicketImgDiv = document.createElement('div')
+            viewTicketImgDiv.classList.add('view-ticket-img-div')
+
+            let viewTicketImg = document.createElement('img')
+            viewTicketImg.src = 'images/view-ticket.png'
+            viewTicketImgDiv.appendChild(viewTicketImg)
+
+            eventTicketBox.appendChild(viewTicketImgDiv)
+        }
+
+
+    }
 
 }
