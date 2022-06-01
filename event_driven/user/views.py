@@ -11,7 +11,10 @@ from user.forms.forms import LoginForm, RegisterForm
 # Create your views here.
 
 def my_tickets_upcoming(request):
-    return render(request, 'user/myticket_upcoming.html')
+    org_events = Event.objects.all().order_by('name')
+    org_bookings = Bookings.objects.all().order_by('name')
+    context = {'events': org_events, 'bookings': org_bookings}
+    return render(request, 'user/myticket_upcoming.html', context)
 
 def profile(request):
     profile = Users.objects.filter(email=request.user).first()

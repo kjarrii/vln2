@@ -34,7 +34,12 @@
                 <br> <br>
             </div>
         </div>
-
+        {% for event in events %}
+            {{ event.image }}
+        {% endfor %}
+        {% for booking in bookings %}
+            {{ booking.full_name }}
+        {% endfor %}
         <br> <br> <br> <br> <br> <br> <br> <br>
 
 
