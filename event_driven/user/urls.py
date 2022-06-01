@@ -7,6 +7,7 @@ from . import views
 
 urlpatterns = [
     path('profile', views.profile, name='profile'),
+    path('my_tickets', views.my_tickets, name='my_tickets'),
     path('logout', LogoutView.as_view(next_page='login'), name='logout'),
     path('login/', LoginView.as_view(), name='login'),
     path('register/', RegisterView.as_view(), name='register')

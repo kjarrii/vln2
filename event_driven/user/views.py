@@ -37,7 +37,8 @@ from user.forms.forms import LoginForm, RegisterForm
 #    return render(request, 'user/profile.html', {
 #        'form': ProfileForm(instance=profile)
 #    })
-
+def my_tickets(request):
+    return render(request, 'user/mytickets.html')
 
 def profile(request):
     profile = Users.objects.filter(email=request.user).first()

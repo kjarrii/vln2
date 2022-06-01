@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static "css/mytickets.css" %}"/>
+
+    <br> <br> <br> <br> <br>
+    <div class="my-tickets-body">
+
+        <div class="my-tickets-top">
+            <button id="upcoming" class="active-btn my-tickets-btn">Upcoming</button>
+            <button id="past" class="my-tickets-btn">Past</button>
+        </div>
+        <hr>
+
+        <h3 class="you-have-title">You have XX upcoming events</h3>
+
+        <div class="center-div">
+            <div class="ticket-box">
+
+                <div class="event-ticket-box">
+                    <img class="event-ticket-img" src="../../static/images/sturla2.jpeg">
+                </div>
+
+                <div class="event-ticket-box">
+                    p
+                </div>
+
+
+            </div>
+        </div>
+
+        <br> <br> <br> <br> <br> <br> <br> <br>
+
+
+    </div>
+
+{% endblock %}

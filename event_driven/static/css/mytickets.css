@@ -1,0 +1,64 @@
+.my-tickets-body {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.my-tickets-top {
+    display: flex;
+}
+
+.my-tickets-btn {
+    background-color: white;
+    border: none;
+    font-size: x-large;
+    height: 45px;
+    font-weight: bold;
+}
+
+.my-tickets-btn:hover {
+    background-color: #D7D0D7;
+}
+
+#upcoming {
+    width: 170px;
+}
+
+#past {
+    width: 100px;
+}
+
+hr {
+    margin-top: 0px;
+    opacity: 1;
+    border: 3px solid #561357;
+}
+
+.you-have-title {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.ticket-box {
+    min-height: 300px;
+    width: 100%;
+    background-color: #D7D0D7;
+    height: fit-content;
+    display: flex;
+    flex-wrap:wrap;
+
+}
+
+.event-ticket-box {
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 50px;
+    height: 240px;
+    background-color: #561357;
+    flex-basis: 100%;
+}
+
+.event-ticket-img {
+
+    height: 240px;
+
+}
