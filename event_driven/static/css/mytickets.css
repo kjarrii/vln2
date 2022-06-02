@@ -86,10 +86,6 @@
     margin-bottom: 20px !important;
 }
 
-/*.event-popup {
-    z-index: 2;
-}*/
-
 .my-tickets-top {
     display: flex;
 }
@@ -135,6 +131,7 @@ hr {
     display: flex;
     flex-wrap:wrap;
     border: 4px solid #561357;
+    padding-bottom: 50px;
 }
 
 .event-ticket-box {

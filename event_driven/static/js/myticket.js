@@ -113,8 +113,7 @@ function generateEvents() {
             eventTicketBox.appendChild(viewTicketImgDiv);
         }
 
-        let br1_bottom = document.createElement('br'); let br2_bottom = document.createElement('br'); let br3_bottom = document.createElement('br');
-        ticketBox.appendChild(br1_bottom); ticketBox.appendChild(br2_bottom); ticketBox.appendChild(br3_bottom);
+
 
     }
 }
@@ -172,7 +171,7 @@ function generatePopUp(userBooking) {
 
         let price_div = document.createElement('div');
         price_div.classList.add('grid-item');
-        price_div.textContent = ticket_price + ' ISK';
+        price_div.textContent = ticket_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " ISK";
         popupContentBox.appendChild(price_div);
 
         let amount_div = document.createElement('div');
@@ -182,7 +181,7 @@ function generatePopUp(userBooking) {
 
         let total_div = document.createElement('div');
         total_div.classList.add('grid-item'); total_div.classList.add('total-margin');
-        total_div.textContent = total.toString() + ' ISK';
+        total_div.textContent = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " ISK"
         popupContentBox.appendChild(total_div);
     }
 
@@ -192,7 +191,7 @@ function generatePopUp(userBooking) {
 
     let sum = document.createElement('div');
     sum.classList.add('grid-item'); sum.classList.add('sum')
-    sum.textContent = total_sum.toString() + ' ISK';
+    sum.textContent = total_sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " ISK"
     popupContentBox.appendChild(sum);
 
     setTimeout(() => {
