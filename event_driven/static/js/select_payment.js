@@ -112,4 +112,18 @@ cont.appendChild(resttag);
 let totp = document.getElementById("totprice");
     totp.textContent = totprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " ISK";
 
+/* Makes the register button not work unless the terms and conditions checkbox is checked: */
+
+let buyButton = document.getElementById("buy-button");
+buyButton.disabled = true;
+
+function enable_butt() {
+    if (buyButton.disabled === true) {
+        buyButton.disabled = false;
+    }
+    else {
+        buyButton.disabled = true;
+    }
+}
+
 

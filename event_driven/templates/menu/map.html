@@ -10,20 +10,19 @@
     <link rel="stylesheet" type="text/css" href="../../static/css/map.css" />
     </head>
     <body>
-    <h3>Events around the Globe!</h3>
-    <!--The div element for the map -->
+    <h3 style="margin-left:5%;">Events around the Globe!</h3>
+
     <div id="map"></div>
 
-    <!--
-     The `defer` attribute causes the callback to execute after the full HTML
-     document has been parsed. For non-blocking uses, avoiding race conditions,
-     and consistent behavior across browsers, consider loading using Promises
-     with https://www.npmjs.com/package/@googlemaps/js-api-loader.
-    -->
+
+
     <div id="event_ids" style="display:none">{% for event in events %}{{ event.id }}°{% endfor %}</div>
     <div id="event_names" style="display:none">{% for event in events %}{{ event.name }}°{% endfor %}</div>
     <div id="event_lats" style="display:none">{% for event in events %}{{ event.lat }}°{% endfor %}</div>
     <div id="event_longs" style="display:none">{% for event in events %}{{ event.long }}°{% endfor %}</div>
+
+    <br><br>
+
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_pW9Fd6hstpL9qABONoGDfzxICm4McE8&callback=initMap&v=weekly" async></script>
     <script src="../../static/js/map.js"></script>
     </body>
