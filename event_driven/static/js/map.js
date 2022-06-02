@@ -1,4 +1,8 @@
-     var markers = [
+let event_ids_element = document.getElementById('event_ids').textContent.split('°')
+let event_names_element = document.getElementById('event_names').textContent.split('°')
+let event_lats_element = document.getElementById('event_lats').textContent.split('°')
+let event_longs_element = document.getElementById('event_longs').textContent.split('°')
+var markers2 = [
     {
         "title": 'Aksa Beach',
         "lat": '19.1759668',
@@ -30,13 +34,22 @@
         "description": 'Sanjay Gandhi National Park is a large protected area in the northern part of Mumbai city.'
     }
     ];
+let markers = []
+
+function populate_markers () {
+    for (i in event_longs_element) {
+        markers.push({"title": event_names_element[i], "lat": event_lats_element[i], "lng": event_longs_element[i], "eventid": event_ids_element[i]})
+    }
+    markers.pop()
+}
+populate_markers()
     window.onload = function () {
         LoadMap();
     }
     function LoadMap() {
         var mapOptions = {
             center: new google.maps.LatLng(markers[0].lat, markers[0].lng),
-            zoom: 10,
+            zoom: 3,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
         var map = new google.maps.Map(document.getElementById("map"), mapOptions);
@@ -50,9 +63,9 @@
             var marker = new google.maps.Marker({
                 position: myLatlng,
                 map: map,
-                eventid: 19,
+                eventid: data.eventid,
                 label: {
-                  text: "$300k",
+                  text: data.title,
                   color: "#0a0a0a",
                   fontSize: "15px",
                   fontWeight: "bold"
