@@ -62,6 +62,23 @@
     <div class="similar-events">
         <h2>Events for you</h2>
     </div>
+    <div class="option-wrapper">
+            <div class="option-rows">
+                {% for event in events %}
+                    <div class="option" onclick="location.href='/event/{{ event.id }}'" style="background-image: url('{{ event.images_as_list.0 }}')">
+                        <div class="img-overlay">
+                            <div class="sameline">
+                                <p class="big-text img-overlay-text">{{ event.name }}</p>
+                                <p class="eventdate big-text img-overlay-text">{{ event.start|date:"M d, Y"}}</p>
+                            </div>
+                            <p class="small-text img-overlay-text">{{ event.address }}</p>
+                            <p class="small-text img-overlay-text">Price ISK: {{ event.price_range }}</p>
+                        </div>
+                    </div>
+
+                {% endfor %}
+            </div>
+        </div>
     <script src="../../static/js/profile.js"></script>
 
 

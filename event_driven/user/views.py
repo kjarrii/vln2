@@ -46,8 +46,26 @@ def my_tickets_past(request):
     context = {'events': return_events, 'bookings': return_bookings}
     return render(request, 'user/myticket_past.html', context)
 
+def my_events(categories, events):
+    search_list = categories.split(",")
+    return_list = []
+    for event in events:
+        keywords_string = event.keywords
+        keywords = keywords_string.split(',')
+        for word in keywords:
+            for search in search_list:
+                if search in word:
+                    if event not in return_list:
+                        return_list.append(event)
+    return return_list
+
 def profile(request):
+    events = Event.objects.all()
     profile = Users.objects.filter(email=request.user).first()
+    if profile is None:
+        events = None
+    else:
+        events = my_events(profile.favorite_categories, events)
     if request.method == 'POST':
         form = ProfileForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
@@ -57,7 +75,7 @@ def profile(request):
             return redirect('profile')
     else:
         form = ProfileForm()
-    return render(request, 'user/profile.html', {'form': ProfileForm(instance=profile)})
+    return render(request, 'user/profile.html', {'form': ProfileForm(instance=profile), 'events': events})
 
 
 class LoginView(auth_views.LoginView):
