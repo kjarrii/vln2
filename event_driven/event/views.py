@@ -9,6 +9,14 @@ def index(request):
     context = {'events': Event.objects.all().order_by('id')}
     return render(request, 'event/index.html', context)
 
+def has_passed(start_date):
+    utc = pytz.UTC
+    curr_date = utc.localize(datetime.datetime.now())
+    if start_date < curr_date:
+        return True
+    else:
+        return False
+
 def get_event_by_id(request, id):
     org_events = Event.objects.all().order_by('name')
     current_event = Event.objects.get(pk=id)
@@ -32,7 +40,7 @@ def get_event_by_id(request, id):
         if start_date > curr_date:
             similar_events.append(event)
 
-    context = {'event': get_object_or_404(Event, pk=id), 'similar_events': similar_events}
+    context = {'event': get_object_or_404(Event, pk=id), 'similar_events': similar_events, 'event_passed': has_passed(current_event.start)}
     return render(request, 'event/index.html', context)
 
 def create_event(request):

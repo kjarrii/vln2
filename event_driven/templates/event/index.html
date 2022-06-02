@@ -18,6 +18,8 @@
                 <button class="normal-butt" disabled>Passed</button>
             {% elif event.tickets_left == 0 %}
                 <button class="normal-butt" disabled>Sold out</button>
+            {% elif event_passed %}
+                <button class="normal-butt" disabled>Event passed</button>
             {% else %}
                 <button class="normal-butt" onclick="location.href='/booking/{{ event.id }}'">Book now</button>
             {% endif %}
