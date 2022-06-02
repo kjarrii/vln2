@@ -103,7 +103,7 @@ function generateEvents() {
             viewTicketImg.classList.add('view-ticket-img');
             viewTicketImg.src = '/static/images/view-ticket.png';
 
-            viewTicketImg.addEventListener('mouseover', function() {
+            viewTicketImg.addEventListener('click', function() {
                 generatePopUp(userBookings[i])
             })
 
@@ -118,6 +118,7 @@ function generateEvents() {
 
     }
 }
+
 
 let popUpTop = document.getElementById('pop-up-top');
 let popupContentBox = document.getElementById('popup-content-box');
@@ -146,7 +147,6 @@ function generatePopUp(userBooking) {
     line.appendChild(hr);
     popUpTop.appendChild(line);
 
-    let tickets = [];
     let ticketsTypes = userBooking.tickets.split(',');
     let ticketsPrice = userBooking.prices.split(',');
     let total_sum = 0
@@ -194,17 +194,22 @@ function generatePopUp(userBooking) {
     sum.classList.add('grid-item'); sum.classList.add('sum')
     sum.textContent = total_sum.toString() + ' ISK';
     popupContentBox.appendChild(sum);
+
 }
 
 
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (popUpWindow.classList.contains('pop-up-window-active') && event.target !== popUpWindow) {
-      popUpWindow.classList.remove('pop-up-window-active')
-      myTicketsBody.classList.remove('pop-up-active')
+/*document.addEventListener('click', function (event) {
+    console.log('yo')
 
-      popUpTop.replaceChildren()
-      popupContentBox.replaceChildren()
-  }
-}
+    if (popUpWindow.classList.contains('pop-up-window-active') && event.target !== popUpWindow) {
+
+        console.log('veisla')
+        popUpWindow.classList.remove('pop-up-window-active')
+        myTicketsBody.classList.remove('pop-up-active')
+
+        popUpTop.replaceChildren()
+        popupContentBox.replaceChildren()
+    }
+})*/
+
