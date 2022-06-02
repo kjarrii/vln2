@@ -94,6 +94,13 @@
     font-weight: bold;
     font-size: 20px;
 }
+.even-smaller-content{
+    margin-left: 50px;
+    display: grid;
+    grid-template-columns: 130px 185px 85px 85px;
+    font-weight: bold;
+    font-size: 20px;
+}
 
 .amount {
     margin: 3px 100px 3px 3px;
@@ -203,7 +210,7 @@
 .payment-container {
     display: grid;
     white-space: nowrap;
-    grid-template-columns: 600px 350px;
+    grid-template-columns: 600px 400px;
     grid-gap: 50px;
     position: relative;
 }
@@ -213,4 +220,13 @@
     left:0;
 
     color: red;
+}
+
+.no-grid{
+    width: 400px;
+}
+
+.no-grid image{
+    width: 80%;
+    margin: auto;
 }

@@ -15,11 +15,14 @@
             </div>
         </div>
         <br> <br> <br> <br>
-        <h3>Payment</h3>
-        <div class="payment-container">
-
-            <div class="center-div">
-
+        <div class="center-div">
+            <div class="payment-container">
+                <h3>Payment</h3>
+                <h3>Event</h3>
+            </div>
+        </div>
+        <div class="center-div">
+            <div class="payment-container">
                 <div class="with-border smallest-event-box">
                     <div class="delivery-content">
                         <div class="delivery-text" style="margin-left: -20px;">
@@ -36,30 +39,55 @@
                         </div>
                     </div>
                 </div>
+                <div>
+                    <div class="with-border no-grid">
+                        <div>
+                            <img src="{{ event.image }}" alt="Photo of event">
+                            <h4>{{ event.title }}</h4>
+                            <p>{{ event.date }}</p>
+                            <p>{{ event.address }}</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="center-div">
-                <div class="black small-event-box">
-                    <div class="smaller-content">
+        </div>
+            <br>
+        <div class="center-div">
+            <div class="payment-container">
+                <div>
+                <div class="black smallest-event-box">
+                    <div class="even-smaller-content">
                         <div>Type</div>
                         <div>Price</div>
                         <div>Amount</div>
                         <div>Total</div>
                     </div>
                 </div>
-            </div>
+
         <br>
-        <div class="center-div">
-            <div class="with-border small-event-box">
-                <div class="smaller-content">
+
+            <div class="with-border smallest-event-box">
+                <div class="even-smaller-content">
                     <div id="ticket_type">
                     </div>
                     <div id="ticket_price">
                     </div>
-                    <div class="ticket-amount" id="ticket_amount">
+                    <div id="ticket_amount">
                     </div>
                     <div id="total"></div>
                 </div>
             </div>
+                </div>
+                <div>
+                    <div class="with-border no-grid">
+                        <div>
+                            <h4>Total</h4>
+                            <p>All sales are final, don't even try to get a refund</p>
+                            <p>Terms and condition</p>
+
+                        </div>
+                    </div>
+                </div>
         </div>
         </div>
         <div>
