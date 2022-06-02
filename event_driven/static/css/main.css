@@ -187,8 +187,8 @@
 }
 
 /* Menu page: */
-#menu-body {
-  margin-top: 5px;
+.menu-body {
+  margin-top: -20px;
   margin-right: 40px;
   margin-left: 40px;
 }
@@ -335,6 +335,14 @@
 .filter-sort-btn:hover {
   background-color: #3B0D3C;
 }
+
+#map {
+  margin-top: 10px;
+  height: 800px;
+  width: 90%;
+  border: 10px solid #561357;
+}
+
 
 
 
