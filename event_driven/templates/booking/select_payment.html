@@ -24,7 +24,7 @@
         </div>
         <div class="center-div">
             <div class="payment-container">
-                <div class="with-border smallest-event-box">
+                <div class="with-border smallest-event-box" style="max-height: 200px;">
                     <div class="delivery-content">
                         <div class="delivery-text" style="margin-left: -20px;">
                             <label>Cardholder name:</label> <br>
@@ -34,25 +34,14 @@
                         <div class="delivery-input">
                             <input id="name_on_card_input" required> <br>
                             <input id="card_number_input" required> <br>
-                            <input id="expiration_date_input" type="number" style="width: 100px;" required>
+                            <select id="expiration_date_input" type="number" style="width: 100px;" required>
+                                <option value="12">12</option>
+                            </select>
                             <label style="margin-left: 34px;">CVC:</label>
                             <input id="cvc_input" type="number" style="width: 100px;" required>
                         </div>
                     </div>
-                </div>
-                <div>
-                    <div class="with-border no-grid">
-                        <div id="myndogshit">
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-            <br>
-        <div class="center-div">
-            <div class="payment-container">
-                <div>
+            <div><br><br>
                 <div class="black smallest-event-box">
                     <div class="even-smaller-content">
                         <div>Type</div>
@@ -64,7 +53,7 @@
 
         <br>
 
-            <div class="with-border smallest-event-box">
+            <div class="with-border smallest-event-box" style="margin-left: -4px;">
                 <div class="even-smaller-content">
                     <div id="ticket_type">
                     </div>
@@ -76,6 +65,21 @@
                 </div>
             </div>
                 </div>
+                </div>
+                <div>
+
+                    <div class="with-border no-grid">
+                        <div id="myndogshit">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <br>
+        <div class="center-div">
+            <div class="payment-container">
+                <div><br><br><br><button onclick="go_back()" class="normal-butt" style="margin-left:0"> Back</button></div>
                 <div>
                     <div class="with-border no-grid">
                         <div>
@@ -84,26 +88,22 @@
                                 <h4 style="position: absolute;right: 0" id="totprice"></h4>
                             </div>
                             <br><br>
-                            <p>*All Sales Final - No refunds</p>
+                            <p>All Sales Final - No refunds</p>
                             <div class="checkbox-div">
                                 <input type="checkbox" class="terms-checkbox" id="terms-checkbox" onclick="enable_butt()">
                                 <p class="bottom-text">I read and agree
-                                    <a href="" class="register-link">Terms & Conditions</a>
+                                    <a href="" class="register-link">Terms & Conditions</a>*
                                 </p>
                             </div>
 
                         </div>
                         <br>
-                        <button onclick="go_forward()" class="normal-butt" style="width: 100%;margin:0;" id="buy_button"> Place order</button>
+                        <button onclick="go_forward()" class="normal-butt" style="width: 100%;margin:0;" id="buy_button" disabled> Place order</button>
                     </div>
                 </div>
         </div>
         </div>
 
-        <div class="button-cont">
-            <button onclick="go_back()" class="normal-butt" style="left:-40px"> Back</button>
-
-        </div>
         <br><br><br><br>
     </div>
 

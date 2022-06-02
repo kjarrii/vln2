@@ -39,7 +39,6 @@ function update_ticket_amount() {
 function go_forward (){
     ticket_element.value = sessionStorage.getItem('tickets');name_element.value = sessionStorage.getItem('name');email_element.value = sessionStorage.getItem('email');phone_element.value = sessionStorage.getItem('phone');full_name_element.value = sessionStorage.getItem('full_name');street_element.value = sessionStorage.getItem('street');no_element.value = sessionStorage.getItem('no');city_element.value = sessionStorage.getItem('city');zip_element.value = sessionStorage.getItem('zip');country_element.value = sessionStorage.getItem('country');event_element.value = sessionStorage.getItem('eventid');delivery_element.value = sessionStorage.getItem('delivery_method');user_element.value = JSON.parse(document.getElementById('user_id').textContent);
     ticket_amount_element.value = update_ticket_amount()
-    console.log(update_ticket_amount())
     if (verify_input()) {
 
         submit_button.click()
@@ -97,13 +96,13 @@ let totprice = africaTotal.reduce((partialSum, a) => partialSum + a, 0);
 
 let cont = document.getElementById('myndogshit');
 let tagImg = document.createElement('img');
-let img_src = sessionStorage.getItem('event_image').split(",")
+let img_src = sessionStorage.getItem('event_image').split(",");
 tagImg.setAttribute('src', img_src[0]);
 tagImg.setAttribute('alt', "Photo of event");
 tagImg.style.width = "340px";
 let tittag = document.createElement('h4');
 tittag.textContent = sessionStorage.getItem('event_name');
-let resttag = document.createElement('p');
+let resttag = document.createElement('h6');
 resttag.innerHTML = sessionStorage.getItem('event_start')+"<br>" + sessionStorage.getItem('event_address');
 cont.appendChild(tagImg);
 cont.appendChild(tittag);
@@ -114,15 +113,14 @@ let totp = document.getElementById("totprice");
 
 /* Makes the register button not work unless the terms and conditions checkbox is checked: */
 
-let buyButton = document.getElementById("buy-button");
-buyButton.disabled = true;
+let buyButton = document.getElementById("buy_button");
 
 function enable_butt() {
-    if (buyButton.disabled === true) {
-        buyButton.disabled = false;
+    if (buyButton.hasAttribute('disabled')) {
+        buyButton.removeAttribute('disabled');
     }
     else {
-        buyButton.disabled = true;
+        buyButton.setAttribute('disabled', 'true');
     }
 }
 
