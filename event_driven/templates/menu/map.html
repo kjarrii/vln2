@@ -1,5 +1,27 @@
 {% extends 'base.html' %}
+{% load static %}
+
 {% block content %}
-    <br><br><br><br>
-    <h1>Map</h1>
+    {% include 'menu/menu-navbar.html' %}
+    {% include 'menu/menu-searchbar.html' %}
+    <head>
+    <title>Map</title>
+
+    <link rel="stylesheet" type="text/css" href="../../static/css/map.css" />
+    </head>
+    <body>
+    <h3>Events around the Globe!</h3>
+    <!--The div element for the map -->
+    <div id="map"></div>
+
+    <!--
+     The `defer` attribute causes the callback to execute after the full HTML
+     document has been parsed. For non-blocking uses, avoiding race conditions,
+     and consistent behavior across browsers, consider loading using Promises
+     with https://www.npmjs.com/package/@googlemaps/js-api-loader.
+    -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_pW9Fd6hstpL9qABONoGDfzxICm4McE8&callback=initMap&v=weekly" async></script>
+    <script src="../../static/js/map.js"></script>
+    </body>
+
 {% endblock %}
