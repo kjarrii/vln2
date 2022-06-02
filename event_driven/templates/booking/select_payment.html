@@ -34,11 +34,36 @@
                         <div class="delivery-input">
                             <input id="name_on_card_input" required> <br>
                             <input id="card_number_input" required> <br>
-                            <select id="expiration_date_input" type="number" style="width: 100px;" required>
+                            <select id="expiration_date_month" style="width: 70px;" required>
+                                <option value="" disabled selected>MM</option>
+                                <option value="01">01</option>
+                                <option value="02">02</option>
+                                <option value="03">03</option>
+                                <option value="04">04</option>
+                                <option value="05">05</option>
+                                <option value="06">06</option>
+                                <option value="07">07</option>
+                                <option value="08">08</option>
+                                <option value="09">09</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
                                 <option value="12">12</option>
                             </select>
-                            <label style="margin-left: 34px;">CVC:</label>
-                            <input id="cvc_input" type="number" style="width: 100px;" required>
+                            <select id="expiration_date_year" style="width: 70px;" required>
+                                <option value="" disabled selected>YY</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="29">28</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                                <option value="32">32</option>
+                            </select>
+                            <label>CVC:</label>
+                            <input id="cvc_input" type="number" style="width: 76px;" required>
                         </div>
                     </div>
             <div><br><br>
