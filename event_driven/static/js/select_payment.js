@@ -17,19 +17,24 @@ function verify_input(total_tickets) {
     }
 }
 
-function delete_this_function() {
-    sessionStorage.setItem('tickets', 'ZoneA:1,ZoneB:0,ZoneC:0');
-    sessionStorage.setItem('name', 'Kári G');
-    sessionStorage.setItem('email', 'karigeorgs@gmail.com');
-    sessionStorage.setItem('phone', '+6969696996');
-    sessionStorage.setItem('full_name', 'Kári Georgsson');
-    sessionStorage.setItem('street', 'Bakers');
-    sessionStorage.setItem('no', '21');
-    sessionStorage.setItem('city', 'London');
-    sessionStorage.setItem('zip', '210');
-    sessionStorage.setItem('country', 'England');
-    sessionStorage.setItem('delivery_method', 'postal_service');
+function load_ticket_stuff () {
+    let org_amount = sessionStorage.getItem('tickets').split(',')
+    let org_prices = sessionStorage.getItem('event_prices').split(',')
+    let type = []
+    let amount = []
+    let prices = []
+    for (i in org_amount) {
+        let amount_list = org_amount[i].split(':')
+        let price_list = org_prices[i].split(':')
+        type.push(amount_list[0])
+        amount.push(amount_list[1])
+        prices.push(price_list[1])
+    }
+    console.log(type)
+    console.log(amount)
+    console.log(prices)
 }
+
 function go_forward (){
     ticket_element.value = sessionStorage.getItem('tickets');name_element.value = sessionStorage.getItem('name');email_element.value = sessionStorage.getItem('email');phone_element.value = sessionStorage.getItem('phone');full_name_element.value = sessionStorage.getItem('full_name');street_element.value = sessionStorage.getItem('street');no_element.value = sessionStorage.getItem('no');city_element.value = sessionStorage.getItem('city');zip_element.value = sessionStorage.getItem('zip');country_element.value = sessionStorage.getItem('country');event_element.value = sessionStorage.getItem('eventid');delivery_element.value = sessionStorage.getItem('delivery_method');user_element.value = JSON.parse(document.getElementById('user_id').textContent);
     if (verify_input()) {
@@ -37,3 +42,4 @@ function go_forward (){
         submit_button.click()
     }
 }
+load_ticket_stuff()
