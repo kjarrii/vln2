@@ -8,6 +8,7 @@ function getData() {
     let userBookings = [];
 
 
+
     // goes through the data and splits it up, then adds it to userBookings array
     for (let i=0; i<events.length; i++) {
         let eventItems = events[i].split('///');
@@ -15,12 +16,15 @@ function getData() {
         let bookingId = bookingItems[0].split(' ').at(-1)
         let eventImage = eventItems[4].split(' ').at(-1)
         eventImage = eventImage.split(',').at(0)
-        let eventId = eventItems[5].split(' ').at(-1)
 
-        userBookings.push({'event_id': eventId, 'booking_id': bookingId, 'title': eventItems[0].trim(), 'location': eventItems[1].trim(), 'date': eventItems[2].trim(), 'prices': eventItems[3].trim(), 'tickets': bookingItems[1].trim(), 'image': eventImage});
+
+        console.log(eventItems)
+
+        userBookings.push({'event_id': eventItems[5].trim(), 'booking_id': bookingId, 'title': eventItems[0].trim(), 'location': eventItems[1].trim(), 'date': eventItems[2].trim(), 'date_end': eventItems[6].trim(), 'prices': eventItems[3].trim(), 'tickets': bookingItems[1].trim(), 'image': eventImage});
     }
 
     console.log(userBookings)
+
     return userBookings;
 }
 
@@ -85,7 +89,7 @@ function generateEvents() {
             eventTicketInfo.appendChild(h5_loc)
 
             let h5_date = document.createElement('h5')
-            h5_date.textContent = userBookings[i].date
+            h5_date.textContent = userBookings[i].date + '  -  ' + userBookings[i].date_end
             eventTicketInfo.appendChild(h5_date)
 
             let h6 = document.createElement('h6')
@@ -115,6 +119,6 @@ function generateEvents() {
 
         let br1_bottom = document.createElement('br'); let br2_bottom = document.createElement('br'); let br3_bottom = document.createElement('br')
         ticketBox.appendChild(br1_bottom); ticketBox.appendChild(br2_bottom); ticketBox.appendChild(br3_bottom)
-        
+
     }
 }

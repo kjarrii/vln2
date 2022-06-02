@@ -4,6 +4,51 @@
 {% block content %}
     <link rel="stylesheet" href="{% static "css/mytickets.css" %}"/>
 
+    <div class="pop-up-window">
+        <div class="pop-up-top">
+            <h2>Birnir</h2>
+            <h5>Gróttuhöllin</h5>
+            <h5>21. júní 2022, 22:00 - 22. júní 2022, 01:00</h5>
+            <div class="center-div"><hr></div>
+        </div>
+
+        <div class="center-div">
+            <div class="with-margin black small-ticket-box">
+                <div class="popup-content-box">
+                    <div>Type</div>
+                    <div>Price</div>
+                    <div>Amount</div>
+                    <div>Total</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="center-div">
+            <div class="with-border small-ticket-box">
+                <div class="popup-content-box">
+                    <div class="grid-item"> ZoneA </div>
+                    <div class="grid-item"> 199.999 ISK </div>
+                    <div class="amount grid-item"> 1 </div>
+                    <div class="grid-item"> 2.000 ISK </div>
+                    <div class="grid-item"> ZoneA </div>
+                    <div class="grid-item"> 2.000 ISK </div>
+                    <div class="amount grid-item"> 1 </div>
+                    <div class="grid-item"> 2.000 ISK </div>
+
+                    <div class="grid-item">  </div>
+                    <div class="grid-item">  </div>
+                    <div class="amount grid-item">  </div>
+                    <div class="sum grid-item"> 2.000.000 ISK </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </div>
+
     <br> <br> <br> <br> <br>
     <div id="my-tickets-body" class="my-tickets-body">
 
@@ -27,7 +72,8 @@
                 {{ event.start }}///
                 {{ event.prices }}///
                 {{ event.image }}///
-                {{ event.id }}&&&
+                {{ event.id }}///
+                {{ event.end }}&&&
             {% endfor %}
         </div>
         <div id="bookings" style="display: none">
