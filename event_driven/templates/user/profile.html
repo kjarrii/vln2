@@ -48,27 +48,20 @@
     </div>
 
     <div class="butt-container">
-        <input type="submit" class="save-button" value="Save" />
+        <input onclick="send_data()" class="save-button" value="Save" />
     </div>
+    <div id="first_name_div" style="display: none">{% render_field form.first_name %}</div>
+    <div id="category_form_div" class="field" style="display: none">
+    {% render_field form.favorite_categories %}
+    </div>
+    <div style="display: none">
+    <input id="submit_button" type="submit" class="btn btn-primary" value="Update" />
+    </div>
+    </form>
 
     <div class="similar-events">
         <h2>Events for you</h2>
     </div>
-
-
-        <div class="field" style="display: none">
-        <label class="label">Favorite Categories:</label>
-        {% render_field form.favorite_categories %}
-        </div>
-
-{% comment %}        <div class="image_field">
-            DJANGO ER RUSL
-        <input type="file" name="image" accept="image/*" id="id_image">
-        </div>{% endcomment %}
-
-        <input type="submit" class="btn btn-primary" value="Update" />
-    </form>
-
     <script src="../../static/js/profile.js"></script>
 
 

@@ -23,6 +23,7 @@ class Users(AbstractUser):
 
 class UserProfile(models.Model):
     user = models.OneToOneField(Users, on_delete=models.CASCADE)
+    first_name = models.CharField(max_length=9999, blank=True)
     image = models.ImageField(upload_to='profile_image', blank=True)
-    favorite_categories = models.CharField(max_length=9999)
+    favorite_categories = models.CharField(max_length=9999, blank=True)
     booking = models.CharField(max_length=1000)

@@ -6,6 +6,10 @@ let all_fav = element.getAttribute('allFav');
 const all = all_fav.split(",");
 let f = new Set(fav);
 let notFav = all.filter( x => !f.has(x) );
+let submit_fav_element = document.getElementById('category_form_div');
+let submit_but_element = document.getElementById('submit_button');
+let submit_name_element = document.getElementById('first_name_div');
+let name_element = document.getElementById('username-box-input');
 
 function pop_fav() {
         for (let i = 0; i < fav.length; i++) {
@@ -55,4 +59,18 @@ function addcat(addid){
     pop_fav();
 }
 
+function send_data() {
+    let return_categories = ""
+    for (var i = 0; i < favElements.children.length; i++) {
+        return_categories = return_categories + "," + favElements.children[i].innerText.trim().slice(0, -1)
+    }
+    submit_fav_element.children[0].value = return_categories.substring(1)
+    if (name_element.value === "") {
+        console.log("yes")
+    }
+    else {
+        submit_name_element.children[0].value = name_element.value
+    }
+    submit_but_element.click()
+}
 pop_fav()
