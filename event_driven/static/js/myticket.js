@@ -36,21 +36,22 @@ function generateEvents() {
 
         ticketBoxDiv.appendChild(ticketBox)
 
-        for (let i=0; i<5; i++) {
-        /*for (let i=0; i<userBookings; i++) {*/
+
+        for (let i=0; i<userBookingsNum; i++) {
             //each box for the bookings
             let eventTicketBox = document.createElement('div')
             eventTicketBox.classList.add('event-ticket-box')
 
+            ticketBox.appendChild(eventTicketBox)
+
 
             // image for the box
-            let eventTicketImg = document.createElement('img')
+            let eventTicketImg = document.createElement('div')
             eventTicketImg.classList.add('event-ticket-img')
-            eventTicketImg.src = userBookings[i].image
+            eventTicketImg.style.backgroundImage = "url('" + userBookings[i].image + "')"
 
             eventTicketBox.appendChild(eventTicketImg)
 
-            ticketBox.appendChild(eventTicketBox)
 
             /// info div
             let eventTicketInfo = document.createElement('div')
@@ -70,7 +71,10 @@ function generateEvents() {
             eventTicketInfo.appendChild(h5_date)
 
             let h6 = document.createElement('h6')
-            h6.textContent = userBookings[i].id
+            h6.textContent = "Booking number: " + userBookings[i].booking_id
+
+            let br1 = document.createElement('br'); let br2 = document.createElement('br'); let br3 = document.createElement('br')
+            eventTicketInfo.appendChild(br1); eventTicketInfo.appendChild(br2); eventTicketInfo.appendChild(br3)
             eventTicketInfo.appendChild(h6)
 
             eventTicketBox.appendChild(eventTicketInfo)
@@ -80,11 +84,15 @@ function generateEvents() {
             viewTicketImgDiv.classList.add('view-ticket-img-div')
 
             let viewTicketImg = document.createElement('img')
-            viewTicketImg.src = 'images/view-ticket.png'
+            viewTicketImg.classList.add('view-ticket-img')
+            viewTicketImg.src = '../images/view-ticket.png'
             viewTicketImgDiv.appendChild(viewTicketImg)
 
             eventTicketBox.appendChild(viewTicketImgDiv)
         }
+
+        let br1_bottom = document.createElement('br'); let br2_bottom = document.createElement('br'); let br3_bottom = document.createElement('br')
+        ticketBox.appendChild(br1_bottom); ticketBox.appendChild(br2_bottom); ticketBox.appendChild(br3_bottom)
 
 
     }

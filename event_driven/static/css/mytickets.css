@@ -69,10 +69,14 @@ hr {
 }
 
 .event-ticket-img {
-    height: 240px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    object-fit: contain;
+/*    width: 400px !important;*/
 }
 
 .event-ticket-info {
+    margin-left: 20px;
     margin-top: 10px;
     color: white;
 }
