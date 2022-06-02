@@ -78,6 +78,16 @@ let totprice = africaTotal.reduce((partialSum, a) => partialSum + a, 0);
 let cont = document.getElementById('myndogshit');
 let tagImg = document.createElement('img');
 tagImg.setAttribute('src', "vantar þetta shit");
+tagImg.setAttribute('alt', "Photo of event");
 let tittag = document.createElement('h4');
+tittag.textContent = 'Event title';
+let resttag = document.createElement('p');
+resttag.innerHTML = "'Event date' <br> 'event location'";
+cont.appendChild(tagImg);
+cont.appendChild(tittag);
+cont.appendChild(resttag);
+
+let totp = document.getElementById("totprice");
+    totp.textContent = totprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " ISK";
 
 

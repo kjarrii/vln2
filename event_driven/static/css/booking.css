@@ -225,9 +225,36 @@
 
 .no-grid{
     width: 400px;
+    padding: 30px;
 }
 
-.no-grid image{
-    width: 80%;
-    margin: auto;
+.checkbox-div {
+  display: flex;
+}
+
+.checkbox-div a{
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+
+.terms-checkbox {
+  width:30px;
+  height:30px;
+  border-radius:5px;
+  margin-top: 6px;
+  margin-right: 8px;
+  border: #561357 2px solid;
+  background-color: white;
+  -webkit-appearance:none;
+  cursor: pointer;
+}
+
+.terms-checkbox:checked {
+  -webkit-appearance: checkbox;
+  accent-color: #561357;
+}
+
+.bottom-text {
+  margin-top: 9px;
 }
