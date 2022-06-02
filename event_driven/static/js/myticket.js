@@ -154,35 +154,37 @@ function generatePopUp(userBooking) {
         let ticket_type = ticketsTypes[i].split(':'); /* index 0 is type, index 1 is amount */
 
         let ticket_amount = ticket_type.at(1); /* amount */
-        if (ticket_amount === '') {
-            ticket_amount = 0;
+        if (ticket_amount !== '' && ticket_amount !== '0') {
+            console.log(ticket_amount)
+            console.log(typeof ticket_amount)
+
+            ticket_type = ticket_type.at(0);       /* types */
+
+            let ticket_price = ticketsPrice[i].split(':').at(1); /* prices */
+
+            let total = ticket_price*ticket_amount; /* total */
+            total_sum += total;
+
+            let type_div = document.createElement('div');
+            type_div.classList.add('grid-item');
+            type_div.textContent = ticket_type;
+            popupContentBox.appendChild(type_div);
+
+            let price_div = document.createElement('div');
+            price_div.classList.add('grid-item');
+            price_div.textContent = ticket_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " ISK";
+            popupContentBox.appendChild(price_div);
+
+            let amount_div = document.createElement('div');
+            amount_div.classList.add('grid-item'); amount_div.classList.add('amount');
+            amount_div.textContent = ticket_amount.toString();
+            popupContentBox.appendChild(amount_div);
+
+            let total_div = document.createElement('div');
+            total_div.classList.add('grid-item'); total_div.classList.add('total-margin');
+            total_div.textContent = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " ISK"
+            popupContentBox.appendChild(total_div);
         }
-        ticket_type = ticket_type.at(0);       /* types */
-
-        let ticket_price = ticketsPrice[i].split(':').at(1); /* prices */
-
-        let total = ticket_price*ticket_amount; /* total */
-        total_sum += total;
-
-        let type_div = document.createElement('div');
-        type_div.classList.add('grid-item');
-        type_div.textContent = ticket_type;
-        popupContentBox.appendChild(type_div);
-
-        let price_div = document.createElement('div');
-        price_div.classList.add('grid-item');
-        price_div.textContent = ticket_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " ISK";
-        popupContentBox.appendChild(price_div);
-
-        let amount_div = document.createElement('div');
-        amount_div.classList.add('grid-item'); amount_div.classList.add('amount');
-        amount_div.textContent = ticket_amount.toString();
-        popupContentBox.appendChild(amount_div);
-
-        let total_div = document.createElement('div');
-        total_div.classList.add('grid-item'); total_div.classList.add('total-margin');
-        total_div.textContent = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " ISK"
-        popupContentBox.appendChild(total_div);
     }
 
     let filler1 = document.createElement('div'); let filler2 = document.createElement('div'); let filler3 = document.createElement('div')
@@ -204,16 +206,12 @@ function generatePopUp(userBooking) {
 
 
 function removePopUp(event) {
-    console.log(event)
-
     if (popUpWindow.classList.contains('pop-up-window-active') && event.target) {
 
-        console.log('veisla')
         popUpWindow.classList.remove('pop-up-window-active')
         myTicketsBody.classList.remove('pop-up-active')
 
         popUpTop.replaceChildren()
         popupContentBox.replaceChildren()
-
     }
 }
