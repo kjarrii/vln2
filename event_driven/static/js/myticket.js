@@ -108,8 +108,6 @@ function generateEvents() {
             })
 
 
-
-
             viewTicketImgDiv.appendChild(viewTicketImg);
 
             eventTicketBox.appendChild(viewTicketImgDiv);
