@@ -59,6 +59,16 @@ def my_events(categories, events):
                         return_list.append(event)
     return return_list
 
+def only_future(all_events):
+    return_events = []
+    utc = pytz.UTC
+    curr_date = utc.localize(datetime.datetime.now())
+    for event in all_events:
+        start_date = event.start
+        if start_date > curr_date:
+            return_events.append(event)
+    return return_events
+
 def profile(request):
     events = Event.objects.all()
     profile = Users.objects.filter(email=request.user).first()
@@ -66,6 +76,7 @@ def profile(request):
         events = None
     else:
         events = my_events(profile.favorite_categories, events)
+        events = only_future(events)
     if request.method == 'POST':
         form = ProfileForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
