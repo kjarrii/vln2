@@ -95,7 +95,6 @@ function total(){
     let sum = totArr.reduce((partialSum, a) => partialSum + a, 0);
     toto_by_africa.nodeValue = sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " ISK";
 
-    console.log(amountArr);
 
     let nosum = amountArr.reduce((partialSum, a) => partialSum + a, 0);
 
@@ -123,7 +122,22 @@ function verify_input(total_tickets) {
         return false
     }
 }
+function verify_remaining(tickets) {
+    let org_amount = sessionStorage.getItem('event_tickets_amount').split(",")
+    let org_max = sessionStorage.getItem('event_max').split(",")
+    for (i in org_max) {
+        let temp1 = org_amount[i].split(":")
+        let temp2 = org_max[i].split(":")
+        let temp3 = tickets[i].split(":")
+        let tickets_remaining = parseInt(temp2[1]) - parseInt(temp1[1])
+        if (parseInt(temp3[1]) > tickets_remaining) {
+            console.log("Bannað! Það eru "+ tickets_remaining +" miðar eftir af týpu" + temp1[0])
+            return false
+        }
 
+    }
+    return true
+}
 function go_forward (){
     var total_tickets = []
     for (i in types_of_tickest) {
@@ -135,7 +149,7 @@ function go_forward (){
             total_tickets.push(split_ticket2[0].toString() + ":" + '0')
         }
     }
-    if (verify_input(total_tickets)) {
+    if (verify_input(total_tickets) && verify_remaining(total_tickets)) {
         sessionStorage.setItem('tickets', total_tickets);
         window.location.href = 'select_delivery'
     }
