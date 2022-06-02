@@ -42,10 +42,7 @@
                 <div>
                     <div class="with-border no-grid">
                         <div id="myndogshit">
-                            <img src="{{ event.image }}" alt="Photo of event">
-                            <h4>{{ event.title }}</h4>
-                            <p>{{ event.date }}</p>
-                            <p>{{ event.address }}</p>
+
                         </div>
                     </div>
                 </div>
@@ -81,45 +78,30 @@
                 <div>
                     <div class="with-border no-grid">
                         <div>
-                            <h4>Total</h4>
-                            <p>All sales are final, don't even try to get a refund</p>
-                            <p>Terms and condition</p>
+                            <div style="position: relative;">
+                                <h4 style="position: absolute;left: 0">Total:</h4>
+                                <h4 style="position: absolute;right: 0" id="totprice"></h4>
+                            </div>
+                            <br><br>
+                            <p>*All Sales Final - No refunds</p>
+                            <div class="checkbox-div">
+                                <input type="checkbox" class="terms-checkbox">
+                                <p class="bottom-text">I read and agree
+                                    <a href="" class="register-link">Terms & Conditions</a>
+                                </p>
+                            </div>
 
                         </div>
+                        <br>
+                        <button onclick="go_forward()" class="normal-butt" style="width: 100%;margin:0;"> Place order</button>
                     </div>
                 </div>
         </div>
         </div>
-        <div>
-            <label>Name on card:</label>
-            <input id="name_on_card_input">
-        </div>
-        <div>
-            <label>Card number:</label>
-            <input id="card_number_input">
-        </div>
-        <div>
-            <label>Expiration date:</label>
-            <input id="expiration_date_input">
-        </div>
-        <div id="type"></div>
-        <div id="amount"></div>
-        <div id="total"></div>
-        <div id="total_total"></div>
-        <div>
-            <label>CVC:</label>
-            <input id="cvc_input" type="number">
-        </div>
-
-
-
-
-
-
 
         <div class="button-cont">
-            <button onclick="go_back()" class="normal-butt" style="left:0"> Back</button>
-            <button onclick="go_forward()" class="normal-butt" > Continue</button>
+            <button onclick="go_back()" class="normal-butt" style="left:-40px"> Back</button>
+
         </div>
         <br><br><br><br>
     </div>
