@@ -1,23 +1,31 @@
 .my-tickets-body {
     margin-left: 5%;
     margin-right: 5%;
+}
 
+.pop-up-active {
     filter: blur(10px); /*taka þetta út til að fjarlægja blur*/
     pointer-events: none;
     z-index: 1;
 }
 
+.pop-up-window-active {
+    display: block !important;
+}
+
 .pop-up-window {
+    display: none;
     background-color: white;
     border: 5px solid black;
     border-radius: 40px;
     width: 700px;
-    min-height: 400px;
+    min-height: 200px;
     height: fit-content;
     position:fixed;
     top: calc(50% - 250px);  /*half of height*/
     left: calc(50% - 350px); /*half of width*/
     z-index: 100;
+    padding-bottom: 30px;
 }
 
 .pop-up-top {
@@ -51,12 +59,17 @@
 }
 
 .amount {
-    margin-left: 28px;
+    margin-left: 24px;
 }
 
 .sum {
+    padding-top: 15px;
     border-top: 4px solid black;
     width: 70%;
+}
+
+.total-margin {
+    margin-top: 3px;
 }
 
 .with-margin {
