@@ -50,7 +50,6 @@
     font-size: x-large;
     color: #989898;
     font-weight: bold;
-    cursor:pointer
 }
 
 .active-text {
@@ -141,9 +140,9 @@
 .ticket-amount input[type=number] {
     color: #FFFFFF;
     background-color: #561357;
-  border: none;
-  font-weight: bold;
-  text-align: center;
+    border: none;
+    font-weight: bold;
+    text-align: center;
     margin: 300px 0;
     max-width: 50px;
 }
