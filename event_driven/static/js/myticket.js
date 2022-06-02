@@ -7,6 +7,7 @@ function getData() {
     let bookings = document.getElementById('bookings').innerText.split('&&&').slice(0,-1);
     let userBookings = [];
 
+
     // goes through the data and splits it up, then adds it to userBookings array
     for (let i=0; i<events.length; i++) {
         let eventItems = events[i].split('///');
@@ -14,11 +15,19 @@ function getData() {
         let bookingId = bookingItems[0].split(' ').at(-1)
         let eventImage = eventItems[4].split(' ').at(-1)
         eventImage = eventImage.split(',').at(0)
+        let eventId = eventItems[5].split(' ').at(-1)
 
-        userBookings.push({'booking_id': bookingId, 'title': eventItems[0].trim(), 'location': eventItems[1].trim(), 'date': eventItems[2].trim(), 'prices': eventItems[3].trim(), 'tickets': bookingItems[1].trim(), 'image': eventImage});
+        userBookings.push({'event_id': eventId, 'booking_id': bookingId, 'title': eventItems[0].trim(), 'location': eventItems[1].trim(), 'date': eventItems[2].trim(), 'prices': eventItems[3].trim(), 'tickets': bookingItems[1].trim(), 'image': eventImage});
     }
 
+    console.log(userBookings)
     return userBookings;
+}
+
+// Returns true if the current page is the upcoming page
+function pastOrPresent() {
+    let upcomingBtn = document.getElementById('upcoming')
+    return upcomingBtn.classList.contains('active-btn');
 }
 
 generateEvents();
@@ -28,7 +37,14 @@ function generateEvents() {
 
     let h3 = document.getElementById('you-have-title')
     h3.classList.add('you-have-title')
-    h3.innerHTML="You have " + userBookingsNum + " upcoming events";
+
+    if (pastOrPresent()) {
+        h3.innerHTML="You have " + userBookingsNum + " upcoming event(s)";
+    }
+    else {
+        h3.innerHTML="You have " + userBookingsNum + " past event(s)";
+    }
+
 
     if (userBookingsNum !== 0) {
         let ticketBox = document.createElement('div') // creates the ticket box that halds all of the tickets
@@ -36,13 +52,14 @@ function generateEvents() {
 
         ticketBoxDiv.appendChild(ticketBox)
 
-
         for (let i=0; i<userBookingsNum; i++) {
+
             //each box for the bookings
             let eventTicketBox = document.createElement('div')
             eventTicketBox.classList.add('event-ticket-box')
 
             ticketBox.appendChild(eventTicketBox)
+
 
 
             // image for the box
@@ -51,6 +68,7 @@ function generateEvents() {
             eventTicketImg.style.backgroundImage = "url('" + userBookings[i].image + "')"
 
             eventTicketBox.appendChild(eventTicketImg)
+            eventTicketImg.setAttribute('onclick', 'window.location="/event/' + userBookings[i].event_id + '"')
 
 
             /// info div
@@ -78,6 +96,7 @@ function generateEvents() {
             eventTicketInfo.appendChild(h6)
 
             eventTicketBox.appendChild(eventTicketInfo)
+            eventTicketInfo.setAttribute('onclick', 'window.location="/event/' + userBookings[i].event_id + '"')
 
             // view ticket img
             let viewTicketImgDiv = document.createElement('div')
@@ -85,7 +104,10 @@ function generateEvents() {
 
             let viewTicketImg = document.createElement('img')
             viewTicketImg.classList.add('view-ticket-img')
-            viewTicketImg.src = '../images/view-ticket.png'
+            viewTicketImg.src = '/static/images/view-ticket.png'
+            viewTicketImg.setAttribute('onclick', 'window.location="/"')
+
+
             viewTicketImgDiv.appendChild(viewTicketImg)
 
             eventTicketBox.appendChild(viewTicketImgDiv)
@@ -93,8 +115,6 @@ function generateEvents() {
 
         let br1_bottom = document.createElement('br'); let br2_bottom = document.createElement('br'); let br3_bottom = document.createElement('br')
         ticketBox.appendChild(br1_bottom); ticketBox.appendChild(br2_bottom); ticketBox.appendChild(br3_bottom)
-
-
+        
     }
-
 }

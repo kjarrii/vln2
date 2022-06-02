@@ -66,6 +66,7 @@ hr {
     box-shadow: 3px 4px 4px black;
     display: grid;
     grid-template-columns: 400px auto auto;
+    cursor: pointer;
 }
 
 .event-ticket-img {
@@ -88,6 +89,11 @@ hr {
 
 .view-ticket-img {
     height: 220px;
+    transition: transform .2s;
+}
+
+.view-ticket-img:hover {
+    transform: scale(1.1);
 }
 
 .view-ticket-img-div {
