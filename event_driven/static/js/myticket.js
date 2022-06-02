@@ -195,11 +195,16 @@ function generatePopUp(userBooking) {
     sum.textContent = total_sum.toString() + ' ISK';
     popupContentBox.appendChild(sum);
 
+    setTimeout(() => {
+        document.addEventListener('click', function (event) {
+            removePopUp(event)
+        }, { once: true })
+    }, 100)
 }
 
 
 
-/*document.addEventListener('click', function (event) {
+function removePopUp(event) {
     console.log('yo')
 
     if (popUpWindow.classList.contains('pop-up-window-active') && event.target !== popUpWindow) {
@@ -210,6 +215,6 @@ function generatePopUp(userBooking) {
 
         popUpTop.replaceChildren()
         popupContentBox.replaceChildren()
-    }
-})*/
 
+    }
+}
