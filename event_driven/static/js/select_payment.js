@@ -26,13 +26,15 @@ function load_ticket_stuff () {
     for (i in org_amount) {
         let amount_list = org_amount[i].split(':')
         let price_list = org_prices[i].split(':')
-        type.push(amount_list[0])
-        amount.push(amount_list[1])
-        prices.push(price_list[1])
+        if (parseInt(amount_list[1]) > 0){
+            type.push(amount_list[0])
+            amount.push(amount_list[1])
+            prices.push(price_list[1])
     }
-    console.log(type)
-    console.log(amount)
-    console.log(prices)
+    }
+    console.log(type);
+    console.log(amount);
+    console.log(prices);
 }
 
 function go_forward (){

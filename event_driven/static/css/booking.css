@@ -207,3 +207,10 @@
     grid-gap: 50px;
     position: relative;
 }
+
+.errr {
+    position: absolute;
+    left:0;
+
+    color: red;
+}
