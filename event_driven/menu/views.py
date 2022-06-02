@@ -233,13 +233,14 @@ def sort_by_most_popular(events):
     return most_popular
 
 def search_query(request, search_str):
-    arguments = search_str.split('=')
-    search_str = arguments[0]
+    x = search_str.strip()
+    arguments = x.split('=')
+    x = arguments[0]
     category = arguments[1]
     method = arguments[2]
     org_events = Event.objects.all().order_by('name')
     future_events = only_future(org_events)
-    keyword_list = contains_keyword(search_str, future_events)
+    keyword_list = contains_keyword(x, future_events)
     if category != 'any':
         category_list = sort_by_category(category, keyword_list)
     else:
@@ -267,7 +268,7 @@ def search_query(request, search_str):
     else:
         method_list = category_list
     number_of_events = len(method_list)
-    context = {'search_query': search_str, 'number_of_events': number_of_events, 'all_events': method_list}
+    context = {'search_query': x, 'number_of_events': number_of_events, 'all_events': method_list}
     return render(request, 'menu/search_result.html', context)
 
 

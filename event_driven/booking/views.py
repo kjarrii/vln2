@@ -60,3 +60,6 @@ def reciept(request):
         return render(request, 'booking/reciept.html', context)
     else:
         return render(request, 'user/login.html')
+
+def menu(request):
+    return HttpResponseRedirect('../../')
