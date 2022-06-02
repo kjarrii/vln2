@@ -17,25 +17,6 @@ function verify_input(total_tickets) {
     }
 }
 
-function load_ticket_stuff () {
-    let org_amount = sessionStorage.getItem('tickets').split(',')
-    let org_prices = sessionStorage.getItem('event_prices').split(',')
-    let type = []
-    let amount = []
-    let prices = []
-    for (i in org_amount) {
-        let amount_list = org_amount[i].split(':')
-        let price_list = org_prices[i].split(':')
-        if (parseInt(amount_list[1]) > 0){
-            type.push(amount_list[0])
-            amount.push(amount_list[1])
-            prices.push(price_list[1])
-    }
-    }
-    console.log(type);
-    console.log(amount);
-    console.log(prices);
-}
 
 function go_forward (){
     ticket_element.value = sessionStorage.getItem('tickets');name_element.value = sessionStorage.getItem('name');email_element.value = sessionStorage.getItem('email');phone_element.value = sessionStorage.getItem('phone');full_name_element.value = sessionStorage.getItem('full_name');street_element.value = sessionStorage.getItem('street');no_element.value = sessionStorage.getItem('no');city_element.value = sessionStorage.getItem('city');zip_element.value = sessionStorage.getItem('zip');country_element.value = sessionStorage.getItem('country');event_element.value = sessionStorage.getItem('eventid');delivery_element.value = sessionStorage.getItem('delivery_method');user_element.value = JSON.parse(document.getElementById('user_id').textContent);
@@ -44,4 +25,59 @@ function go_forward (){
         submit_button.click()
     }
 }
-load_ticket_stuff()
+
+//load ticket stuff
+let org_amount = sessionStorage.getItem('tickets').split(',')
+let org_prices = sessionStorage.getItem('event_prices').split(',')
+let type = []; let amount = []; let prices = []
+for (i in org_amount) {
+    let amount_list = org_amount[i].split(':');let price_list = org_prices[i].split(':')
+    if (parseInt(amount_list[1]) > 0){type.push(amount_list[0]); amount.push(amount_list[1]); prices.push(price_list[1])}
+}
+console.log(type);
+console.log(amount);
+console.log(prices);
+
+for (let i in type) {
+    let tagType = document.createElement("p");
+    let textType = document.createTextNode(type[i]);
+    tagType.appendChild(textType);
+    let elementType = document.getElementById("ticket_type");
+    elementType.appendChild(tagType);
+}
+
+for (i in type) {
+    let tag1price = document.createElement("p");
+    let text1price = document.createTextNode(prices[i].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " ISK");
+    tag1price.appendChild(text1price);
+    let elementPrice = document.getElementById("ticket_price");
+    elementPrice.appendChild(tag1price);
+}
+
+for (i in type) {
+    let tagAmount = document.createElement("p");
+    let textAmount = document.createTextNode(amount[i]);
+    tagAmount.appendChild(textAmount);
+    let elementAmount = document.getElementById("ticket_amount");
+    elementAmount.appendChild(tagAmount);
+}
+let africaTotal = [];
+for (i in type) {
+    let tagtotal = document.createElement("p");
+
+    let tot = (parseInt(prices[i])*parseInt(amount[i]));
+    let texttot = document.createTextNode(tot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " ISK");
+    tagtotal.appendChild(texttot);
+    let elementtot = document.getElementById("total");
+    elementtot.appendChild(tagtotal);
+    africaTotal.push(tot);
+
+}
+let totprice = africaTotal.reduce((partialSum, a) => partialSum + a, 0);
+
+let cont = document.getElementById('myndogshit');
+let tagImg = document.createElement('img');
+tagImg.setAttribute('src', "vantar þetta shit");
+let tittag = document.createElement('h4');
+
+
