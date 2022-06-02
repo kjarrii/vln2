@@ -5,20 +5,20 @@ let path_text = path_h4.textContent
 
 searchbar_btn.addEventListener('click', function (){
     if (path_text.includes('search')) {
-        window.location.href = searchbar_inp.value + '=any=any'
+        window.location.href = searchbar_inp.value.trim() + '=any=any'
     }
     else {
-        window.location.href = 'search/'+ searchbar_inp.value + '=any=any'
+        window.location.href = 'search/'+ searchbar_inp.value.trim() + '=any=any'
     }
 });
 
 searchbar_inp.addEventListener('keypress', function(e) {
     if (e.key === 'Enter') {
         if (path_text.includes('search')) {
-            window.location.href = searchbar_inp.value + '=any=any'
+            window.location.href = searchbar_inp.value.trim() + '=any=any'
         }
         else {
-            window.location.href = 'search/'+ searchbar_inp.value + '=any=any'
+            window.location.href = 'search/'+ searchbar_inp.value.trim() + '=any=any'
         }
 
     }
@@ -39,6 +39,7 @@ function applyFilter() {
     if (method.value !== '') {
         method_search_word = method.value
     }
-    window.location.href = search_word + '=' + category_search_word + '=' + method_search_word
+    console.log(search_word.trim())
+    window.location.href = search_word.trim() + '=' + category_search_word + '=' + method_search_word
 
 }

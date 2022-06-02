@@ -234,6 +234,7 @@ def sort_by_most_popular(events):
 
 def search_query(request, search_str):
     x = search_str.strip()
+    print(search_str)
     arguments = x.split('=')
     x = arguments[0]
     category = arguments[1]
