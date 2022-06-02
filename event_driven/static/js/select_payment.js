@@ -75,3 +75,9 @@ for (i in type) {
 }
 let totprice = africaTotal.reduce((partialSum, a) => partialSum + a, 0);
 
+let cont = document.getElementById('myndogshit');
+let tagImg = document.createElement('img');
+tagImg.setAttribute('src', "vantar þetta shit");
+let tittag = document.createElement('h4');
+
+
