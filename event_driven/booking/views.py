@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from event.models import Event
+from event.forms.event_amount_update import EventAmountForm
 from booking.forms.booking_form import BookingForm
 import datetime
 import pytz
@@ -43,8 +44,9 @@ def select_payment(request):
                 form.save()
                 return HttpResponseRedirect('reciept')
         else:
+            eventForm = EventAmountForm()
             form = BookingForm()
-            context = {'form': form}
+            context = {'form': form, 'eventform': eventForm}
             return render(request, 'booking/select_payment.html', context)
     else:
         return render(request, 'user/login.html')
