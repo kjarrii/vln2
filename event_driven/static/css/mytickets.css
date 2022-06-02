@@ -4,13 +4,24 @@
 }
 
 .pop-up-active {
-    filter: blur(10px); /*taka þetta út til að fjarlægja blur*/
+    filter: blur(6px);
     pointer-events: none;
     z-index: 1;
+    transition: filter 0.3s ease-in-out;
 }
 
 .pop-up-window-active {
     display: block !important;
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+     from {
+          opacity: 0;
+     }
+     to {
+          opacity: 1;
+     }
 }
 
 .pop-up-window {
@@ -43,7 +54,6 @@
 .small-ticket-box {
     width: 600px;
     padding: 15px 0;
-
 }
 
 .popup-content-box {

@@ -205,9 +205,9 @@ function generatePopUp(userBooking) {
 
 
 function removePopUp(event) {
-    console.log('yo')
+    console.log(event)
 
-    if (popUpWindow.classList.contains('pop-up-window-active') && event.target !== popUpWindow) {
+    if (popUpWindow.classList.contains('pop-up-window-active') && event.target) {
 
         console.log('veisla')
         popUpWindow.classList.remove('pop-up-window-active')
