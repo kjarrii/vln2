@@ -143,3 +143,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = '/user/login'
 
+GOOGLE_API_KEY = 'AIzaSyC_pW9Fd6hstpL9qABONoGDfzxICm4McE8'
