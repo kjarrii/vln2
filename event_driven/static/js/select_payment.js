@@ -100,6 +100,7 @@ let tagImg = document.createElement('img');
 let img_src = sessionStorage.getItem('event_image').split(",")
 tagImg.setAttribute('src', img_src[0]);
 tagImg.setAttribute('alt', "Photo of event");
+tagImg.style.width = "340px";
 let tittag = document.createElement('h4');
 tittag.textContent = sessionStorage.getItem('event_name');
 let resttag = document.createElement('p');
