@@ -63,12 +63,19 @@ for (i in types_of_tickest) {
     let toto_by_africa = document.createTextNode('');
     element4.appendChild(toto_by_africa);
 
+// To many error
+let mError = document.getElementById('errr');
+let mErrorMessage = document.createTextNode('You can only buy 10 total tickets for each event!');
+mError.style.display = "none";
+mError.appendChild(mErrorMessage);
+
+
 // Total calculations
 function total(){
     let nooftickets = element3.children;
     let amountArr = [];
-    for (let i in nooftickets){
-        amountArr.push(nooftickets[i].value)
+    for (let i in types_of_tickest){
+        amountArr.push(parseInt(nooftickets[i].value));
     }
     let priceArr = [];
     for (let i in types_of_tickest) {
@@ -87,6 +94,18 @@ function total(){
 
     let sum = totArr.reduce((partialSum, a) => partialSum + a, 0);
     toto_by_africa.nodeValue = sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " ISK";
+
+    console.log(amountArr);
+
+    let nosum = amountArr.reduce((partialSum, a) => partialSum + a, 0);
+
+    console.log(nosum);
+    if (nosum > 10) {
+        mError.style.display = "block";
+    }
+    else {
+        mError.style.display = "none";
+    }
 
 }
 
