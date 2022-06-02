@@ -2,14 +2,15 @@ ticket_element = document.getElementById('id_tickets');name_element = document.g
 ticket_amount_element = document.getElementById('id_tickets_amount')
 let name_on_card_element = document.getElementById('name_on_card_input');
 let card_number_element = document.getElementById('card_number_input');
-let expiration_date_element = document.getElementById('expiration_date_input');
+let expiration_date_m_element = document.getElementById('expiration_date_month');
+let expiration_date_y_element = document.getElementById('expiration_date_year');
 let cvc_element = document.getElementById('cvc_input');
 function go_back () {
     window.location.href = 'select_delivery'
 }
 
 function verify_input(total_tickets) {
-    if (name_on_card_element.value !== '' && card_number_element.value !== '' && expiration_date_element.value !== '' && cvc_element.value !== ''){
+    if (name_on_card_element.value !== '' && card_number_element.value !== '' && expiration_date_m_element.value !== '' && expiration_date_y_element.value !== '' && cvc_element.value !== ''){
         return true
     }
     else {
