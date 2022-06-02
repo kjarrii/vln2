@@ -21,7 +21,7 @@ class Users(AbstractUser):
         return all_favcat
 
 
-class UserProfile(models.Model): # Þarf þennan clasa til að reference-a rétt en veit ekki nákvæmlega af hverju.
+class UserProfile(models.Model):
     user = models.OneToOneField(Users, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='profile_image', blank=True)
     favorite_categories = models.CharField(max_length=9999)

@@ -39,8 +39,11 @@ def select_delivery(request):
 def select_payment(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
+            event = Event.objects.filter(id=request.POST['eventid']).first()
             form = BookingForm(request.POST)
-            if form.is_valid():
+            eventform = EventAmountForm(request.POST, instance=event)
+            if eventform.is_valid() and form.is_valid():
+                eventform.save()
                 form.save()
                 return HttpResponseRedirect('reciept')
         else:
