@@ -2,12 +2,58 @@
 {% block content %}
     <p id="path_url" class="invisible">{{ request.path }}</p>
     <div id="booking-body">
+        <br> <br> <br> <br>
+        <div class="center-div">
+            <div class="booking-top-section">
+                <div class="btn-div"><button disabled id="btn1" class="booking-nav-btn">1</button> <label class="booking-nav-btn-text" for="btn1">Select ticket(s)</label></div>
+                <div class="btn-div"><button disabled id="btn2" class="booking-nav-btn">2</button> <label class="booking-nav-btn-text" for="btn1">Delivery</label></div>
+                <div class="btn-div"><button disabled id="btn3" class="booking-nav-btn">3</button> <label class="active-text booking-nav-btn-text" for="btn1">Payment</label></div>
+                <div class="btn-div"><button disabled id="btn4" class="active-btn booking-nav-btn">4</button> <label class="active-text booking-nav-btn-text" for="btn1">Receipt</label></div>
+            </div>
+        </div>
+        <br><br><br>
+        <div class="center-div">
+            <h2>Thank you for your purchase!</h2>
+        </div>
+        <br> <br>
+        <div class="center-div">
+            <div class="black event-box">
+                <div class="re-box-content" style="font-weight: bold;">
+                    <div>Event</div>
+                    <div>Location</div>
+                    <div>Price</div>
+                    <div>Date</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="center-div">
+            <div class="black event-box" style="border-bottom: 3px solid black; padding:10px 0 40px 0;">
+                <div class="re-box-content">
+                    <div>Vantar úr js</div>
+                    <div>Vantar úr js</div>
+                    <div>Vantar úr js</div>
+                    <div>Vantar úr js</div>
+                </div>
+            </div>
+        </div>
         <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <h1>Reciept</h1>
+        <div class="center-div">
+            <div class="payment-container">
+                <div class="with-border smallest-event-box" style="margin-left: -4px;">
+                        <div class="even-smaller-content">
+                            <div id="ticket_type">
+                            </div>
+                            <div id="ticket_price">
+                            </div>
+                            <div id="ticket_amount">
+                            </div>
+                            <div id="total"></div>
+                        </div>
+                    </div>
+                </div>
+    </div>
+
 
     <div id="main-body"></div>
     </div>
