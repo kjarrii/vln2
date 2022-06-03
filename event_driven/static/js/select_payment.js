@@ -13,7 +13,7 @@ function go_back () {
 function verify_input(total_tickets) {
     error_element.innerHTML = '';
 
-    if(name_on_card_element.value !== '' && (card_number_element.value.length === 15 || card_number_element.value.length === 16) && expiration_date_m_element.value !== '' && expiration_date_y_element.value !== '' && (cvc_element.value.length === 3 || cvc_element.value.length === 4)){
+    if(name_on_card_element.value !== '' && (card_number_element.value.length === 15 || card_number_element.value.length === 16) && expiration_date_m_element.value !== '' && expiration_date_y_element.value !== '' && cvc_element.value.length === 3 ){
         return true
     }
     else {
@@ -35,9 +35,9 @@ function verify_input(total_tickets) {
             error_element.appendChild(tagexp);
         }
 
-        if (cvc_element.value.length !== 3 && cvc_element.value.length !== 4) {
+        if (cvc_element.value.length !== 3) {
             let tagcvc = document.createElement("li");
-            tagcvc.innerHTML = "Please enter the 3 or 4 digit CVC of the card";
+            tagcvc.innerHTML = "Please enter the 3 digit CVC of the card";
             error_element.appendChild(tagcvc);
         }
         return false
