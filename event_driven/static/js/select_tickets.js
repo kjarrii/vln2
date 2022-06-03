@@ -6,6 +6,7 @@ let temp12 = path_text2.split('/')
 let url_eventid = temp12[2]
 sessionStorage.setItem("eventid", url_eventid);
 let tott = '';
+mError = document.getElementById('err');
 
 
 
@@ -36,8 +37,6 @@ for (i in types_of_tickest) {
 for (i in types_of_tickest) {
     var mi = document.createElement("input");
     mi.setAttribute('type', 'number');
-    console.log("asdf")
-    console.log(sessionStorage.getItem('tickets'))
     if (sessionStorage.getItem('tickets') === null) {
         mi.setAttribute('value', '0');
     }
@@ -62,6 +61,7 @@ for (i in types_of_tickest) {
     var element4 = document.getElementById("total");
     element4.appendChild(tag3);
 }
+
     var lin = document.createElement("hr");
     lin.setAttribute('class', 'totalLine');
     lin.style.display = "none";
@@ -71,11 +71,6 @@ for (i in types_of_tickest) {
     let toto_by_africa = document.createTextNode('');
     element4.appendChild(toto_by_africa);
 
-// To many error
-let mError = document.getElementById('errr');
-let mErrorMessage = document.createTextNode('You can only buy 10 total tickets for each event!');
-mError.style.display = "none";
-mError.appendChild(mErrorMessage);
 
 
 // Total calculations
@@ -104,15 +99,6 @@ function total(){
     toto_by_africa.nodeValue = sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " ISK";
     tott = toto_by_africa.nodeValue;
 
-    let nosum = amountArr.reduce((partialSum, a) => partialSum + a, 0);
-
-    console.log(nosum);
-    if (nosum > 10) {
-        mError.style.display = "block";
-    }
-    else {
-        mError.style.display = "none";
-    }
 
 }
 
@@ -126,27 +112,58 @@ function verify_input(total_tickets) {
     if (total > 0 && total <= 10) {
         return true
     }
+    else if (total > 10) {
+        let tagfjoldi = document.createElement("li");
+            tagfjoldi.innerHTML = "You can only buy 10 total tickets for each event!";
+            mError.appendChild(tagfjoldi);
+            return false
+    }
+
     else {
-        return false
+        let tagfjoldi = document.createElement("li");
+            tagfjoldi.innerHTML = "Please choose tickets";
+            mError.appendChild(tagfjoldi);
+            return false
     }
 }
 function verify_remaining(tickets) {
     let org_amount = sessionStorage.getItem('event_tickets_amount').split(",")
     let org_max = sessionStorage.getItem('event_max').split(",")
+    let nei = true;
     for (i in org_max) {
         let temp1 = org_amount[i].split(":")
         let temp2 = org_max[i].split(":")
         let temp3 = tickets[i].split(":")
         let tickets_remaining = parseInt(temp2[1]) - parseInt(temp1[1])
         if (parseInt(temp3[1]) > tickets_remaining) {
-            console.log("Bannað! Það eru "+ tickets_remaining +" miðar eftir af týpu" + temp1[0])
-            return false
+            if (tickets_remaining === 1) {
+                let tagmidi = document.createElement("li");
+                tagmidi.innerHTML = "Sorry, there is only "+ tickets_remaining + ' ' + temp1[0] + " ticket left";
+                mError.appendChild(tagmidi);
+
+            }
+            else if (tickets_remaining === 0) {
+                let tagmidi = document.createElement("li");
+                tagmidi.innerHTML = "Sorry, " + temp1[0] + " tickets are sold out";
+                mError.appendChild(tagmidi);
+
+            }
+            else {
+                let tagmidi = document.createElement("li");
+                tagmidi.innerHTML = "Sorry, there are only " + tickets_remaining + ' ' + temp1[0] + " tickets left";
+                mError.appendChild(tagmidi);
+
+
+            }
+            nei = false;
         }
 
     }
-    return true
+    return nei;
 }
 function go_forward (){
+    mError.innerHTML = "";
+    mError.style.display = 'none';
     var total_tickets = []
     for (i in types_of_tickest) {
         split_ticket2 = types_of_tickest[i].split(':')
@@ -161,5 +178,8 @@ function go_forward (){
         sessionStorage.setItem('tickets', total_tickets);
         sessionStorage.setItem('total_price', tott);
         window.location.href = 'select_delivery'
+    }
+    else {
+        mError.style.display = 'block';
     }
 }

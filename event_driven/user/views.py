@@ -76,6 +76,14 @@ def only_future(all_events):
             return_events.append(event)
     return return_events
 
+def not_sold_out(all_events):
+    return_events = []
+    for event in all_events:
+        if event.tickets_left() == 0:
+            continue
+        else:
+            return_events.append(event)
+    return return_events
 def profile(request):
     if request.user.is_authenticated:
         profile = Users.objects.filter(email=request.user).first()
@@ -88,6 +96,7 @@ def profile(request):
             else:
                 events = my_events(profile.favorite_categories, events)
                 events = only_future(events)
+                events = not_sold_out(events)
         if request.method == 'POST':
             form = ProfileForm(request.POST, request.FILES, instance=profile)
             if form.is_valid():
