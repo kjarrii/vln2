@@ -30,7 +30,7 @@ def index(request,id):
 
 
 def select_delivery(request):
-    context = {}
+    context = {'email': request.user.email, 'name': request.user.first_name}
     if request.user.is_authenticated:
         return render(request, 'booking/select_delivery.html', context)
     else:
