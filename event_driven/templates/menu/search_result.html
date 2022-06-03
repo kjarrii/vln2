@@ -6,12 +6,15 @@
     {% include 'menu/menu-searchbar.html' %}
     <div class="menu-body">
         <h1 class="menu-title">There are {{ number_of_events }} result(s) for: {{ search_query }}</h1>
-        {% if category_filter %}
-        <h1 class="menu-title">Filtering by: {{ category_filter }}</h1>
-        {% endif %}
-        {% if method_filter %}
-        <h1 class="menu-title">Using method: {{ method_filter }}</h1>
-        {% endif %}
+
+        <div class="by-box">
+            {% if category_filter %}
+            <h3 class="by-font">Filtering by: {{ category_filter }}</h3>
+            {% endif %}
+            {% if method_filter %}
+            <h3 class="by-font">Sorted by: {{ method_filter }}</h3>
+            {% endif %}
+        </div>
 
         <select class="filter-sort-box" id="filter-by-box">
             <option value="">Select category:</option>
