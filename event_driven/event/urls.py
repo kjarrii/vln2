@@ -1,6 +1,5 @@
 from django.urls import path
 from . import views
-import menu
 
 urlpatterns = [
     path('', views.index, name='event-index'),
