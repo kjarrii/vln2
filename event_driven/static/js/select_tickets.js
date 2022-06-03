@@ -5,7 +5,7 @@ let path_text2 = path_h2.textContent
 let temp12 = path_text2.split('/')
 let url_eventid = temp12[2]
 sessionStorage.setItem("eventid", url_eventid);
-
+let tott = '';
 
 
 
@@ -102,7 +102,7 @@ function total(){
 
     let sum = totArr.reduce((partialSum, a) => partialSum + a, 0);
     toto_by_africa.nodeValue = sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " ISK";
-
+    tott = toto_by_africa.nodeValue;
 
     let nosum = amountArr.reduce((partialSum, a) => partialSum + a, 0);
 
@@ -159,6 +159,7 @@ function go_forward (){
     }
     if (verify_input(total_tickets) && verify_remaining(total_tickets)) {
         sessionStorage.setItem('tickets', total_tickets);
+        sessionStorage.setItem('total_price', tott);
         window.location.href = 'select_delivery'
     }
 }

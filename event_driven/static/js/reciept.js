@@ -1,15 +1,21 @@
 let asdf = sessionStorage.getItem('eventid')
 
 let titElem = document.getElementById("ev-tit");
-let locElem = document.getElementById("ev-tit");
-let totElem = document.getElementById("ev-tit");
-let delElem = document.getElementById("ev-tit");
+let locElem = document.getElementById("ev-loc");
+let totElem = document.getElementById("ev-tot");
+let delElem = document.getElementById("ev-del");
 let titVal = sessionStorage.getItem('event_name');
-let locVal = sessionStorage.getItem('');
-let totVal = sessionStorage.getItem('');
-let delVal = sessionStorage.getItem('');
+let locVal = sessionStorage.getItem('event_address');
+let totVal = sessionStorage.getItem('total_price');
+let delVal = sessionStorage.getItem('delivery_method');
+let deltxt = '';
 
-console.log(titVal.value);
+if (delVal === 'electronic_ticket'){
+     deltxt = 'electronically';
+}
+
+else { deltxt = 'via postal services';
+}
 
 let tittag = document.createElement('p');
     let texttit = document.createTextNode(titVal);
@@ -27,9 +33,11 @@ let tottag = document.createElement('p');
     totElem.appendChild(tottag);
 
 let deltag = document.createElement('p');
-    let texdel = document.createTextNode(delVal);
+    let texdel = document.createTextNode('Sent ' + deltxt);
     deltag.appendChild(texdel);
     delElem.appendChild(deltag);
+
+
 
 
 
