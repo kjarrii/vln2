@@ -17,7 +17,7 @@ class Users(AbstractUser):
         return favcat
 
     def all_favcat_as_list(self):
-        all_favcat = 'concert,sports,pop,rock,rap,ekkert'
+        all_favcat = 'Concert,Sports,Pop,Rock,Rap,Family,Hiphop,Football,Theater,Handball,Classical,Comedy,American Football'
         return all_favcat
 
 

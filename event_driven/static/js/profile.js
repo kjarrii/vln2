@@ -11,11 +11,14 @@ let submit_but_element = document.getElementById('submit_button');
 let submit_name_element = document.getElementById('first_name_div');
 let name_element = document.getElementById('username-box-input');
 
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
 function pop_fav() {
         for (let i = 0; i < fav.length; i++) {
             if (fav[i] !== "") {
                 let di = document.createElement('div');
-                di.innerHTML = '<div class="fav-cat">'+ fav[i] +'<a class="del-fav-btn" del-date="'+i +'">X</a></div>';
+                di.innerHTML = '<div class="fav-cat">'+ capitalizeFirstLetter(fav[i]) +'<a class="del-fav-btn" del-date="'+i +'">X</a></div>';
                 di.setAttribute('id', i.toString());
                 di.setAttribute('onclick', 'deletecat(this.id)');
                 favElements.appendChild(di)
@@ -64,7 +67,7 @@ function addcat(addid){
 function send_data() {
     let return_categories = ""
     for (var i = 0; i < favElements.children.length; i++) {
-        return_categories = return_categories + "," + favElements.children[i].innerText.trim().slice(0, -1)
+        return_categories = return_categories + "," + favElements.children[i].innerText.trim().slice(0, -1).toLowerCase()
     }
     submit_fav_element.children[0].value = return_categories.substring(1)
     if (name_element.value === "") {
