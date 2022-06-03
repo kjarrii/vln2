@@ -11,7 +11,6 @@ import pytz
 from django.http import HttpResponseRedirect
 
 from user.forms.forms import LoginForm, RegisterForm
-# Create your views here.
 
 def my_tickets_upcoming(request):
     if request.user.is_authenticated:

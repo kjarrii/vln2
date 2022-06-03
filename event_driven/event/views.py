@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 from event.models import Event
 from user.forms.forms import EventCreateForm
 import datetime
@@ -44,14 +44,17 @@ def get_event_by_id(request, id):
     return render(request, 'event/index.html', context)
 
 def create_event(request):
-    if request.method == 'POST':
-        form = EventCreateForm(data=request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('create_event')
+    if request.user.is_superuser:
+        if request.method == 'POST':
+            form = EventCreateForm(data=request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect('create_event')
 
+        else:
+            form = EventCreateForm()
+        return render(request, 'event/create_event.html', {
+            'form': form
+        })
     else:
-        form = EventCreateForm()
-    return render(request, 'event/create_event.html', {
-        'form': form
-    })
+        return HttpResponseRedirect('../../')

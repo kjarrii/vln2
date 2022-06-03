@@ -2,7 +2,7 @@ from django.contrib.auth.models import AbstractUser, User
 from django.utils.translation import gettext_lazy as _
 from django.db import models
 
-# Create your models here.
+
 class Users(AbstractUser):
     username = models.CharField(max_length=255, unique=False)
     email = models.EmailField(_('email address'), unique=True)
