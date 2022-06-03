@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    {% include 'menu/menu-navbar.html' %}
     <div class="top-container-event">
     <div class="event-img-container">
         {% for image in event.images_as_list %}
