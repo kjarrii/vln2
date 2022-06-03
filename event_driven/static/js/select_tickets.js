@@ -1,5 +1,4 @@
 // Initial
-sessionStorage.clear();
 let path_h2 = document.getElementById('path_url'); let event_name = document.getElementById('event_name'); let event_address = document.getElementById('event_address'); let event_start = document.getElementById('event_start'); let event_max = document.getElementById('event_max'); let event_prices = document.getElementById('event_prices'); let event_end = document.getElementById('event_end'); let event_tickets_amount = document.getElementById('event_tickets_amount'); let event_desc = document.getElementById('event_desc'); let event_image = document.getElementById('event_image'); let event_lat = document.getElementById('event_lat'); let event_long = document.getElementById('event_long')
 sessionStorage.setItem('event_name', event_name.textContent); sessionStorage.setItem('event_address', event_address.textContent); sessionStorage.setItem('event_start', event_start.textContent); sessionStorage.setItem('event_name', event_name.textContent); sessionStorage.setItem('event_max', event_max.textContent); sessionStorage.setItem('event_prices', event_prices.textContent); sessionStorage.setItem('event_end', event_end.textContent); sessionStorage.setItem('event_tickets_amount', event_tickets_amount.textContent); sessionStorage.setItem('event_desc', event_desc.textContent); sessionStorage.setItem('event_image', event_image.textContent); sessionStorage.setItem('event_lat', event_lat.textContent); sessionStorage.setItem('event_long', event_long.textContent)
 let path_text2 = path_h2.textContent
@@ -37,7 +36,16 @@ for (i in types_of_tickest) {
 for (i in types_of_tickest) {
     var mi = document.createElement("input");
     mi.setAttribute('type', 'number');
-    mi.setAttribute('value', '0');
+    console.log("asdf")
+    console.log(sessionStorage.getItem('tickets'))
+    if (sessionStorage.getItem('tickets') === null) {
+        mi.setAttribute('value', '0');
+    }
+    else {
+        let temp_tickets = sessionStorage.getItem('tickets').split(",")
+        let value = temp_tickets[i].split(":")
+        mi.setAttribute('value', value[1]);
+    }
     mi.setAttribute('max', '10');
     mi.setAttribute('min', '0');
     mi.style.margin = "5px 100px 5px 0px";
