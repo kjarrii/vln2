@@ -9,6 +9,15 @@ let locVal = sessionStorage.getItem('event_address');
 let totVal = sessionStorage.getItem('total_price');
 let delVal = sessionStorage.getItem('delivery_method');
 let deltxt = '';
+let sentby = document.getElementById('sentby')
+let del_det = document.getElementById('del_det')
+let meil = sessionStorage.getItem('email');
+let neim = sessionStorage.getItem('full_name');
+let stret = sessionStorage.getItem('street');
+let hosno = sessionStorage.getItem('no');
+let postc = sessionStorage.getItem('zip');
+let cit = sessionStorage.getItem('city');
+let cont = sessionStorage.getItem('country');
 
 if (delVal === 'electronic_ticket'){
      deltxt = 'electronically';
@@ -16,6 +25,19 @@ if (delVal === 'electronic_ticket'){
 
 else { deltxt = 'via postal services';
 }
+
+if (delVal === 'electronic_ticket'){
+     del_det.innerHTML = meil;
+}
+
+else { deltxt = 'via postal services';
+    del_det.innerHTML = neim + "<br>" + stret + ' ' + hosno + ', ' + postc + ' ' + cit + '<br>' + cont;
+}
+
+let textdel = document.createTextNode(deltxt + ' to:');
+sentby.appendChild(textdel);
+
+
 
 let tittag = document.createElement('p');
     let texttit = document.createTextNode(titVal);
@@ -37,8 +59,47 @@ let deltag = document.createElement('p');
     deltag.appendChild(texdel);
     delElem.appendChild(deltag);
 
+let org_amount = sessionStorage.getItem('tickets').split(',');
+let org_prices = sessionStorage.getItem('event_prices').split(',')
+let type = []; let amount = []; let prices = []
+for (i in org_amount) {
+    let amount_list = org_amount[i].split(':');let price_list = org_prices[i].split(':')
+    if (parseInt(amount_list[1]) > 0){type.push(amount_list[0]); amount.push(amount_list[1]); prices.push(price_list[1])}
+}
 
 
+for (let i in type) {
+    let tagType = document.createElement("p");
+    let textType = document.createTextNode(type[i]);
+    tagType.appendChild(textType);
+    let elementType = document.getElementById("ticket_type");
+    elementType.appendChild(tagType);
+}
+
+for (i in type) {
+    let tag1price = document.createElement("p");
+    let text1price = document.createTextNode(prices[i].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " ISK");
+    tag1price.appendChild(text1price);
+    let elementPrice = document.getElementById("ticket_price");
+    elementPrice.appendChild(tag1price);
+}
+
+for (i in type) {
+    let tagAmount = document.createElement("p");
+    let textAmount = document.createTextNode(amount[i]);
+    tagAmount.appendChild(textAmount);
+    let elementAmount = document.getElementById("ticket_amount");
+    elementAmount.appendChild(tagAmount);
+}
+
+for (i in type) {
+    let tot = (parseInt(prices[i])*parseInt(amount[i]));
+    let texttot = document.createTextNode(tot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " ISK");
+    let tagtotal = document.createElement('p');
+    tagtotal.appendChild(texttot);
+    let elementtot = document.getElementById("total");
+    elementtot.appendChild(tagtotal);
+}
 
 
 
