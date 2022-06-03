@@ -234,7 +234,6 @@ def sort_by_most_popular(events):
 
 def search_query(request, search_str):
     x = search_str.strip()
-    print(search_str)
     arguments = x.split('=')
     x = arguments[0]
     category = arguments[1]
@@ -269,7 +268,15 @@ def search_query(request, search_str):
     else:
         method_list = category_list
     number_of_events = len(method_list)
-    context = {'search_query': x, 'number_of_events': number_of_events, 'all_events': method_list}
+    if category == "any":
+        category = False
+    else:
+        category = category.capitalize()
+    if method == "any":
+        method = False
+    else:
+        method = method.capitalize()
+    context = {'search_query': x, 'number_of_events': number_of_events, 'all_events': method_list, 'category_filter': category, 'method_filter': method}
     return render(request, 'menu/search_result.html', context)
 
 
