@@ -4,36 +4,46 @@
         {% csrf_token %}
 
         {% if form.errors %}
-            <div class="error-box" id="register-error-box">
-                <ul id="reg-requirements">
-                  <li class="list-item">Email has to be on an email form: example@example.com</li>
-                  <li class="list-item">Password must contain at least 8 characters, with numbers and letters</li>
-                  <li class="list-item">Password can't be too similar to your other personal information</li>
-                </ul>
+            <div class="center-div">
+                <div id="register-error-box" class="error-box">
+                    <ul id="reg-requirements">
+                        <li class="list-item">Email has to be on an email form: example@example.com</li>
+                        <li class="list-item">Password must contain at least 8 characters, with numbers and letters</li>
+                        <li class="list-item">Password can't be too similar to your other personal information</li>
+                    </ul>
+                </div>
             </div>
         {% endif %}
+
+        <div class="center-div">
+            <div id="name-error-box" class="hidden-box error-box">
+                <ul id="reg-requirements">
+                    <li class="list-item">Name must be filled out</li>
+                </ul>
+            </div>
+        </div>
 
         <div class="big-box" id="big-box-register">
             <h1 class="title">Register</h1>
 
             <div class="input-box" id="user-box">
                 <img src="../../static/images/profile-icon-purple.png" alt="user icon" id="user-icon">
-                <input type="text" class="input-text" placeholder="Name:" name="first_name">
+                <input id="name-input-box" type="text" class="input-text" placeholder="Name:" name="first_name">
             </div>
 
             <div class="input-box" id="mail-box">
                 <img src="../../static/images/mail-icon-purple.png" alt="mail icon" id="mail-icon">
-                <input type="text" class="input-text" placeholder="E-mail:" name="email">
+                <input id="email-input-box" type="text" class="input-text" placeholder="E-mail:" name="email">
             </div>
 
             <div class="input-box" id="pw-box">
                 <img src="../../static/images/lock-icon-purple.png" alt="password icon" id="pw-icon">
-                <input type="password" class="input-text" placeholder="Password:" name="password1">
+                <input id="pw-input-box" type="password" class="input-text" placeholder="Password:" name="password1">
             </div>
 
             <div class="input-box" id="pw-box">
                 <img src="../../static/images/lock-icon-purple.png" alt="password icon" id="pw-icon">
-                <input type="password" class="input-text" placeholder="Password again:" name="password2">
+                <input id="pw2-input-box" type="password" class="input-text" placeholder="Password again:" name="password2">
             </div>
 
 
@@ -48,8 +58,11 @@
         </div>
 
         <div class="logreg-bottom">
-            <input id="register-button" type="submit" class="logreg-btn" value="Register" name="Sign up">
+            <input id="register-button" onclick="verifyClick()" type="button" class="logreg-btn" value="Register" name="Sign up">
         </div>
+
+        <input id="register-button-real" type="submit" class="logreg-btn" value="Register" name="Sign up" style="display: none">
+
 
 
         <p class="bottom-text">Already have an account?
