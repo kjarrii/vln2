@@ -183,3 +183,4 @@ function go_forward (){
         mError.style.display = 'block';
     }
 }
+total();
