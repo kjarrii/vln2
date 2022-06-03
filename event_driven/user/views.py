@@ -8,43 +8,50 @@ from event.models import Event
 from booking.models import Bookings
 import datetime
 import pytz
+from django.http import HttpResponseRedirect
 
 from user.forms.forms import LoginForm, RegisterForm
 # Create your views here.
 
 def my_tickets_upcoming(request):
-    utc = pytz.UTC
-    curr_date = utc.localize(datetime.datetime.now())
-    org_bookings = Bookings.objects.filter(userid=str(request.user.id))
-    event_list = []
-    return_bookings = []
-    return_events = []
-    for booking in org_bookings:
-        event = Event.objects.filter(id=booking.eventid).first()
-        event_list.append(event)
-    for i in range(0, len(event_list)):
-        if event_list[i].start > curr_date:
-            return_events.append(event_list[i])
-            return_bookings.append(org_bookings[i])
-    context = {'events': return_events, 'bookings': return_bookings}
-    return render(request, 'user/myticket_upcoming.html', context)
+    if request.user.is_authenticated:
+        utc = pytz.UTC
+        curr_date = utc.localize(datetime.datetime.now())
+        org_bookings = Bookings.objects.filter(userid=str(request.user.id))
+        event_list = []
+        return_bookings = []
+        return_events = []
+        for booking in org_bookings:
+            event = Event.objects.filter(id=booking.eventid).first()
+            event_list.append(event)
+        for i in range(0, len(event_list)):
+            if event_list[i].start > curr_date:
+                return_events.append(event_list[i])
+                return_bookings.append(org_bookings[i])
+        context = {'events': return_events, 'bookings': return_bookings}
+        return render(request, 'user/myticket_upcoming.html', context)
+    else:
+        return HttpResponseRedirect('../../user/login')
 
 def my_tickets_past(request):
-    utc = pytz.UTC
-    curr_date = utc.localize(datetime.datetime.now())
-    org_bookings = Bookings.objects.filter(userid=str(request.user.id))
-    event_list = []
-    return_bookings = []
-    return_events = []
-    for booking in org_bookings:
-        event = Event.objects.filter(id=booking.eventid).first()
-        event_list.append(event)
-    for i in range(0, len(event_list)):
-        if event_list[i].start < curr_date:
-            return_events.append(event_list[i])
-            return_bookings.append(org_bookings[i])
-    context = {'events': return_events, 'bookings': return_bookings}
-    return render(request, 'user/myticket_past.html', context)
+    if request.user.is_authenticated:
+        utc = pytz.UTC
+        curr_date = utc.localize(datetime.datetime.now())
+        org_bookings = Bookings.objects.filter(userid=str(request.user.id))
+        event_list = []
+        return_bookings = []
+        return_events = []
+        for booking in org_bookings:
+            event = Event.objects.filter(id=booking.eventid).first()
+            event_list.append(event)
+        for i in range(0, len(event_list)):
+            if event_list[i].start < curr_date:
+                return_events.append(event_list[i])
+                return_bookings.append(org_bookings[i])
+        context = {'events': return_events, 'bookings': return_bookings}
+        return render(request, 'user/myticket_past.html', context)
+    else:
+        return HttpResponseRedirect('../../user/login')
 
 def my_events(categories, events):
     search_list = categories.split(",")
@@ -70,26 +77,29 @@ def only_future(all_events):
     return return_events
 
 def profile(request):
-    profile = Users.objects.filter(email=request.user).first()
-    if profile.favorite_categories == "":
-        events = None
-    else:
-        events = Event.objects.all()
-        if profile is None:
+    if request.user.is_authenticated:
+        profile = Users.objects.filter(email=request.user).first()
+        if profile.favorite_categories == "":
             events = None
         else:
-            events = my_events(profile.favorite_categories, events)
-            events = only_future(events)
-    if request.method == 'POST':
-        form = ProfileForm(request.POST, request.FILES, instance=profile)
-        if form.is_valid():
-            profile = form.save(commit=False)
-            profile.user = request.user
-            profile.save()
-            return redirect('profile')
+            events = Event.objects.all()
+            if profile is None:
+                events = None
+            else:
+                events = my_events(profile.favorite_categories, events)
+                events = only_future(events)
+        if request.method == 'POST':
+            form = ProfileForm(request.POST, request.FILES, instance=profile)
+            if form.is_valid():
+                profile = form.save(commit=False)
+                profile.user = request.user
+                profile.save()
+                return redirect('profile')
+        else:
+            form = ProfileForm()
+        return render(request, 'user/profile.html', {'form': ProfileForm(instance=profile), 'events': events})
     else:
-        form = ProfileForm()
-    return render(request, 'user/profile.html', {'form': ProfileForm(instance=profile), 'events': events})
+        return HttpResponseRedirect('../../user/login')
 
 
 class LoginView(auth_views.LoginView):

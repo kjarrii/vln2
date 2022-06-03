@@ -144,7 +144,7 @@ def get_category_by_string(request, category):
         most_popular = False
         selling_out = False
         all_events = False
-    context = {'most_popular': most_popular, 'selling_out': selling_out, 'all_events': all_events}
+    context = {'most_popular': most_popular, 'selling_out': selling_out, 'all_events': all_events, 'category': category.capitalize()}
     return render(request, 'menu/index.html', context)
 
 def get_all_events(request):

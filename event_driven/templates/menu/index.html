@@ -7,6 +7,9 @@
     {% include 'menu/menu-searchbar.html' %}
 
     <div class="menu-body">
+        {% if category %}
+            <h1 class="menu-title">Browsing in category: {{ category }}</h1>
+        {% endif %}
         {% if most_popular %}
         <h1 class="menu-title">Most popular</h1>
         <div class="option-wrapper">
