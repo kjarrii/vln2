@@ -120,6 +120,12 @@
   border-radius: 10px;
 }
 
+.logreg-btn:disabled {
+    cursor: auto;
+    background: #989898;
+    color: black;
+}
+
 .hover:hover {
   background-color: #3B0D3C;
   cursor: pointer;
