@@ -343,6 +343,16 @@
   border: 10px solid #561357;
 }
 
+.by-box {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 10px;
+
+}
+
+.by-font {
+  font-size: x-large;
+}
 
 
 
