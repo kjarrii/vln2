@@ -7,9 +7,14 @@
             <div class="center-div">
                 <div id="register-error-box" class="error-box">
                     <ul id="reg-requirements">
-                        <li class="list-item">Email has to be on an email form: example@example.com</li>
+                        {% for field in form %}
+                            {% for error in field.errors %}
+                                <li class="list-item">{{ error }}</li>
+{% comment %}                        <li class="list-item">Email has to be on an email form: example@example.com</li>
                         <li class="list-item">Password must contain at least 8 characters, with numbers and letters</li>
-                        <li class="list-item">Password can't be too similar to your other personal information</li>
+                        <li class="list-item">Password can't be too similar to your other personal information</li>{% endcomment %}
+                            {% endfor %}
+                        {% endfor %}
                     </ul>
                 </div>
             </div>
@@ -18,7 +23,7 @@
         <div class="center-div">
             <div id="name-error-box" class="hidden-box error-box">
                 <ul id="reg-requirements">
-                    <li class="list-item">Name must be filled out</li>
+                    {% comment %}<li class="list-item">Name must be filled out</li>{% endcomment %}
                 </ul>
             </div>
         </div>

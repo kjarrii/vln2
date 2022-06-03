@@ -38,10 +38,13 @@ function verifyClick() {
     }
 }
 
+
 function whatIsMissing() {
     let notMissing = true;
-    let regRequirements = document.getElementById('reg-requirements')
-    regRequirements.replaceChildren()
+
+    let regRequirements = document.createElement('ul')
+    nameErrorBox.replaceChildren()
+    nameErrorBox.appendChild(regRequirements)
 
     if (nameInputBox.value === '') {
         let nameError = document.createElement('li')
