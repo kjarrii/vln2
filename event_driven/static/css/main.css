@@ -346,12 +346,21 @@
 .by-box {
   display: flex;
   gap: 40px;
-  margin-bottom: 10px;
-
+  margin-bottom:20px;
+  width: fit-content;
+  height: 60px;
 }
 
 .by-font {
   font-size: x-large;
+  color: white;
+
+  font-weight: bold;
+  background-color: #561357;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+
 }
 
 
