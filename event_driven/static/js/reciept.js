@@ -11,6 +11,13 @@ let delVal = sessionStorage.getItem('delivery_method');
 let deltxt = '';
 let sentby = document.getElementById('sentby')
 let del_det = document.getElementById('del_det')
+let meil = sessionStorage.getItem('email');
+let neim = sessionStorage.getItem('full_name');
+let stret = sessionStorage.getItem('street');
+let hosno = sessionStorage.getItem('no');
+let postc = sessionStorage.getItem('zip');
+let cit = sessionStorage.getItem('city');
+let cont = sessionStorage.getItem('country');
 
 if (delVal === 'electronic_ticket'){
      deltxt = 'electronically';
@@ -20,10 +27,11 @@ else { deltxt = 'via postal services';
 }
 
 if (delVal === 'electronic_ticket'){
-     del_det.innerHTML = "halló";
+     del_det.innerHTML = meil;
 }
 
 else { deltxt = 'via postal services';
+    del_det.innerHTML = neim + "<br>" + stret + ' ' + hosno + ', ' + postc + ' ' + cit + '<br>' + cont;
 }
 
 let textdel = document.createTextNode(deltxt + ' to:');
@@ -51,7 +59,7 @@ let deltag = document.createElement('p');
     deltag.appendChild(texdel);
     delElem.appendChild(deltag);
 
-let org_amount = sessionStorage.getItem('tickets').split(',')
+let org_amount = sessionStorage.getItem('tickets').split(',');
 let org_prices = sessionStorage.getItem('event_prices').split(',')
 let type = []; let amount = []; let prices = []
 for (i in org_amount) {
@@ -85,16 +93,9 @@ for (i in type) {
 }
 
 for (i in type) {
-    var tag3 = document.createElement("p");
-    var totalCalculated = document.createTextNode('');
-    tag3.appendChild(totalCalculated);
-    var element4 = document.getElementById("total");
-    element4.appendChild(tag3);
-}
-
-for (i in type) {
     let tot = (parseInt(prices[i])*parseInt(amount[i]));
     let texttot = document.createTextNode(tot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " ISK");
+    let tagtotal = document.createElement('p');
     tagtotal.appendChild(texttot);
     let elementtot = document.getElementById("total");
     elementtot.appendChild(tagtotal);
