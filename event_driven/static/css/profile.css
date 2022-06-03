@@ -102,14 +102,13 @@
 }
 
 .butt-container {
-    background-color: red;
-    width: 100px;
-    height: 100px;
+    width: 1140px;
     position: absolute;
-    top: 600px;
+    top: 670px;
 }
 
 .save-button {
+    float: right;
     color: rgba(255, 255, 255, 1);
     background: #561357;
     border: none;
