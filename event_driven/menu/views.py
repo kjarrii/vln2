@@ -25,6 +25,8 @@ def index(request):
             total_tickets += int(tickets[1])
         if len(ordered_events) == 0:
             ordered_events.append([event, total_tickets])
+        elif event.tickets_left() == 0:
+            continue
         else:
             inserted = False
             for i in range(0, len(ordered_events)):
@@ -53,6 +55,8 @@ def index(request):
         difference = maximum_tickets - total_tickets
         if len(ordered_selling_out) == 0:
             ordered_selling_out.append([event, difference])
+        elif event.tickets_left() == 0:
+            continue
         else:
             inserted = False
             for i in range(0, len(ordered_selling_out)):
@@ -100,6 +104,8 @@ def get_category_by_string(request, category):
             total_tickets += int(tickets[1])
         if len(ordered_events) == 0:
             ordered_events.append([event, total_tickets])
+        elif event.tickets_left() == 0:
+            continue
         else:
             inserted = False
             for i in range(0, len(ordered_events)):
@@ -128,6 +134,8 @@ def get_category_by_string(request, category):
         difference = maximum_tickets - total_tickets
         if len(ordered_selling_out) == 0:
             ordered_selling_out.append([event, difference])
+        elif event.tickets_left() == 0:
+            continue
         else:
             inserted = False
             for i in range(0, len(ordered_selling_out)):
@@ -274,6 +282,10 @@ def search_query(request, search_str):
         category = category.capitalize()
     if method == "any":
         method = False
+    elif method == "most_popular":
+        method = "Most popular"
+    elif method == "least_popular":
+        method = "Least popular"
     else:
         method = method.capitalize()
     context = {'search_query': x, 'number_of_events': number_of_events, 'all_events': method_list, 'category_filter': category, 'method_filter': method}
