@@ -12,6 +12,7 @@ let zip_element = document.getElementById('zip_input')
 let country_element = document.getElementById('country_input')
 let database_name_element = document.getElementById('name_field')
 let database_email_element = document.getElementById('email_field')
+let error_element = document.getElementById('err');
 
 full_name_element.value = database_name_element.innerText
 if (sessionStorage.getItem('name') !== null) {
