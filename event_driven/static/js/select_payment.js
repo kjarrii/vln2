@@ -37,7 +37,7 @@ function verify_input(total_tickets) {
 
         if (cvc_element.value.length !== 3 && cvc_element.value.length !== 4) {
             let tagcvc = document.createElement("li");
-            tagcvc.innerHTML = "Please enter the CVC of the card";
+            tagcvc.innerHTML = "Please enter the 3 or 4 digit CVC of the card";
             error_element.appendChild(tagcvc);
         }
         return false
