@@ -1,8 +1,6 @@
 .profile-top-container{
     display: flex;
-    margin: 100px auto 0px;
-    max-width: 1500px;
-
+    margin: 100px;
 }
 .img-n-e-container{
     margin: 0 40px;
@@ -15,35 +13,41 @@
 }
 
 .fav-cat-container{
-    flex-grow: 1;
+    width: 600px;
+    height: 400px;
     margin-right:40px;
     background-color: #D7D0D7;
     border: 6px solid #561357;
     border-radius: 20px;
     min-width: 400px;
     padding: 40px;
-
 }
 
 .fav-cats{
-    margin:auto;
     border: 6px solid #561357;
     border-radius: 10px;
-    padding: 20px;
-    min-height: 450px;
-    background-color: #FFFFFF;
+    padding: 20px 0 20px 20px;
+    height: 260px;
+    background-color: white;
     position: relative;
 }
 
+#fav_cat_elements {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .fav-cat{
-    display: inline-block;
     background-color: #784279;
     border-radius: 10px;
-    padding: 5px 10px 5px 30px;
+    text-align: center;
+    padding: 5px 10px 5px 26px;
     color:white;
     font-weight: bold;
     margin-bottom: 10px;
-    width: auto;
+    margin-right: 10px;
+
 }
 
 .del-fav-btn{
@@ -62,8 +66,8 @@
 
 .add-cat{
     position:absolute;
-    right: 20px;
-    bottom: 20px;
+    right: 10px;
+    bottom: 10px;
     padding-left: 10px;
 }
 
@@ -98,23 +102,26 @@
 }
 
 .butt-container {
-    display: flex;
-    margin: 30px auto 50px;
-    max-width: 1500px;
-    position: relative;
-    min-height: 50px;
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 600px;
 }
 
 .save-button {
-    position: absolute;
-    right: 40px;
     color: rgba(255, 255, 255, 1);
     background: #561357;
-    width: 200px;
-    font-size: 2em;
-    cursor: pointer;
-    border-radius: 0.4em;
     border: none;
+    color: white;
+    padding: 0.4em;
+    font-size: x-large;
+    font-weight: bold;
+    cursor: pointer;
+
+    border-radius: 5px;
+    width: 180px;
+    height: 60px;
 }
 
 .save-button:hover {

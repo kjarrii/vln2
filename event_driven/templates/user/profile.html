@@ -6,79 +6,90 @@
     <link rel="stylesheet" href="{% static "css/user.css" %}"/>
 
     <form class="form from-horizontal" method="post" enctype="multipart/form-data">
-    <div class="profile-top-container">
-        <div class="img-n-e-container">
-            <div>
-                {% csrf_token %}
-                {% if user.image %}
-                    <img class="profile-img" src="{{ user.image.url }}" alt="User Profile Image" />
-                {% else %}
-                    <img class="profile-img" src="../../static/images/empty_profile.png" alt="User Profile Image" />
-                {% endif %}
+        <div class="center-div">
+            <div class="profile-top-container">
+                <div class="img-n-e-container">
+                    <div>
+                        {% csrf_token %}
+                        {% if user.image %}
+                            <img class="profile-img" src="{{ user.image.url }}" alt="User Profile Image" />
+                        {% else %}
+                            <img class="profile-img" src="../../static/images/empty_profile.png" alt="User Profile Image" />
+                        {% endif %}
 
-                <input id="upload-btn" class="img-add-button" type="file" name="image" accept="image/*">
-                <label for="upload-btn" class="img-add-button"><span>+</span></label>
-            </div>
-
-            <br>
-            <br>
-            <div class="input-box" id="user-box">
-                <img src="../../static/images/profile-icon-purple.png" alt="user icon" id="user-icon">
-                <input id="username-box-input" type="text" class="input-text" placeholder="Name: {{ user.first_name }}" name="first_name">
-            </div>
-            <div class="input-box" id="mail-box" style="background-color: #BDBDBD">
-                <img src="../../static/images/mail-icon-purple.png" alt="mail icon" id="mail-icon">
-                <input id="mail-box-input" type="text" class="input-text" placeholder="E-mail: {{ user.email }}" name="username" disabled style="background-color: #BDBDBD">
-            </div>
-
-
-        </div>
-
-        <div class="fav-cat-container">
-            <h3>Favorite categories</h3>
-            <div class="fav-cats" id="favorite_categories" nowFav="{{ user.favorite_categories }}" allFav="{{ user.all_favcat_as_list }}">
-                <div id="fav_cat_elements"></div>
-
-                <select class="fav-cat add-cat" id="fav-dropdwn">
-                    <option>Add category</option>
-                </select>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="butt-container">
-        <input onclick="send_data()" class="save-button" value="Save" />
-    </div>
-    <div id="first_name_div" style="display: none">{% render_field form.first_name %}</div>
-    <div id="category_form_div" class="field" style="display: none">
-    {% render_field form.favorite_categories %}
-    </div>
-    <div style="display: none">
-    <input id="submit_button" type="submit" class="btn btn-primary" value="Update" />
-    </div>
-    </form>
-
-    <div class="similar-events">
-        <h2>Events for you</h2>
-    </div>
-    <div class="option-wrapper">
-            <div class="option-rows">
-                {% for event in events %}
-                    <div class="option" onclick="location.href='/event/{{ event.id }}'" style="background-image: url('{{ event.images_as_list.0 }}')">
-                        <div class="img-overlay">
-                            <div class="sameline">
-                                <p class="big-text img-overlay-text">{{ event.name }}</p>
-                                <p class="eventdate big-text img-overlay-text">{{ event.start|date:"M d, Y"}}</p>
-                            </div>
-                            <p class="small-text img-overlay-text">{{ event.address }}</p>
-                            <p class="small-text img-overlay-text">Price ISK: {{ event.price_range }}</p>
-                        </div>
+                        <input id="upload-btn" class="img-add-button" type="file" name="image" accept="image/*">
+                        <label for="upload-btn" class="img-add-button"><span>+</span></label>
                     </div>
 
-                {% endfor %}
+                    <br>
+                    <br>
+                    <div class="input-box" id="user-box">
+                        <img src="../../static/images/profile-icon-purple.png" alt="user icon" id="user-icon">
+                        <input id="username-box-input" type="text" class="input-text" placeholder="Name: {{ user.first_name }}" name="first_name">
+                    </div>
+                    <div class="input-box" id="mail-box" style="background-color: #BDBDBD">
+                        <img src="../../static/images/mail-icon-purple.png" alt="mail icon" id="mail-icon">
+                        <input id="mail-box-input" type="text" class="input-text" placeholder="E-mail: {{ user.email }}" name="username" disabled style="background-color: #BDBDBD">
+                    </div>
+
+
+                </div>
+
+                <div class="fav-cat-container">
+                    <h3 style="font-weight: bold">Favorite categories</h3>
+                    <div class="fav-cats" id="favorite_categories" nowFav="{{ user.favorite_categories }}" allFav="{{ user.all_favcat_as_list }}">
+                        <div id="fav_cat_elements"></div>
+
+                        <select class="fav-cat add-cat" id="fav-dropdwn">
+                            <option>Add category</option>
+                        </select>
+                    </div>
+                </div>
+
             </div>
         </div>
+
+        <div class="center-div">
+            <div class="butt-container">
+                <input type="button" onclick="send_data()" class="save-button" value="Save" />
+            </div>
+        </div>
+
+        <div id="first_name_div" style="display: none">{% render_field form.first_name %}</div>
+
+        <div id="category_form_div" class="field" style="display: none">
+            {% render_field form.favorite_categories %}
+        </div>
+
+        <div style="display: none">
+            <input id="submit_button" type="submit" class="btn btn-primary" value="Update" />
+        </div>
+    </form>
+
+    <div class="menu-body">
+
+        <h1 class="menu-title">Events for you</h1>
+
+        <div class="option-wrapper">
+                <div class="option-rows">
+                    {% for event in events|slice:":8" %}
+                        <div class="option" onclick="location.href='/event/{{ event.id }}'" style="background-image: url('{{ event.images_as_list.0 }}')">
+                            <div class="img-overlay">
+                                <div class="sameline">
+                                    <p class="big-text img-overlay-text">{{ event.name }}</p>
+                                    <p class="eventdate big-text img-overlay-text">{{ event.start|date:"M d, Y"}}</p>
+                                </div>
+                                <p class="small-text img-overlay-text">{{ event.address }}</p>
+                                <p class="small-text img-overlay-text">Price ISK: {{ event.price_range }}</p>
+                            </div>
+                        </div>
+
+                    {% endfor %}
+                </div>
+        </div>
+    </div>
+    <br> <br> <br> <br>
+
     <script src="../../static/js/profile.js"></script>
 
 
