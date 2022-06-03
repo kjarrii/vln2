@@ -77,38 +77,102 @@ radioButtons.forEach(radio => {
     radio.addEventListener('click', handleRadioClick)
 })
 
+function error_check() {
+    error_element.style.display = "block";
+    error_element.innerHTML = '';
+    let nei = true;
+
+    if (name_element.value === '') {
+            let tagName = document.createElement("li");
+            tagName.innerHTML = "Please ticket holder's name";
+            error_element.appendChild(tagName);
+            nei = false;
+        }
+        if (email_element.value === '') {
+            let tagName = document.createElement("li");
+            tagName.innerHTML = "Please enter ticket holder's email";
+            error_element.appendChild(tagName);
+            nei = false;
+        }
+        if (phone_element.value === '') {
+            let tagName = document.createElement("li");
+            tagName.innerHTML = "Please enter ticket holder's phone number";
+            error_element.appendChild(tagName);
+            nei = false;
+        }
+
+    if (document.getElementById('select_postal_service').checked) {
+        if (full_name_element.value === '') {
+            let tagName = document.createElement("li");
+            tagName.innerHTML = "Please enter recipient's full name";
+            error_element.appendChild(tagName);
+            nei = false;
+        }
+        if (street_element.value === '') {
+            let tagName = document.createElement("li");
+            tagName.innerHTML = "Please enter recipient's street";
+            error_element.appendChild(tagName);
+            nei = false;
+        }
+        if (city_element.value === '') {
+            let tagName = document.createElement("li");
+            tagName.innerHTML = "Please enter recipient's city";
+            error_element.appendChild(tagName);
+            nei = false;
+        }
+        if (no_element.value === '') {
+            let tagName = document.createElement("li");
+            tagName.innerHTML = "Please enter recipient's house number";
+            error_element.appendChild(tagName);
+            nei = false;
+        }
+        if (zip_element.value === '') {
+            let tagName = document.createElement("li");
+            tagName.innerHTML = "Please enter recipient's zip code";
+            error_element.appendChild(tagName);
+            nei = false;
+        }
+
+    }
+    if (nei) {
+        error_element.style.display = "none";
+    }
+    return nei;
+}
+
+
 function go_forward() {
-    if (document.getElementById('select_electronic_ticket').checked) {
-        if (email_element.value !== '' && name_element.value !== '' && phone_element.value !== '') {
-            sessionStorage.setItem('name', name_element.value)
-            sessionStorage.setItem('email', email_element.value)
-            sessionStorage.setItem('phone', phone_element.value)
-            sessionStorage.setItem('delivery_method', 'electronic_ticket')
-            sessionStorage.setItem('full_name', '')
-            sessionStorage.setItem('street', '')
-            sessionStorage.setItem('city', '')
-            sessionStorage.setItem('no', '')
-            sessionStorage.setItem('zip', '')
-            sessionStorage.setItem('country', '')
-            window.location.href = 'select_payment'
+    if (error_check()) {
+        if (document.getElementById('select_electronic_ticket').checked) {
+            if (email_element.value !== '' && name_element.value !== '' && phone_element.value !== '') {
+                sessionStorage.setItem('name', name_element.value)
+                sessionStorage.setItem('email', email_element.value)
+                sessionStorage.setItem('phone', phone_element.value)
+                sessionStorage.setItem('delivery_method', 'electronic_ticket')
+                sessionStorage.setItem('full_name', '')
+                sessionStorage.setItem('street', '')
+                sessionStorage.setItem('city', '')
+                sessionStorage.setItem('no', '')
+                sessionStorage.setItem('zip', '')
+                sessionStorage.setItem('country', '')
+                window.location.href = 'select_payment'
+            }
+        } else if (document.getElementById('select_postal_service').checked) {
+            if (email_element.value !== '' && name_element.value !== '' && phone_element.value !== '' && full_name_element.value !== '' && street_element.value !== '' && city_element.value !== '' && no_element.value !== '' && zip_element.value !== '' && country_element.value !== '') {
+                sessionStorage.setItem('name', name_element.value)
+                sessionStorage.setItem('email', email_element.value)
+                sessionStorage.setItem('phone', phone_element.value)
+                sessionStorage.setItem('delivery_method', 'postal_service')
+                sessionStorage.setItem('full_name', full_name_element.value)
+                sessionStorage.setItem('street', street_element.value)
+                sessionStorage.setItem('city', city_element.value)
+                sessionStorage.setItem('no', no_element.value)
+                sessionStorage.setItem('zip', zip_element.value)
+                sessionStorage.setItem('country', country_element.value)
+                window.location.href = 'select_payment'
+            }
+        } else {
+            console.log("Ekki búið að velja box")
         }
-    }
-    else if(document.getElementById('select_postal_service').checked) {
-        if (email_element.value !== '' && name_element.value !== '' && phone_element.value !== '' && full_name_element.value !== '' && street_element.value !== '' && city_element.value !== '' && no_element.value !== '' && zip_element.value !== '' && country_element.value !== ''){
-            sessionStorage.setItem('name', name_element.value)
-            sessionStorage.setItem('email', email_element.value)
-            sessionStorage.setItem('phone', phone_element.value)
-            sessionStorage.setItem('delivery_method', 'postal_service')
-            sessionStorage.setItem('full_name', full_name_element.value)
-            sessionStorage.setItem('street', street_element.value)
-            sessionStorage.setItem('city', city_element.value)
-            sessionStorage.setItem('no', no_element.value)
-            sessionStorage.setItem('zip', zip_element.value)
-            sessionStorage.setItem('country', country_element.value)
-            window.location.href = 'select_payment'
-        }
-    }
-    else {
-        console.log("Ekki búið að velja box")
     }
 }
