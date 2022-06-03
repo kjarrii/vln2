@@ -8,20 +8,19 @@
     <br> <br> <br> <br> <br>
 
     <div class="menu-body">
-        <h1 class="menu-title" >Events around the Globe!</h1>
-        <p>Use the map below to look at where events are happening, you can click on the red icon to view the events!</p>
+        <h1 class="menu-title" style="margin-top: -35px">Events around the Globe!</h1>
+        <p style="margin-bottom: -1px; margin-top: -10px">Use the map below to look at where events are happening, you can click on the red icon to view the events!</p>
 
         <div class="center-div">
             <div id="map"></div>
         </div>
-
 
         <div id="event_ids" style="display:none">{% for event in events %}{{ event.id }}°{% endfor %}</div>
         <div id="event_names" style="display:none">{% for event in events %}{{ event.name }}°{% endfor %}</div>
         <div id="event_lats" style="display:none">{% for event in events %}{{ event.lat }}°{% endfor %}</div>
         <div id="event_longs" style="display:none">{% for event in events %}{{ event.long }}°{% endfor %}</div>
 
-        <br><br>
+        <br> <br>
 
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_pW9Fd6hstpL9qABONoGDfzxICm4McE8&callback=initMap&v=weekly" async></script>
         <script src="../../static/js/map.js"></script>
