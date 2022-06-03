@@ -40,7 +40,6 @@ function verify_input(total_tickets) {
             let tagcvc = document.createElement("li");
             tagcvc.innerHTML = "Please enter the CVC of the card";
             error_element.appendChild(tagcvc);
-            console.log(cvc_element.value.length);
         }
         return false
     }
@@ -82,9 +81,7 @@ for (i in org_amount) {
     let amount_list = org_amount[i].split(':');let price_list = org_prices[i].split(':')
     if (parseInt(amount_list[1]) > 0){type.push(amount_list[0]); amount.push(amount_list[1]); prices.push(price_list[1])}
 }
-console.log(type);
-console.log(amount);
-console.log(prices);
+
 
 for (let i in type) {
     let tagType = document.createElement("p");

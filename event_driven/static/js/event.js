@@ -1,3 +1,4 @@
+sessionStorage.clear()
 var element = document.getElementById('event-map')
 var lat = element.getAttribute('lat')
 var lon = element.getAttribute('lon')
