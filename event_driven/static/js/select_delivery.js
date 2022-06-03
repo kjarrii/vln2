@@ -10,12 +10,21 @@ let city_element = document.getElementById('city_input')
 let no_element = document.getElementById('no_input')
 let zip_element = document.getElementById('zip_input')
 let country_element = document.getElementById('country_input')
+let database_name_element = document.getElementById('name_field')
+let database_email_element = document.getElementById('email_field')
 
+full_name_element.value = database_name_element.innerText
 if (sessionStorage.getItem('name') !== null) {
     name_element.value = sessionStorage.getItem('name')
 }
+else {
+    name_element.value = database_name_element.innerText
+}
 if (sessionStorage.getItem('email') !== null) {
     email_element.value = sessionStorage.getItem('email')
+}
+else {
+    email_element.value = database_email_element.innerText
 }
 if (sessionStorage.getItem('phone') !== null) {
     phone_element.value = sessionStorage.getItem('phone')

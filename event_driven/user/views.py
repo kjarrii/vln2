@@ -70,13 +70,16 @@ def only_future(all_events):
     return return_events
 
 def profile(request):
-    events = Event.objects.all()
     profile = Users.objects.filter(email=request.user).first()
-    if profile is None:
+    if profile.favorite_categories == "":
         events = None
     else:
-        events = my_events(profile.favorite_categories, events)
-        events = only_future(events)
+        events = Event.objects.all()
+        if profile is None:
+            events = None
+        else:
+            events = my_events(profile.favorite_categories, events)
+            events = only_future(events)
     if request.method == 'POST':
         form = ProfileForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
