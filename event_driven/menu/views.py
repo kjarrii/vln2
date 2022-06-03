@@ -294,5 +294,6 @@ def search_query(request, search_str):
 
 def map(request):
     all_events = Event.objects.all()
+    all_events = only_future(all_events)
     content = {'events': all_events}
     return render(request, 'menu/map.html', content)
