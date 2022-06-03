@@ -5,15 +5,43 @@ let card_number_element = document.getElementById('card_number_input');
 let expiration_date_m_element = document.getElementById('expiration_date_month');
 let expiration_date_y_element = document.getElementById('expiration_date_year');
 let cvc_element = document.getElementById('cvc_input');
+let error_element = document.getElementById('err');
 function go_back () {
     window.location.href = 'select_delivery'
 }
 
 function verify_input(total_tickets) {
-    if (name_on_card_element.value !== '' && card_number_element.value !== '' && expiration_date_m_element.value !== '' && expiration_date_y_element.value !== '' && cvc_element.value !== ''){
+    error_element.innerHTML = '';
+    error_element.style.display = 'block';
+
+    if(name_on_card_element.value !== '' && (card_number_element.value.length === 15 || card_number_element.value.length === 16) && expiration_date_m_element.value !== '' && expiration_date_y_element.value !== '' && (cvc_element.value.length === 3 || cvc_element.length === 4)){
         return true
     }
     else {
+        error_element.style.display = 'block';
+
+        if (name_on_card_element.value === '') {
+            let tagName = document.createElement("li");
+            tagName.innerHTML = "Please enter the cardholder's name";
+            error_element.appendChild(tagName);
+        }
+        if (card_number_element.value.length !== 15 && card_number_element.value.length !== 16) {
+            let tagcard = document.createElement("li");
+            tagcard.innerHTML = "Please enter the 15 or 16 digit card number";
+            error_element.appendChild(tagcard);
+        }
+        if (expiration_date_m_element.value === '' || expiration_date_y_element.value === '') {
+            let tagexp = document.createElement("li");
+            tagexp.innerHTML = "Please select the expiration month and year of the card";
+            error_element.appendChild(tagexp);
+        }
+
+        if (cvc_element.value.length !== 3 && cvc_element.length !== 4) {
+            let tagcvc = document.createElement("li");
+            tagcvc.innerHTML = "Please select the CVC of the card";
+            error_element.appendChild(tagcvc);
+            console.log(cvc_element.value.length);
+        }
         return false
     }
 }
@@ -119,9 +147,11 @@ let buyButton = document.getElementById("buy_button");
 function enable_butt() {
     if (buyButton.hasAttribute('disabled')) {
         buyButton.removeAttribute('disabled');
+        buyButton.removeAttribute('title');
     }
     else {
         buyButton.setAttribute('disabled', 'true');
+        buyButton.setAttribute('title', 'You need to agree to terms and condition to keep going');
     }
 }
 

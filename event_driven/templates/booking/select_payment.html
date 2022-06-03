@@ -15,6 +15,10 @@
             </div>
         </div>
 
+        <div class="center-div err-box" id="err">
+
+        </div>
+
         <br> <br> <br> <br>
         <div class="center-div">
             <div class="payment-container">
@@ -33,7 +37,7 @@
                         </div>
                         <div class="delivery-input">
                             <input id="name_on_card_input" required> <br>
-                            <input id="card_number_input" type="text" pattern="\d*" maxlength="16"><br>
+                            <input id="card_number_input" required type="number" data-maxlength="16" oninput="this.value=this.value.slice(0,this.dataset.maxlength)"><br>
                             <select id="expiration_date_month" style="width: 70px;" required>
                                 <option value="" disabled selected>MM</option>
                                 <option value="01">01</option>
@@ -63,7 +67,7 @@
                                 <option value="32">32</option>
                             </select>
                             <label>CVC:</label>
-                            <input id="cvc_input" type="number" style="width: 76px;" required>
+                            <input id="cvc_input" type="number" style="width: 76px;" required data-maxlength="4" oninput="this.value=this.value.slice(0,this.dataset.maxlength)">
                         </div>
                     </div>
             <div><br><br>
@@ -123,7 +127,7 @@
 
                         </div>
                         <br>
-                        <button onclick="go_forward()" class="normal-butt" style="width: 100%;margin:0;" id="buy_button" disabled> Place order</button>
+                        <button onclick="go_forward()" class="normal-butt" style="width: 100%;margin:0;" id="buy_button" disabled title="You need to agree to terms and condition to keep going"> Place order</button>
                     </div>
                 </div>
         </div>

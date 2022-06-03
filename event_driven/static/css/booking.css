@@ -264,3 +264,21 @@ input[type=number]::-webkit-outer-spin-button {
     -moz-appearance: none;
     appearance: none;
 }
+
+.err-box {
+    display: none;
+  font-family: sans-serif;
+  font-weight: bolder;
+  font-size: large;
+  width: 700px;
+  line-height: 15px;
+  background-color: #f8abab;
+  border: 3px red solid;
+  border-radius: 8px;
+  margin: 18px auto -10px;
+    padding: 10px;
+}
+
+.err-box li {
+  line-height: 25px;
+}
