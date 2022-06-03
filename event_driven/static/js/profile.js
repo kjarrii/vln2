@@ -13,11 +13,13 @@ let name_element = document.getElementById('username-box-input');
 
 function pop_fav() {
         for (let i = 0; i < fav.length; i++) {
-            let di = document.createElement('div');
-            di.innerHTML = '<div class="fav-cat">'+ fav[i] +'<a class="del-fav-btn" del-date="'+i +'">X</a></div>';
-            di.setAttribute('id', i.toString());
-            di.setAttribute('onclick', 'deletecat(this.id)');
-            favElements.appendChild(di)
+            if (fav[i] !== "") {
+                let di = document.createElement('div');
+                di.innerHTML = '<div class="fav-cat">'+ fav[i] +'<a class="del-fav-btn" del-date="'+i +'">X</a></div>';
+                di.setAttribute('id', i.toString());
+                di.setAttribute('onclick', 'deletecat(this.id)');
+                favElements.appendChild(di)
+            }
         }
 
     not_fav();
