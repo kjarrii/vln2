@@ -1,5 +1,5 @@
-let eventid = sessionStorage.getItem('eventid')
-let postal_service_box = document.getElementById('postal_service_div')
+let eventid = sessionStorage.getItem('eventid');
+let postal_service_box = document.getElementById('postal_service_div');
 let radioButtons = document.querySelectorAll('input[name="ticket_type"]');
 let name_element = document.getElementById('name_input');
 let email_element = document.getElementById('email_input');
@@ -10,6 +10,45 @@ let city_element = document.getElementById('city_input')
 let no_element = document.getElementById('no_input')
 let zip_element = document.getElementById('zip_input')
 let country_element = document.getElementById('country_input')
+
+if (sessionStorage.getItem('name') !== null) {
+    name_element.value = sessionStorage.getItem('name')
+}
+if (sessionStorage.getItem('email') !== null) {
+    email_element.value = sessionStorage.getItem('email')
+}
+if (sessionStorage.getItem('phone') !== null) {
+    phone_element.value = sessionStorage.getItem('phone')
+}
+if (sessionStorage.getItem('delivery_method') !== null) {
+    if (sessionStorage.getItem('delivery_method') === 'electronic_ticket') {
+        document.getElementById('select_electronic_ticket').click()
+    }
+    else {
+        document.getElementById('select_postal_service').click()
+        postal_service_box.style.display = 'block';
+        if (sessionStorage.getItem('full_name') !== null) {
+            full_name_element.value = sessionStorage.getItem('full_name')
+        }
+        if (sessionStorage.getItem('street') !== null) {
+            street_element.value = sessionStorage.getItem('street')
+        }
+        if (sessionStorage.getItem('city') !== null) {
+            city_element.value = sessionStorage.getItem('city')
+        }
+        if (sessionStorage.getItem('no') !== null) {
+            no_element.value = sessionStorage.getItem('no')
+        }
+        if (sessionStorage.getItem('zip') !== null) {
+            zip_element.value = sessionStorage.getItem('zip')
+        }
+        if (sessionStorage.getItem('country') !== null) {
+            country_element.value = sessionStorage.getItem('country')
+        }
+    }
+}
+
+
 
 function go_back () {
     window.location.href = eventid
