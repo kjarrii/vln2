@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from event.models import Event
-from django.http import HttpResponseRedirect
 import datetime
 import pytz
 
